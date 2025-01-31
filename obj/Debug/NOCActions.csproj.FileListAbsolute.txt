@@ -19,3 +19,4 @@ C:\NOCActions\obj\Debug\NOCActions.MainForm.resources
 C:\NOCActions\obj\Debug\NOCActions.csproj.GenerateResource.Cache
 C:\NOCActions\obj\Debug\NOCActions.exe
 C:\NOCActions\obj\Debug\NOCActions.pdb
+C:\NOCActions\obj\Debug\NOCActions.MassivaForm.resources
