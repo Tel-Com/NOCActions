@@ -23,8 +23,13 @@ namespace NOCActions
         private System.Windows.Forms.ComboBox comboEnderecoCliente;
         private System.Windows.Forms.ComboBox comboUnidadeDoCliente;
         private System.Windows.Forms.ComboBox comboRazaoSocialCliente;
-        private System.Windows.Forms.ComboBox comboEmailContratoCliente;
+        private System.Windows.Forms.ComboBox comboEmailContratoCliente_01;
         private System.Windows.Forms.ListBox listBox_ClientesAdicionados;
+        private System.Windows.Forms.ComboBox comboEmailContratoCliente_02;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboEmailContratoCliente_03;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
 
 //        public CONFIG_ComunicacaoComCliente()
 //        {
@@ -59,8 +64,13 @@ namespace NOCActions
         	this.comboEnderecoCliente = new System.Windows.Forms.ComboBox();
         	this.comboUnidadeDoCliente = new System.Windows.Forms.ComboBox();
         	this.comboRazaoSocialCliente = new System.Windows.Forms.ComboBox();
-        	this.comboEmailContratoCliente = new System.Windows.Forms.ComboBox();
+        	this.comboEmailContratoCliente_01 = new System.Windows.Forms.ComboBox();
         	this.listBox_ClientesAdicionados = new System.Windows.Forms.ListBox();
+        	this.comboEmailContratoCliente_02 = new System.Windows.Forms.ComboBox();
+        	this.label5 = new System.Windows.Forms.Label();
+        	this.comboEmailContratoCliente_03 = new System.Windows.Forms.ComboBox();
+        	this.label6 = new System.Windows.Forms.Label();
+        	this.label7 = new System.Windows.Forms.Label();
         	((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
         	this.splitContainer1.SuspendLayout();
         	this.SuspendLayout();
@@ -107,7 +117,7 @@ namespace NOCActions
         	this.labelInfo.AutoSize = true;
         	this.labelInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.labelInfo.ForeColor = System.Drawing.Color.Red;
-        	this.labelInfo.Location = new System.Drawing.Point(59, 544);
+        	this.labelInfo.Location = new System.Drawing.Point(34, 576);
         	this.labelInfo.Name = "labelInfo";
         	this.labelInfo.Size = new System.Drawing.Size(594, 13);
         	this.labelInfo.TabIndex = 1;
@@ -127,7 +137,7 @@ namespace NOCActions
         	// 
         	this.label1.AutoSize = true;
         	this.label1.ForeColor = System.Drawing.SystemColors.ScrollBar;
-        	this.label1.Location = new System.Drawing.Point(112, 212);
+        	this.label1.Location = new System.Drawing.Point(112, 300);
         	this.label1.Name = "label1";
         	this.label1.Size = new System.Drawing.Size(541, 13);
         	this.label1.TabIndex = 14;
@@ -138,7 +148,7 @@ namespace NOCActions
         	// 
         	this.label2.AutoSize = true;
         	this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.label2.Location = new System.Drawing.Point(53, 211);
+        	this.label2.Location = new System.Drawing.Point(53, 299);
         	this.label2.Name = "label2";
         	this.label2.Size = new System.Drawing.Size(65, 21);
         	this.label2.TabIndex = 15;
@@ -147,7 +157,7 @@ namespace NOCActions
         	// btnSair
         	// 
         	this.btnSair.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.btnSair.Location = new System.Drawing.Point(551, 421);
+        	this.btnSair.Location = new System.Drawing.Point(551, 509);
         	this.btnSair.Name = "btnSair";
         	this.btnSair.Size = new System.Drawing.Size(102, 48);
         	this.btnSair.TabIndex = 16;
@@ -157,7 +167,7 @@ namespace NOCActions
         	// btnSalvar
         	// 
         	this.btnSalvar.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.btnSalvar.Location = new System.Drawing.Point(269, 421);
+        	this.btnSalvar.Location = new System.Drawing.Point(269, 509);
         	this.btnSalvar.Name = "btnSalvar";
         	this.btnSalvar.Size = new System.Drawing.Size(124, 51);
         	this.btnSalvar.TabIndex = 17;
@@ -168,7 +178,7 @@ namespace NOCActions
         	// btnExcluir
         	// 
         	this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.btnExcluir.Location = new System.Drawing.Point(399, 421);
+        	this.btnExcluir.Location = new System.Drawing.Point(399, 509);
         	this.btnExcluir.Name = "btnExcluir";
         	this.btnExcluir.Size = new System.Drawing.Size(124, 51);
         	this.btnExcluir.TabIndex = 18;
@@ -181,7 +191,7 @@ namespace NOCActions
         	this.label3.AutoSize = true;
         	this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.label3.ForeColor = System.Drawing.Color.Red;
-        	this.label3.Location = new System.Drawing.Point(112, 518);
+        	this.label3.Location = new System.Drawing.Point(87, 550);
         	this.label3.Name = "label3";
         	this.label3.Size = new System.Drawing.Size(21, 13);
         	this.label3.TabIndex = 10004;
@@ -192,7 +202,7 @@ namespace NOCActions
         	this.label4.AutoSize = true;
         	this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.label4.ForeColor = System.Drawing.Color.Red;
-        	this.label4.Location = new System.Drawing.Point(346, 531);
+        	this.label4.Location = new System.Drawing.Point(321, 563);
         	this.label4.Name = "label4";
         	this.label4.Size = new System.Drawing.Size(277, 13);
         	this.label4.TabIndex = 10005;
@@ -220,7 +230,7 @@ namespace NOCActions
         	// 
         	this.button1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-        	this.button1.Location = new System.Drawing.Point(139, 421);
+        	this.button1.Location = new System.Drawing.Point(139, 509);
         	this.button1.Name = "button1";
         	this.button1.Size = new System.Drawing.Size(124, 51);
         	this.button1.TabIndex = 10008;
@@ -231,11 +241,11 @@ namespace NOCActions
         	// 
         	this.combo.AutoSize = true;
         	this.combo.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.combo.Location = new System.Drawing.Point(73, 167);
+        	this.combo.Location = new System.Drawing.Point(73, 205);
         	this.combo.Name = "combo";
-        	this.combo.Size = new System.Drawing.Size(54, 21);
+        	this.combo.Size = new System.Drawing.Size(67, 21);
         	this.combo.TabIndex = 10009;
-        	this.combo.Text = "E-mail";
+        	this.combo.Text = "E-mail 1";
         	// 
         	// comboNomeCliente
         	// 
@@ -273,30 +283,83 @@ namespace NOCActions
         	this.comboRazaoSocialCliente.Size = new System.Drawing.Size(512, 25);
         	this.comboRazaoSocialCliente.TabIndex = 10015;
         	// 
-        	// comboEmailContratoCliente
+        	// comboEmailContratoCliente_01
         	// 
-        	this.comboEmailContratoCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.comboEmailContratoCliente.FormattingEnabled = true;
-        	this.comboEmailContratoCliente.Location = new System.Drawing.Point(141, 167);
-        	this.comboEmailContratoCliente.Name = "comboEmailContratoCliente";
-        	this.comboEmailContratoCliente.Size = new System.Drawing.Size(512, 25);
-        	this.comboEmailContratoCliente.TabIndex = 10016;
+        	this.comboEmailContratoCliente_01.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.comboEmailContratoCliente_01.FormattingEnabled = true;
+        	this.comboEmailContratoCliente_01.Location = new System.Drawing.Point(141, 205);
+        	this.comboEmailContratoCliente_01.Name = "comboEmailContratoCliente_01";
+        	this.comboEmailContratoCliente_01.Size = new System.Drawing.Size(512, 25);
+        	this.comboEmailContratoCliente_01.TabIndex = 10016;
         	// 
         	// listBox_ClientesAdicionados
         	// 
         	this.listBox_ClientesAdicionados.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
         	this.listBox_ClientesAdicionados.FormattingEnabled = true;
         	this.listBox_ClientesAdicionados.ItemHeight = 17;
-        	this.listBox_ClientesAdicionados.Location = new System.Drawing.Point(59, 237);
+        	this.listBox_ClientesAdicionados.Location = new System.Drawing.Point(59, 325);
         	this.listBox_ClientesAdicionados.Name = "listBox_ClientesAdicionados";
         	this.listBox_ClientesAdicionados.Size = new System.Drawing.Size(594, 174);
         	this.listBox_ClientesAdicionados.TabIndex = 10017;
         	// 
+        	// comboEmailContratoCliente_02
+        	// 
+        	this.comboEmailContratoCliente_02.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.comboEmailContratoCliente_02.FormattingEnabled = true;
+        	this.comboEmailContratoCliente_02.Location = new System.Drawing.Point(141, 236);
+        	this.comboEmailContratoCliente_02.Name = "comboEmailContratoCliente_02";
+        	this.comboEmailContratoCliente_02.Size = new System.Drawing.Size(512, 25);
+        	this.comboEmailContratoCliente_02.TabIndex = 10019;
+        	// 
+        	// label5
+        	// 
+        	this.label5.AutoSize = true;
+        	this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
+        	this.label5.Location = new System.Drawing.Point(73, 236);
+        	this.label5.Name = "label5";
+        	this.label5.Size = new System.Drawing.Size(67, 21);
+        	this.label5.TabIndex = 10018;
+        	this.label5.Text = "E-mail 2";
+        	// 
+        	// comboEmailContratoCliente_03
+        	// 
+        	this.comboEmailContratoCliente_03.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.comboEmailContratoCliente_03.FormattingEnabled = true;
+        	this.comboEmailContratoCliente_03.Location = new System.Drawing.Point(141, 267);
+        	this.comboEmailContratoCliente_03.Name = "comboEmailContratoCliente_03";
+        	this.comboEmailContratoCliente_03.Size = new System.Drawing.Size(512, 25);
+        	this.comboEmailContratoCliente_03.TabIndex = 10021;
+        	// 
+        	// label6
+        	// 
+        	this.label6.AutoSize = true;
+        	this.label6.Font = new System.Drawing.Font("Segoe UI", 12F);
+        	this.label6.Location = new System.Drawing.Point(73, 267);
+        	this.label6.Name = "label6";
+        	this.label6.Size = new System.Drawing.Size(67, 21);
+        	this.label6.TabIndex = 10020;
+        	this.label6.Text = "E-mail 3";
+        	// 
+        	// label7
+        	// 
+        	this.label7.AutoSize = true;
+        	this.label7.Font = new System.Drawing.Font("Segoe UI", 12F);
+        	this.label7.Location = new System.Drawing.Point(30, 171);
+        	this.label7.Name = "label7";
+        	this.label7.Size = new System.Drawing.Size(214, 21);
+        	this.label7.TabIndex = 10022;
+        	this.label7.Text = "Informe os E-mails do Cliente";
+        	// 
         	// CONFIG_ComunicacaoComCliente
         	// 
-        	this.ClientSize = new System.Drawing.Size(701, 566);
+        	this.ClientSize = new System.Drawing.Size(690, 611);
+        	this.Controls.Add(this.label7);
+        	this.Controls.Add(this.comboEmailContratoCliente_03);
+        	this.Controls.Add(this.label6);
+        	this.Controls.Add(this.comboEmailContratoCliente_02);
+        	this.Controls.Add(this.label5);
         	this.Controls.Add(this.listBox_ClientesAdicionados);
-        	this.Controls.Add(this.comboEmailContratoCliente);
+        	this.Controls.Add(this.comboEmailContratoCliente_01);
         	this.Controls.Add(this.comboRazaoSocialCliente);
         	this.Controls.Add(this.comboUnidadeDoCliente);
         	this.Controls.Add(this.comboEnderecoCliente);

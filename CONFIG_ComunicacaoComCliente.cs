@@ -36,14 +36,16 @@ namespace NOCActions
 		}
 
 		// Construtor que preenche os campos do formulário com dados fornecidos
-		public CONFIG_ComunicacaoComCliente(string V1, string V2, string V3, string V4, string V5)
+		public CONFIG_ComunicacaoComCliente(string V1, string V2, string V3, string V4, string V5, string V6, string V7)
 		{
 			InitializeComponent();
 			comboNomeCliente.Text = V1;
 			comboEnderecoCliente.Text = V2;
 			comboUnidadeDoCliente.Text = V3;
 			comboRazaoSocialCliente.Text = V4;
-			comboEmailContratoCliente.Text = V5;
+			comboEmailContratoCliente_01.Text = V5;
+			comboEmailContratoCliente_02.Text = V6;
+			comboEmailContratoCliente_03.Text = V7;
 		}
 
 		// Método que salva as informações preenchidas no formulário no registro do Windows
@@ -58,7 +60,7 @@ namespace NOCActions
 				SalvarDadoNaLista(key, "Enderecos", comboEnderecoCliente.Text);
 				SalvarDadoNaLista(key, "Unidades", comboUnidadeDoCliente.Text);
 				SalvarDadoNaLista(key, "RazoesSociais", comboRazaoSocialCliente.Text);
-				SalvarDadoNaLista(key, "Emails", comboEmailContratoCliente.Text);
+				SalvarDadoNaLista(key, "Emails", comboEmailContratoCliente_01.Text);
 
 				key.Close(); // Fecha a chave após salvar
 			}
@@ -97,7 +99,7 @@ namespace NOCActions
 					CarregarListaNoComboBox(key, "Enderecos", comboEnderecoCliente);
 					CarregarListaNoComboBox(key, "Unidades", comboUnidadeDoCliente);
 					CarregarListaNoComboBox(key, "RazoesSociais", comboRazaoSocialCliente);
-					CarregarListaNoComboBox(key, "Emails", comboEmailContratoCliente);
+					CarregarListaNoComboBox(key, "Emails", comboEmailContratoCliente_01);
 
 					key.Close(); // Fecha a chave após carregar
 				}
@@ -170,17 +172,22 @@ namespace NOCActions
 			string enderecoCliente = comboEnderecoCliente.Text;
 			string unidadeCliente = comboUnidadeDoCliente.Text;
 			string razaoSocialCliente = comboRazaoSocialCliente.Text;
-			string emailContatoCliente = comboEmailContratoCliente.Text;
+			string emailContatoCliente_01 = comboEmailContratoCliente_01.Text;
+			string emailContatoCliente_02 = comboEmailContratoCliente_02.Text;
+			string emailContatoCliente_03 = comboEmailContratoCliente_03.Text;
 
 			// Cria uma nova instância do formulário de ação
-			ACAO_ComunicacaoComCliente acaoForm = new ACAO_ComunicacaoComCliente(nomeCliente, enderecoCliente, unidadeCliente, razaoSocialCliente, emailContatoCliente);
+			ACAO_ComunicacaoComCliente acaoForm = new ACAO_ComunicacaoComCliente(nomeCliente, enderecoCliente, unidadeCliente, razaoSocialCliente, emailContatoCliente_01, emailContatoCliente_02, emailContatoCliente_03);
 
 			// Verifica se os campos obrigatórios estão preenchidos antes de adicionar ao ListBox
-			if (!string.IsNullOrWhiteSpace(nomeCliente) &&
-			    !string.IsNullOrWhiteSpace(razaoSocialCliente) &&
-			    !string.IsNullOrWhiteSpace(enderecoCliente))
+			if (!string.IsNullOrWhiteSpace(comboNomeCliente.Text) &&
+			    !string.IsNullOrWhiteSpace(comboRazaoSocialCliente.Text) &&
+			    !string.IsNullOrWhiteSpace(comboEnderecoCliente.Text) &&
+			    !string.IsNullOrWhiteSpace(comboEmailContratoCliente_01.Text) &&
+			    !string.IsNullOrWhiteSpace(comboEmailContratoCliente_02.Text) &&
+			    !string.IsNullOrWhiteSpace(comboEmailContratoCliente_03.Text))
 			{
-				string textoCliente = ("Cliente: " + nomeCliente + " | Razão Social: " + razaoSocialCliente + "| Endereço: " + enderecoCliente).ToUpper();
+				string textoCliente = ("Cliente: " + nomeCliente + " | Razão Social: " + razaoSocialCliente + "| Endereço: " + enderecoCliente + "| E-mail p/ Contato: " + emailContatoCliente_01 + " | " + emailContatoCliente_02 + " | " + emailContatoCliente_03).ToUpper();
 
 				// Adiciona o item ao ListBox, se não estiver presente
 				if (!string.IsNullOrWhiteSpace(textoCliente) && !listBox_ClientesAdicionados.Items.Contains(textoCliente))
@@ -291,14 +298,14 @@ namespace NOCActions
 						RemoverItemDoRegistro(comboEnderecoCliente.Text, "Enderecos");
 						RemoverItemDoRegistro(comboUnidadeDoCliente.Text, "Unidades");
 						RemoverItemDoRegistro(comboRazaoSocialCliente.Text, "RazoesSociais");
-						RemoverItemDoRegistro(comboEmailContratoCliente.Text, "Emails");
+						RemoverItemDoRegistro(comboEmailContratoCliente_01.Text, "Emails");
 
 						
 						comboNomeCliente.Text = "";
 						comboEnderecoCliente.Text = "";
 						comboUnidadeDoCliente.Text = "";
 						comboRazaoSocialCliente.Text = "";
-						comboEmailContratoCliente.Text = "";
+						comboEmailContratoCliente_01.Text = "";
 						maskedTextBox1UserID.Text = "";
 						
 						CarregarInformacoesDeRegistro();

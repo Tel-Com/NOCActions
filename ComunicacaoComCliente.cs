@@ -17,15 +17,15 @@ namespace NOCActions
 			CarregarDadosCliente(); // Carregar dados ao iniciar
 		}
 
-		public ACAO_ComunicacaoComCliente(string nomeCliente, string enderecoCliente, string unidadeCliente, string razaoSocialCliente, string emailContatoCliente)
+		public ACAO_ComunicacaoComCliente(string nomeCliente, string enderecoCliente, string unidadeCliente, string razaoSocialCliente, string emailContatoCliente_01, string emailContatoCliente_02, string emailContatoCliente_03)
 		{
 			InitializeComponent();
 			OrdenarTabIndex();
-			SalvarDadosCliente(nomeCliente, enderecoCliente, unidadeCliente, razaoSocialCliente, emailContatoCliente);
+			SalvarDadosCliente(nomeCliente, enderecoCliente, unidadeCliente, razaoSocialCliente, emailContatoCliente_01, emailContatoCliente_02, emailContatoCliente_03);
 			CarregarDadosCliente();
 		}
 
-		private void SalvarDadosCliente(string nome, string endereco, string unidade, string razaoSocial, string email)
+		private void SalvarDadosCliente(string nome, string endereco, string unidade, string razaoSocial, string email_01, string email_02, string email_03)
 		{
 			try
 			{
@@ -35,7 +35,9 @@ namespace NOCActions
 				SalvarDadoNoRegistro(key, "Enderecos", endereco);
 				SalvarDadoNoRegistro(key, "Unidades", unidade);
 				SalvarDadoNoRegistro(key, "RazoesSociais", razaoSocial);
-				SalvarDadoNoRegistro(key, "Emails", email);
+				SalvarDadoNoRegistro(key, "Emails", email_01);
+				SalvarDadoNoRegistro(key, "Emails", email_02);
+				SalvarDadoNoRegistro(key, "Emails", email_03);
 				
 				key.Close();
 			}
@@ -122,7 +124,7 @@ namespace NOCActions
 		}
 		void BtnPreviaEmailClick(object sender, EventArgs e)
 		{
-	
+			
 		}
 	}
 }
