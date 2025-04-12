@@ -167,13 +167,26 @@ namespace NOCActions
 			string emailContatoCliente = comboEmailContratoCliente.Text;
 			
 			ACAO_ComunicacaoComCliente acaoForm = new ACAO_ComunicacaoComCliente(nomeCliente, enderecoCliente, unidadeCliente, razaoSocialCliente, emailContatoCliente);
-//						this.Close();
-//			listBox_ClientesAdicionados.Items.Add(nomeCliente);
+			
+			if (!string.IsNullOrWhiteSpace(nomeCliente) &&
+			    !string.IsNullOrWhiteSpace(razaoSocialCliente) &&
+			    !string.IsNullOrWhiteSpace(enderecoCliente))
+			{
+				string textoCliente = ("Cliente: " + nomeCliente + " | Razão Social: " + razaoSocialCliente + "| Endereço: " + enderecoCliente).ToUpper();
+
+				// Verificar se o item não está vazio e não está presente no ListBox
+				if (!string.IsNullOrWhiteSpace(textoCliente) && !listBox_ClientesAdicionados.Items.Contains(textoCliente))
+				{
+					listBox_ClientesAdicionados.Items.Add(textoCliente);
+				}
+			}
+			else
+			{
+				MessageBox.Show("Por favor, preencha todos os campos obrigatórios antes de adicionar o cliente.",
+				                "Erro de Validação",MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 			
 			
-			string textoCliente = ("Cliente: " + nomeCliente + " | Razão Social: " + razaoSocialCliente + "| Endereço: " + enderecoCliente).ToUpper();
-			
-			listBox_ClientesAdicionados.Items.Add(textoCliente);
 		}
 		
 		private void ListBox_ClientesAdicionados_MouseMove(object sender, MouseEventArgs e)
@@ -195,44 +208,6 @@ namespace NOCActions
 			{
 				toolTip.SetToolTip(listBox_ClientesAdicionados, "");
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			
 		}
 		
