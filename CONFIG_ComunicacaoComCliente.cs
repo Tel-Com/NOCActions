@@ -17,6 +17,7 @@ namespace NOCActions
 	public partial class CONFIG_ComunicacaoComCliente : Form
 	{
 		private Timer timer;
+		private ToolTip toolTip = new ToolTip();
 		
 		public CONFIG_ComunicacaoComCliente()
 		{
@@ -24,6 +25,14 @@ namespace NOCActions
 			OrdenarTabIndex();
 			TimerGeneratorReload();
 			CarregarInformacoesDeRegistro(); // Carrega os dados ao iniciar
+			
+			
+			
+			
+			this.listBox_ClientesAdicionados.MouseMove += new MouseEventHandler(ListBox_ClientesAdicionados_MouseMove);
+			listBox_ClientesAdicionados.Items.Add("TESTE TESTE DE ADICIONAMENTO");
+			
+			
 		}
 		
 		public CONFIG_ComunicacaoComCliente(string V1, string V2, string V3, string V4, string V5)
@@ -129,7 +138,7 @@ namespace NOCActions
 		private void TimerGeneratorReload()
 		{
 			timer = new Timer();
-			timer.Interval = 2000; // Intervalo de 2 segundos
+			timer.Interval = 100; // Intervalo de 2 segundos
 			timer.Tick += Timer_Tick;
 			timer.Start();
 		}
@@ -158,11 +167,74 @@ namespace NOCActions
 			string emailContatoCliente = comboEmailContratoCliente.Text;
 			
 			ACAO_ComunicacaoComCliente acaoForm = new ACAO_ComunicacaoComCliente(nomeCliente, enderecoCliente, unidadeCliente, razaoSocialCliente, emailContatoCliente);
-			this.Close();
+//						this.Close();
+//			listBox_ClientesAdicionados.Items.Add(nomeCliente);
+			
+			
+			string textoCliente = ("Cliente: " + nomeCliente + " | Razão Social: " + razaoSocialCliente + "| Endereço: " + enderecoCliente).ToUpper();
+			
+			listBox_ClientesAdicionados.Items.Add(textoCliente);
 		}
-		void ListaDeClientesSalvosCellContentClick(object sender, DataGridViewCellEventArgs e)
+		
+		private void ListBox_ClientesAdicionados_MouseMove(object sender, MouseEventArgs e)
 		{
+			int index = listBox_ClientesAdicionados.IndexFromPoint(e.Location);
+			
+			
+			if(index >= 0 && index < listBox_ClientesAdicionados.Items.Count)
+			{
+				string itemText = listBox_ClientesAdicionados.Items[index].ToString();
+				
+				if (toolTip.GetToolTip(listBox_ClientesAdicionados)!= itemText)
+				{
+					toolTip.SetToolTip(listBox_ClientesAdicionados, itemText);
+				}
+				
+			}
+			else
+			{
+				toolTip.SetToolTip(listBox_ClientesAdicionados, "");
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			
 		}
+		
 	}
 }
