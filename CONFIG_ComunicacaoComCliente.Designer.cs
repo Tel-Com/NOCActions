@@ -377,6 +377,7 @@ namespace NOCActions
         	this.btnSalvarRemetente.TabIndex = 10030;
         	this.btnSalvarRemetente.Text = "Salvar";
         	this.btnSalvarRemetente.UseVisualStyleBackColor = true;
+        	this.btnSalvarRemetente.Click += new System.EventHandler(this.BtnSalvarRemetenteClick);
         	// 
         	// btnSalvarDestinatario
         	// 
