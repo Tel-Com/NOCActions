@@ -27,6 +27,7 @@ namespace NOCActions
 			CarregarEmailsSalvosNosComboBox();  // Carrega os e-mails previamente salvos ao abrir o formulário
 			
 			CarregarEmailsDeRemetentesSalvos();
+			CarregarEmailCorporativoEmCopy();
 			
 		}
 
@@ -107,7 +108,53 @@ namespace NOCActions
 			}
 		}
 		
+//		Método usuário Corporativo Cc (Copy)
 		
+		private void EmailCorporativoCopy(string email_corporativo_em_copy)
+		{
+			try {
+				string newUsuarioCorporativoEmCopy = Path.GetDirectoryName(arquivo_email_empresarialCc);
+				
+				if (!Directory.Exists(newUsuarioCorporativoEmCopy))
+				{
+					Directory.CreateDirectory(newUsuarioCorporativoEmCopy);
+				}
+				
+				File.AppendAllText(arquivo_email_empresarialCc, email_corporativo_em_copy + Environment.NewLine);
+				
+			} catch (Exception ex)
+			{
+				// Caso ocorra algum erro, exibe uma mensagem de erro
+				MessageBox.Show("Erro ao salvar o e-mail do Corporativo: " + ex.Message);
+			}
+		}
+		
+		void BtnSalvarEmailCorporativoEmCopyClick(object sender, EventArgs e)
+		{
+			string getEmailCorporativo = comboBox_EmailCorporativoEmCopy.Text;
+			EmailCorporativoCopy(getEmailCorporativo);
+			comboBox_EmailCorporativoEmCopy.Text = string.Empty;
+		}
+		
+		private void CarregarEmailCorporativoEmCopy()
+		{
+			if (File.Exists(arquivo_email_empresarialCc))
+			{
+				var copyEmail = File.ReadAllLines(arquivo_email_empresarialCc)
+					.Where(l => !string.IsNullOrWhiteSpace(l))
+					.Distinct() // Evita e-mails duplicados
+					.ToList();
+				
+				foreach (var emailCopy in copyEmail)
+				{
+					if (!comboBox_EmailCorporativoEmCopy.Items.Contains(emailCopy))
+					{
+						comboBox_EmailCorporativoEmCopy.Items.Add(emailCopy); // Corrigido: adiciona o emailCopy, não a lista inteira
+					}
+				}
+			}
+		}
+
 //		break
 		
 		// Salva os e-mails concatenados no arquivo
@@ -158,6 +205,5 @@ namespace NOCActions
 				}
 			}
 		}
-
 	}
 }

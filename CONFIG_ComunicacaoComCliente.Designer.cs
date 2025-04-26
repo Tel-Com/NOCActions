@@ -32,9 +32,9 @@ namespace NOCActions
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnDuvida;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox_Destinatario;
+        private System.Windows.Forms.ComboBox comboBox_EmailCorporativoEmCopy;
         private System.Windows.Forms.Button btnSalvarRemetente;
-        private System.Windows.Forms.Button btnSalvarDestinatario;
+        private System.Windows.Forms.Button btnSalvarEmailCorporativoEmCopy;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label11;
 
@@ -78,9 +78,9 @@ namespace NOCActions
         	this.label9 = new System.Windows.Forms.Label();
         	this.btnDuvida = new System.Windows.Forms.Button();
         	this.label3 = new System.Windows.Forms.Label();
-        	this.comboBox_Destinatario = new System.Windows.Forms.ComboBox();
+        	this.comboBox_EmailCorporativoEmCopy = new System.Windows.Forms.ComboBox();
         	this.btnSalvarRemetente = new System.Windows.Forms.Button();
-        	this.btnSalvarDestinatario = new System.Windows.Forms.Button();
+        	this.btnSalvarEmailCorporativoEmCopy = new System.Windows.Forms.Button();
         	this.label4 = new System.Windows.Forms.Label();
         	this.label11 = new System.Windows.Forms.Label();
         	this.label8 = new System.Windows.Forms.Label();
@@ -352,20 +352,20 @@ namespace NOCActions
         	// 
         	this.label3.AutoSize = true;
         	this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.label3.Location = new System.Drawing.Point(24, 87);
+        	this.label3.Location = new System.Drawing.Point(91, 85);
         	this.label3.Name = "label3";
-        	this.label3.Size = new System.Drawing.Size(94, 21);
+        	this.label3.Size = new System.Drawing.Size(27, 21);
         	this.label3.TabIndex = 10029;
-        	this.label3.Text = "Destinatário";
+        	this.label3.Text = "Cc";
         	// 
-        	// comboBox_Destinatario
+        	// comboBox_EmailCorporativoEmCopy
         	// 
-        	this.comboBox_Destinatario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-        	this.comboBox_Destinatario.FormattingEnabled = true;
-        	this.comboBox_Destinatario.Location = new System.Drawing.Point(141, 85);
-        	this.comboBox_Destinatario.Name = "comboBox_Destinatario";
-        	this.comboBox_Destinatario.Size = new System.Drawing.Size(443, 25);
-        	this.comboBox_Destinatario.TabIndex = 10028;
+        	this.comboBox_EmailCorporativoEmCopy.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.comboBox_EmailCorporativoEmCopy.FormattingEnabled = true;
+        	this.comboBox_EmailCorporativoEmCopy.Location = new System.Drawing.Point(141, 85);
+        	this.comboBox_EmailCorporativoEmCopy.Name = "comboBox_EmailCorporativoEmCopy";
+        	this.comboBox_EmailCorporativoEmCopy.Size = new System.Drawing.Size(443, 25);
+        	this.comboBox_EmailCorporativoEmCopy.TabIndex = 10028;
         	// 
         	// btnSalvarRemetente
         	// 
@@ -379,16 +379,17 @@ namespace NOCActions
         	this.btnSalvarRemetente.UseVisualStyleBackColor = true;
         	this.btnSalvarRemetente.Click += new System.EventHandler(this.BtnSalvarRemetenteClick);
         	// 
-        	// btnSalvarDestinatario
+        	// btnSalvarEmailCorporativoEmCopy
         	// 
-        	this.btnSalvarDestinatario.AutoSize = true;
-        	this.btnSalvarDestinatario.Font = new System.Drawing.Font("Segoe UI", 12F);
-        	this.btnSalvarDestinatario.Location = new System.Drawing.Point(590, 85);
-        	this.btnSalvarDestinatario.Name = "btnSalvarDestinatario";
-        	this.btnSalvarDestinatario.Size = new System.Drawing.Size(63, 31);
-        	this.btnSalvarDestinatario.TabIndex = 10031;
-        	this.btnSalvarDestinatario.Text = "Salvar";
-        	this.btnSalvarDestinatario.UseVisualStyleBackColor = true;
+        	this.btnSalvarEmailCorporativoEmCopy.AutoSize = true;
+        	this.btnSalvarEmailCorporativoEmCopy.Font = new System.Drawing.Font("Segoe UI", 12F);
+        	this.btnSalvarEmailCorporativoEmCopy.Location = new System.Drawing.Point(590, 85);
+        	this.btnSalvarEmailCorporativoEmCopy.Name = "btnSalvarEmailCorporativoEmCopy";
+        	this.btnSalvarEmailCorporativoEmCopy.Size = new System.Drawing.Size(63, 31);
+        	this.btnSalvarEmailCorporativoEmCopy.TabIndex = 10031;
+        	this.btnSalvarEmailCorporativoEmCopy.Text = "Salvar";
+        	this.btnSalvarEmailCorporativoEmCopy.UseVisualStyleBackColor = true;
+        	this.btnSalvarEmailCorporativoEmCopy.Click += new System.EventHandler(this.BtnSalvarEmailCorporativoEmCopyClick);
         	// 
         	// label4
         	// 
@@ -427,10 +428,10 @@ namespace NOCActions
         	this.ClientSize = new System.Drawing.Size(693, 766);
         	this.Controls.Add(this.label8);
         	this.Controls.Add(this.label11);
-        	this.Controls.Add(this.btnSalvarDestinatario);
+        	this.Controls.Add(this.btnSalvarEmailCorporativoEmCopy);
         	this.Controls.Add(this.btnSalvarRemetente);
         	this.Controls.Add(this.label3);
-        	this.Controls.Add(this.comboBox_Destinatario);
+        	this.Controls.Add(this.comboBox_EmailCorporativoEmCopy);
         	this.Controls.Add(this.btnDuvida);
         	this.Controls.Add(this.label9);
         	this.Controls.Add(this.comboBox_Remetente);
