@@ -29,15 +29,13 @@ namespace NOCActions
 		// Construtor do formulário de configuração
 		public CONFIG_ComunicacaoComCliente(ACAO_ComunicacaoComCliente form)
 		{
-			InitializeComponent();  // Inicializa os componentes do formulário
-			form_comunicacaoComCliente = form;  // Armazena a referência do formulário principal
-			CarregarEmailsSalvosNosComboBox();  // Carrega os e-mails previamente salvos ao abrir o formulário
+			InitializeComponent();  
+			form_comunicacaoComCliente = form;  
+			CarregarEmailsSalvosNosComboBox();  
 			CarregarEmailsDeRemetentesSalvos();
 			CarregarEmailCorporativoEmCopy();
 			CarregarInformacoesDoContratoDoCliente();
 			CarregarClientesAdicionados();
-			OrganizarTabIndex();
-			
 			
 			btnExcluir.Click += BtnExcluirClick;
 
@@ -46,26 +44,16 @@ namespace NOCActions
 		// Evento de clique do botão de salvar
 		void BtnSalvarClick(object sender, EventArgs e)
 		{
-			// Adiciona o cliente à listBox de clientes adicionados
 			AdicionarClienteNaListBox();
-			
-			// Obtém os e-mails dos campos do formulário
 			string emailDestinatario1 = comboEmailContratoCliente_01.Text;
-
-			// Concatena os e-mails, separando-os por ponto e vírgula e removendo os vazios
 			string concatenarEmails = string.Join(";", new[] { emailDestinatario1}
 			                                      .Where(email => !string.IsNullOrWhiteSpace(email)));
 
-			// Verifica se existem e-mails concatenados e os adiciona ao ComboBox do formulário principal
 			if (!string.IsNullOrWhiteSpace(concatenarEmails))
 			{
 				form_comunicacaoComCliente.AdicionarEmailsConcatenados(concatenarEmails);
 			}
-
-			// Salva os e-mails no arquivo
 			SalvarEmailsNoArquivo(concatenarEmails);
-
-			// Salva as informações do contrato do cliente
 			InformacoesDoContratoDoCliente();
 		}
 
@@ -84,7 +72,6 @@ namespace NOCActions
 					Directory.CreateDirectory(diretorio);
 				}
 
-				// Adiciona o e-mail ao arquivo de remetentes
 				File.AppendAllText(arquivoEmailRemetente, email + Environment.NewLine);
 			}
 			catch (Exception ex)
@@ -98,7 +85,7 @@ namespace NOCActions
 		{
 			string emailRemetente = comboBox_Remetente.Text;
 			SalvarEmailRemetente(emailRemetente);
-			comboBox_Remetente.Text = string.Empty;  // Limpa o campo após salvar
+			comboBox_Remetente.Text = string.Empty; 
 		}
 
 		// Carrega os e-mails de remetente salvos no arquivo
@@ -108,7 +95,7 @@ namespace NOCActions
 			{
 				var remetentes = File.ReadAllLines(arquivoEmailRemetente)
 					.Where(l => !string.IsNullOrWhiteSpace(l))
-					.Distinct()  // Evita e-mails duplicados
+					.Distinct()  
 					.ToList();
 
 				foreach (var remetente in remetentes)
@@ -146,7 +133,7 @@ namespace NOCActions
 		{
 			string emailCorporativo = comboBox_EmailCorporativoEmCopy.Text;
 			SalvarEmailCorporativoCopy(emailCorporativo);
-			comboBox_EmailCorporativoEmCopy.Text = string.Empty;  // Limpa o campo após salvar
+			comboBox_EmailCorporativoEmCopy.Text = string.Empty;  
 		}
 
 		// Carrega os e-mails corporativos em cópia salvos no arquivo
@@ -156,7 +143,7 @@ namespace NOCActions
 			{
 				var emailsCopy = File.ReadAllLines(arquivoEmailCorporativoCc)
 					.Where(l => !string.IsNullOrWhiteSpace(l))
-					.Distinct()  // Evita e-mails duplicados
+					.Distinct()  
 					.ToList();
 
 				foreach (var email in emailsCopy)
@@ -178,13 +165,10 @@ namespace NOCActions
 		{
 			try
 			{
-				// Salva as informações do contrato em arquivos
 				SalvarInformacoesEmArquivo(arquivoNomeCliente, comboNomeCliente.Text.Trim());
 				SalvarInformacoesEmArquivo(arquivoEnderecoCliente, comboEnderecoCliente.Text.Trim());
 				SalvarInformacoesEmArquivo(arquivoUnidadeCliente, comboUnidadeDoCliente.Text.Trim());
 				SalvarInformacoesEmArquivo(arquivoRazaoSocialCliente, comboRazaoSocialCliente.Text.Trim());
-
-				// Limpa os campos após salvar
 				LimparCamposContratoCliente();
 			}
 			catch (Exception ex)
@@ -262,7 +246,6 @@ namespace NOCActions
 					Directory.CreateDirectory(diretorio);
 				}
 
-				// Adiciona o e-mail ao arquivo de clientes
 				File.AppendAllText(arquivoEmailCliente, email + Environment.NewLine);
 			}
 			catch (Exception ex)
@@ -280,7 +263,6 @@ namespace NOCActions
 					.Where(l => !string.IsNullOrWhiteSpace(l))
 					.ToList();
 
-				// Adiciona os e-mails nos ComboBoxes
 				foreach (var email in emails)
 				{
 					if (!comboEmailContratoCliente_01.Items.Contains(email))
@@ -295,7 +277,6 @@ namespace NOCActions
 			string nomeCliente = comboNomeCliente.Text;
 			string unidadeCliente = comboUnidadeDoCliente.Text;
 
-			// Concatena os e-mails dos campos
 			string emailCliente = string.Join(" | ", new[] {
 			                                  	comboEmailContratoCliente_01.Text,
 			                                  }.Where(email => !string.IsNullOrWhiteSpace(email)));
@@ -303,11 +284,9 @@ namespace NOCActions
 			string enderecoCliente = comboEnderecoCliente.Text;
 			string razaoSocial = comboRazaoSocialCliente.Text;
 			
-			// Formata e adiciona o cliente na listBox
 			string clienteInfo = string.Format("Cliente: {0} | Unidade: {1} | E-mail: {2} | Endereço: {3} | Razão Social:  {4}", nomeCliente, unidadeCliente, emailCliente, enderecoCliente, razaoSocial);
 			listBox_ClientesAdicionados.Items.Add(clienteInfo);
 
-			// Salva o cliente adicionado no arquivo
 			SalvarClienteAdicionadosNoArquivo(clienteInfo);
 			
 			comboEmailContratoCliente_01.Text = "";
@@ -405,7 +384,6 @@ namespace NOCActions
 		// Função responsável por organizar a navegação entre os controles do formulário
 		private void OrganizarTabIndex()
 		{
-			// Ordem de TabIndex
 			comboBox_Remetente.TabIndex = 0;
 			btnSalvarRemetente.TabIndex = 1;
 			comboBox_EmailCorporativoEmCopy.TabIndex = 2;
