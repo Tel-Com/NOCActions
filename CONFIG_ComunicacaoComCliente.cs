@@ -14,6 +14,11 @@ namespace NOCActions
 		// Referência para o formulário principal
 		private ACAO_ComunicacaoComCliente form_comunicacaoComCliente;
 
+		// Caminhos dos arquivos utilizados para armazenar dados de configuração e cliente.
+		// OBSERVAÇÃO: Para acesso manual aos arquivos de configuração e dados armazenados localmente,
+		// utilize o atalho "Tecla Windows + R", digite "%appdata%" (sem aspas) e pressione Enter.
+		// Os arquivos estarão disponíveis na pasta de dados do aplicativo, conforme as diretrizes padrão do Windows.
+		
 		// Caminhos dos arquivos que armazenam as informações
 		private string arquivoEmailRemetente = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "email_usuario_remetente.txt");
 		private string arquivoEmailCorporativoCc = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "email_usuario_empresarial_copy.txt");
@@ -22,24 +27,23 @@ namespace NOCActions
 		private string arquivoNomeCliente = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "nome_cliente.txt");
 		private string arquivoEnderecoCliente = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "endereco_cliente.txt");
 		private string arquivoUnidadeCliente = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "unidade_cliente.txt");
-		
+
 		private string arquivoRazaoSocialCliente = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "razao_social_cliente.txt");
 		private string arquivoClientesAdicionados = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "clientes_adicionados.txt");
 
 		// Construtor do formulário de configuração
 		public CONFIG_ComunicacaoComCliente(ACAO_ComunicacaoComCliente form)
 		{
-			InitializeComponent();  
-			form_comunicacaoComCliente = form;  
-			CarregarEmailsSalvosNosComboBox();  
+			InitializeComponent();
+			form_comunicacaoComCliente = form;
+			CarregarEmailsSalvosNosComboBox();
 			CarregarEmailsDeRemetentesSalvos();
 			CarregarEmailCorporativoEmCopy();
 			CarregarInformacoesDoContratoDoCliente();
 			CarregarClientesAdicionados();
-			
 			btnExcluir.Click += BtnExcluirClick;
-
 		}
+
 
 		// Evento de clique do botão de salvar
 		void BtnSalvarClick(object sender, EventArgs e)
@@ -85,7 +89,7 @@ namespace NOCActions
 		{
 			string emailRemetente = comboBox_Remetente.Text;
 			SalvarEmailRemetente(emailRemetente);
-			comboBox_Remetente.Text = string.Empty; 
+			comboBox_Remetente.Text = string.Empty;
 		}
 
 		// Carrega os e-mails de remetente salvos no arquivo
@@ -95,7 +99,7 @@ namespace NOCActions
 			{
 				var remetentes = File.ReadAllLines(arquivoEmailRemetente)
 					.Where(l => !string.IsNullOrWhiteSpace(l))
-					.Distinct()  
+					.Distinct()
 					.ToList();
 
 				foreach (var remetente in remetentes)
@@ -133,7 +137,7 @@ namespace NOCActions
 		{
 			string emailCorporativo = comboBox_EmailCorporativoEmCopy.Text;
 			SalvarEmailCorporativoCopy(emailCorporativo);
-			comboBox_EmailCorporativoEmCopy.Text = string.Empty;  
+			comboBox_EmailCorporativoEmCopy.Text = string.Empty;
 		}
 
 		// Carrega os e-mails corporativos em cópia salvos no arquivo
@@ -143,7 +147,7 @@ namespace NOCActions
 			{
 				var emailsCopy = File.ReadAllLines(arquivoEmailCorporativoCc)
 					.Where(l => !string.IsNullOrWhiteSpace(l))
-					.Distinct()  
+					.Distinct()
 					.ToList();
 
 				foreach (var email in emailsCopy)
