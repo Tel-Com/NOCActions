@@ -57,7 +57,7 @@ namespace NOCActions
 			this.button1AcaoAberturaDeMassiva.Name = "button1AcaoAberturaDeMassiva";
 			this.button1AcaoAberturaDeMassiva.Size = new System.Drawing.Size(97, 71);
 			this.button1AcaoAberturaDeMassiva.TabIndex = 1;
-			this.button1AcaoAberturaDeMassiva.Text = "Ação";
+			this.button1AcaoAberturaDeMassiva.Text = "Abertura de Massiva";
 			this.button1AcaoAberturaDeMassiva.UseVisualStyleBackColor = false;
 			this.button1AcaoAberturaDeMassiva.Click += new System.EventHandler(this.Button1AcaoAberturaDeMassivaClick);
 			// 
@@ -139,6 +139,7 @@ namespace NOCActions
 			this.buttonFechar.TabIndex = 1;
 			this.buttonFechar.Text = "X";
 			this.buttonFechar.UseVisualStyleBackColor = false;
+			this.buttonFechar.Click += new System.EventHandler(this.ButtonFecharClick);
 			// 
 			// labelTitulo
 			// 
