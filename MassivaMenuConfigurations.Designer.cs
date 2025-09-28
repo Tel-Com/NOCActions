@@ -6,13 +6,10 @@
  * 
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
-namespace NOCActions
+namespace NOC_Actions
 {
 	partial class UserConfig
 	{
-		/// <summary>
-		/// Designer variable used to keep track of non-visual components.
-		/// </summary>
 		private System.ComponentModel.IContainer components = null;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox textBoxAdicionarOperadora;
@@ -28,10 +25,6 @@ namespace NOCActions
 		private System.Windows.Forms.TextBox textBoxAdicionarCidade;
 		private System.Windows.Forms.Label label5;
 		
-		/// <summary>
-		/// Disposes resources used by the form.
-		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
@@ -42,11 +35,6 @@ namespace NOCActions
 			base.Dispose(disposing);
 		}
 		
-		/// <summary>
-		/// This method is required for Windows Forms designer support.
-		/// Do not change the method contents inside the source code editor. The Forms designer might
-		/// not be able to load this method if it was changed manually.
-		/// </summary>
 		private void InitializeComponent()
 		{
 			this.label1 = new System.Windows.Forms.Label();

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Drawing;
 using System.Windows.Forms;
 
 
@@ -22,11 +20,13 @@ namespace NOC_Actions
 			textBox1_UnidadeComBloqueioFinanceiro.Text = "";
 		}
 		
-			
 		void BtnApagarCamposClick(object sender, EventArgs e)
 		{
 			textBox1_UnidadeComBloqueioFinanceiro.Text = "";
 		}
-
+		void BtnFecharJanelaClick(object sender, EventArgs e)
+		{
+			this.FindForm().Close();
+		}
 	}
 }

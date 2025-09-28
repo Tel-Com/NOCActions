@@ -22,7 +22,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.Button btnApagarCampos;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnFecharJanela;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -53,7 +53,7 @@ namespace NOC_Actions
 			this.btnApagarCampos = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnFecharJanela = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label6
@@ -127,20 +127,21 @@ namespace NOC_Actions
 			this.label2.Text = "Você pode escolher \"detalhar fatura\" para aprimorar e adicionar informações refer" +
 	"ente ao Bloqueio Financeiro no respectivo contrato.";
 			// 
-			// button1
+			// btnFecharJanela
 			// 
-			this.button1.Location = new System.Drawing.Point(44, 317);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(114, 33);
-			this.button1.TabIndex = 39;
-			this.button1.Text = "Apagar";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnFecharJanela.Location = new System.Drawing.Point(44, 317);
+			this.btnFecharJanela.Name = "btnFecharJanela";
+			this.btnFecharJanela.Size = new System.Drawing.Size(114, 33);
+			this.btnFecharJanela.TabIndex = 39;
+			this.btnFecharJanela.Text = "Fechar";
+			this.btnFecharJanela.UseVisualStyleBackColor = true;
+			this.btnFecharJanela.Click += new System.EventHandler(this.BtnFecharJanelaClick);
 			// 
 			// UcPendenciaFinanceiraInformes
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.btnFecharJanela);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.textBox1_UnidadeComBloqueioFinanceiro);
 			this.Controls.Add(this.btnGravarECopiar);

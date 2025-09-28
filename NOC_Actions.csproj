@@ -82,10 +82,6 @@
     <Compile Include="MassivaForm.Designer.cs">
       <DependentUpon>MassivaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuDeAcesso.cs" />
-    <Compile Include="MenuDeAcesso.Designer.cs">
-      <DependentUpon>MenuDeAcesso.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MassivaMenuConfigurations.cs" />
@@ -116,9 +112,6 @@
     </EmbeddedResource> -->
     <EmbeddedResource Include="MassivaForm.resx">
       <DependentUpon>MassivaForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MenuDeAcesso.resx">
-      <DependentUpon>MenuDeAcesso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MassivaMenuConfigurations.resx">
       <DependentUpon>MassivaMenuConfigurations.cs</DependentUpon>

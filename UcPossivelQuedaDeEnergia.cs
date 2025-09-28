@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace NOC_Actions
@@ -28,7 +26,7 @@ namespace NOC_Actions
 		}
 		void BtnFecharJanelaClick(object sender, EventArgs e)
 		{
-			this.Hide();
+			this.FindForm().Close();
 		}
 	}
 }

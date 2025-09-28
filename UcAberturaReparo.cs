@@ -29,5 +29,9 @@ namespace NOC_Actions
 			textBox1_ChamadoOperadora.Text = "";
 			textBox2_horarioDoRegistroChamado.Text = "";
 		}
+		void BtnFecharJanelaClick(object sender, EventArgs e)
+		{
+			this.FindForm().Close();
+		}
 	}
 }

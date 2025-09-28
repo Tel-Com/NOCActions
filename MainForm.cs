@@ -72,14 +72,6 @@ namespace NOC_Actions
 			Clipboard.SetText("Encaminhado e-mail solicitando posicionamento frente ao reparo em aberto junto ao fornecedor.");
 		}
 
-		// Abre a janela de opções específicas de ações ao clicar no botão correspondente
-		
-//		void ButtonMaisAcoesClick(object sender, EventArgs e)
-//		{
-//			MenuDeAcesso menuAcoes = new MenuDeAcesso();
-//			menuAcoes.Show();
-//			
-//		}
 		// Método para organizar a ordem de tabulação dos elementos do formulário
 		private void OrdenarTabIndex()
 		{
@@ -93,7 +85,13 @@ namespace NOC_Actions
 		}
 		void BtnAberturaDeMassivaClick(object sender, EventArgs e)
 		{
-			
+			MassivaForm open_window = new MassivaForm();
+			open_window.Show();
+		}
+		void BtnInformesClientesClick(object sender, EventArgs e)
+		{
+			InterfaceClienteInformes open_window = new InterfaceClienteInformes();
+			open_window.Show();
 		}
 	}
 }

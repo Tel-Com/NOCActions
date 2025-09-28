@@ -47,7 +47,7 @@ namespace NOC_Actions
 //			Prezados, poderiam confirmar possível queda de energia na loja CE___? Constatamos que ambos os links estão indisponíveis neste momento.
 			MostrarUserControl(new UcPossivelQuedaDeEnergia());
 		}
-		
+		 
 		void BtnAlarmeComChamadoClick(object sender, EventArgs e)
 		{
 //			Prezados, identificamos alarme do link da __ (operadora) indisponível as __ (hh:mm).chamado ___ registrado as ____ (hh:mm) junto ao fornecedor.

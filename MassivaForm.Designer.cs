@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 
-namespace NOCActions
+namespace NOC_Actions
 {
     partial class MassivaForm
     {
@@ -15,9 +14,9 @@ namespace NOCActions
         private Button btnGerar;
         private RichTextBox textBoxExemplo;
         private Button btnApagar;
-        private Button btnConfig;
         private System.Windows.Forms.ComboBox textBoxCidades;
         private ComboBox textBoxOperadora;
+        private System.Windows.Forms.Button btnUserInformationsConfig;
 
         protected override void Dispose(bool disposing)
         {
@@ -37,9 +36,9 @@ namespace NOCActions
         	this.btnApagar = new System.Windows.Forms.Button();
         	this.buttonCopiar = new System.Windows.Forms.Button();
         	this.btnGerar = new System.Windows.Forms.Button();
-        	this.btnConfig = new System.Windows.Forms.Button();
         	this.textBoxOperadora = new System.Windows.Forms.ComboBox();
         	this.textBoxCidades = new System.Windows.Forms.ComboBox();
+        	this.btnUserInformationsConfig = new System.Windows.Forms.Button();
         	this.SuspendLayout();
         	// 
         	// labelCidade
@@ -118,17 +117,6 @@ namespace NOCActions
         	this.btnGerar.UseVisualStyleBackColor = true;
         	this.btnGerar.Click += new System.EventHandler(this.BtnGerarClick);
         	// 
-        	// btnConfig
-        	// 
-        	this.btnConfig.Font = new System.Drawing.Font("Segoe UI", 9F);
-        	this.btnConfig.Location = new System.Drawing.Point(490, 15);
-        	this.btnConfig.Name = "btnConfig";
-        	this.btnConfig.Size = new System.Drawing.Size(60, 30);
-        	this.btnConfig.TabIndex = 6;
-        	this.btnConfig.Text = "Config";
-        	this.btnConfig.UseVisualStyleBackColor = true;
-        	this.btnConfig.Click += new System.EventHandler(this.BtnConfigClick);
-        	// 
         	// textBoxOperadora
         	// 
         	this.textBoxOperadora.Font = new System.Drawing.Font("Segoe UI", 9.75F);
@@ -147,12 +135,23 @@ namespace NOCActions
         	this.textBoxCidades.Size = new System.Drawing.Size(180, 25);
         	this.textBoxCidades.TabIndex = 10;
         	// 
+        	// btnUserInformationsConfig
+        	// 
+        	this.btnUserInformationsConfig.Font = new System.Drawing.Font("Segoe UI", 9F);
+        	this.btnUserInformationsConfig.Location = new System.Drawing.Point(95, 170);
+        	this.btnUserInformationsConfig.Name = "btnUserInformationsConfig";
+        	this.btnUserInformationsConfig.Size = new System.Drawing.Size(100, 30);
+        	this.btnUserInformationsConfig.TabIndex = 11;
+        	this.btnUserInformationsConfig.Text = "Config";
+        	this.btnUserInformationsConfig.UseVisualStyleBackColor = true;
+        	this.btnUserInformationsConfig.Click += new System.EventHandler(this.BtnUserInformationsConfigClick);
+        	// 
         	// MassivaForm
         	// 
         	this.ClientSize = new System.Drawing.Size(570, 210);
+        	this.Controls.Add(this.btnUserInformationsConfig);
         	this.Controls.Add(this.textBoxCidades);
         	this.Controls.Add(this.textBoxOperadora);
-        	this.Controls.Add(this.btnConfig);
         	this.Controls.Add(this.textBoxExemplo);
         	this.Controls.Add(this.btnGerar);
         	this.Controls.Add(this.buttonCopiar);

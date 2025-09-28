@@ -4,9 +4,6 @@ C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\bin\Debug\NOC_Action
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.InterfaceClienteInformes.resources
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.UcLiberacaoDeAcessoComPrevisao.resources
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.UcPendenciaFinanceiraInformes.resources
-C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOCActions.MassivaForm.resources
-C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOCActions.MenuDeAcesso.resources
-C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOCActions.UserConfig.resources
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.UcAberturaDeReparo.resources
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.UcAlarmeDeLinkIndisponivel.resources
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.UcLiberacaoDeAcessoSemPrevisao.resources
@@ -15,3 +12,5 @@ C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Action
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.exe
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.pdb
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.MainForm.resources
+C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.MassivaForm.resources
+C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.UserConfig.resources

@@ -10,7 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace NOCActions
+namespace NOC_Actions
 {
 	public partial class UserConfig : Form
 	{

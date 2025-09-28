@@ -23,7 +23,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.TextBox textBox1_nomeOperadora;
 		private System.Windows.Forms.Button btnApagarCampos;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnFecharJanela;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -55,7 +55,7 @@ namespace NOC_Actions
 			this.textBox1_nomeOperadora = new System.Windows.Forms.TextBox();
 			this.btnApagarCampos = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnFecharJanela = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label5
@@ -69,7 +69,7 @@ namespace NOC_Actions
 			// 
 			// btnGravarECopiar
 			// 
-			this.btnGravarECopiar.Location = new System.Drawing.Point(339, 317);
+			this.btnGravarECopiar.Location = new System.Drawing.Point(339, 315);
 			this.btnGravarECopiar.Name = "btnGravarECopiar";
 			this.btnGravarECopiar.Size = new System.Drawing.Size(114, 33);
 			this.btnGravarECopiar.TabIndex = 7;
@@ -118,7 +118,7 @@ namespace NOC_Actions
 			// 
 			// btnApagarCampos
 			// 
-			this.btnApagarCampos.Location = new System.Drawing.Point(219, 317);
+			this.btnApagarCampos.Location = new System.Drawing.Point(219, 315);
 			this.btnApagarCampos.Name = "btnApagarCampos";
 			this.btnApagarCampos.Size = new System.Drawing.Size(114, 33);
 			this.btnApagarCampos.TabIndex = 1;
@@ -135,21 +135,22 @@ namespace NOC_Actions
 			this.label1.Text = "Prezados, bom dia! Identificamos alarme do link da __ (operadora) indisponível as" +
 	" ___ (hh:mm). Iremos seguir com acionamento junto ao fornecedor.";
 			// 
-			// button1
+			// btnFecharJanela
 			// 
-			this.button1.Location = new System.Drawing.Point(44, 317);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(114, 33);
-			this.button1.TabIndex = 9;
-			this.button1.Text = "Apagar";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnFecharJanela.Location = new System.Drawing.Point(44, 317);
+			this.btnFecharJanela.Name = "btnFecharJanela";
+			this.btnFecharJanela.Size = new System.Drawing.Size(114, 33);
+			this.btnFecharJanela.TabIndex = 9;
+			this.btnFecharJanela.Text = "Fechar";
+			this.btnFecharJanela.UseVisualStyleBackColor = true;
+			this.btnFecharJanela.Click += new System.EventHandler(this.BtnFecharJanelaClick);
 			// 
 			// UcAlarmeDeLinkIndisponivel
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.btnFecharJanela);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.btnGravarECopiar);
 			this.Controls.Add(this.label4);

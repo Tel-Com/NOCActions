@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 
-namespace NOCActions
+namespace NOC_Actions
 {
 	public partial class MassivaForm : Form
 	{
@@ -107,7 +107,7 @@ namespace NOCActions
 		}
 
 		// Evento acionado ao clicar no botão "Configurações"
-		private void BtnConfigClick(object sender, EventArgs e)
+		private void BtnUserInformationsConfigClick(object sender, EventArgs e)
 		{
 			// Abre a janela de configuração para seleção de arquivos
 			using (UserConfig config = new UserConfig())
@@ -130,7 +130,7 @@ namespace NOCActions
 			btnGerar.TabIndex = 2;
 			buttonCopiar.TabIndex = 3;
 			btnApagar.TabIndex = 4;
-			btnConfig.TabIndex = 5;
+			btnUserInformationsConfig.TabIndex = 5;
 		}
 	}
 }

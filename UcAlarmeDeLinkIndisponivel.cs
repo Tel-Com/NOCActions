@@ -26,5 +26,9 @@ namespace NOC_Actions
 			textBox1_nomeOperadora.Text = "";
 			textBox2_horarioQueda.Text = "";
 		}
+		void BtnFecharJanelaClick(object sender, EventArgs e)
+		{
+			this.FindForm().Close();
+		}
 	}
 }

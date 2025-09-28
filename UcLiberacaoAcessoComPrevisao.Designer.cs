@@ -24,7 +24,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.RichTextBox richTextBox1_DadosTecnicos;
 		private System.Windows.Forms.TextBox textBox1_PrevisaoChegada;
 		private System.Windows.Forms.Label label6;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnFecharJanela;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -57,12 +57,12 @@ namespace NOC_Actions
 			this.label2 = new System.Windows.Forms.Label();
 			this.textBox1_PrevisaoChegada = new System.Windows.Forms.TextBox();
 			this.label6 = new System.Windows.Forms.Label();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnFecharJanela = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnGravarECopiar
 			// 
-			this.btnGravarECopiar.Location = new System.Drawing.Point(339, 316);
+			this.btnGravarECopiar.Location = new System.Drawing.Point(339, 315);
 			this.btnGravarECopiar.Name = "btnGravarECopiar";
 			this.btnGravarECopiar.Size = new System.Drawing.Size(114, 33);
 			this.btnGravarECopiar.TabIndex = 16;
@@ -81,7 +81,7 @@ namespace NOC_Actions
 			// 
 			// btnApagarCampos
 			// 
-			this.btnApagarCampos.Location = new System.Drawing.Point(219, 316);
+			this.btnApagarCampos.Location = new System.Drawing.Point(219, 315);
 			this.btnApagarCampos.Name = "btnApagarCampos";
 			this.btnApagarCampos.Size = new System.Drawing.Size(114, 33);
 			this.btnApagarCampos.TabIndex = 10;
@@ -148,21 +148,22 @@ namespace NOC_Actions
 			this.label6.TabIndex = 25;
 			this.label6.Text = "Previsão de Chagada";
 			// 
-			// button1
+			// btnFecharJanela
 			// 
-			this.button1.Location = new System.Drawing.Point(44, 317);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(114, 33);
-			this.button1.TabIndex = 26;
-			this.button1.Text = "Apagar";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnFecharJanela.Location = new System.Drawing.Point(44, 317);
+			this.btnFecharJanela.Name = "btnFecharJanela";
+			this.btnFecharJanela.Size = new System.Drawing.Size(114, 33);
+			this.btnFecharJanela.TabIndex = 26;
+			this.btnFecharJanela.Text = "Fechar";
+			this.btnFecharJanela.UseVisualStyleBackColor = true;
+			this.btnFecharJanela.Click += new System.EventHandler(this.BtnFecharJanelaClick);
 			// 
 			// UcLiberacaoDeAcessoComPrevisao
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
-			this.Controls.Add(this.button1);
+			this.Controls.Add(this.btnFecharJanela);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.textBox1_PrevisaoChegada);
 			this.Controls.Add(this.label3);

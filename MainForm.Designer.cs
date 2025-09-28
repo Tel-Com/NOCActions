@@ -199,6 +199,7 @@ namespace NOC_Actions
 			this.btnInformesClientes.TabIndex = 12;
 			this.btnInformesClientes.Text = "Informes";
 			this.btnInformesClientes.UseVisualStyleBackColor = true;
+			this.btnInformesClientes.Click += new System.EventHandler(this.BtnInformesClientesClick);
 			// 
 			// MainForm
 			// 

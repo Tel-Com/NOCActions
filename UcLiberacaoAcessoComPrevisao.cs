@@ -28,5 +28,9 @@ namespace NOC_Actions
 			richTextBox1_DadosTecnicos.Text = "";
 			textBox1_PrevisaoChegada.Text = "";
 		}
+		void BtnFecharJanelaClick(object sender, EventArgs e)
+		{
+			this.FindForm().Close();
+		}
 	}
 }

@@ -65,7 +65,7 @@ namespace NOC_Actions
 			// 
 			// btnGravarECopiar
 			// 
-			this.btnGravarECopiar.Location = new System.Drawing.Point(339, 316);
+			this.btnGravarECopiar.Location = new System.Drawing.Point(339, 315);
 			this.btnGravarECopiar.Name = "btnGravarECopiar";
 			this.btnGravarECopiar.Size = new System.Drawing.Size(114, 33);
 			this.btnGravarECopiar.TabIndex = 16;
@@ -99,7 +99,7 @@ namespace NOC_Actions
 			// 
 			// btnApagarCampos
 			// 
-			this.btnApagarCampos.Location = new System.Drawing.Point(219, 316);
+			this.btnApagarCampos.Location = new System.Drawing.Point(219, 315);
 			this.btnApagarCampos.Name = "btnApagarCampos";
 			this.btnApagarCampos.Size = new System.Drawing.Size(114, 33);
 			this.btnApagarCampos.TabIndex = 10;
