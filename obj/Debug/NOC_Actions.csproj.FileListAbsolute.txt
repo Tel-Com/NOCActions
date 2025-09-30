@@ -15,3 +15,4 @@ C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Action
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.MassivaForm.resources
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.UserConfig.resources
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.resources
+C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.Utilitarios.resources

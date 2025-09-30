@@ -7,7 +7,6 @@ namespace NOC_Actions
 {
 	public partial class MainForm : Form
 	{
-		// Importação de funções da API do Windows para permitir movimentação da janela sem bordas
 		[DllImport("user32.dll")]
 		public static extern bool ReleaseCapture();
 
@@ -20,23 +19,23 @@ namespace NOC_Actions
 		public MainForm()
 		{
 			InitializeComponent();
-			this.FormBorderStyle = FormBorderStyle.None; // Remove a borda da janela
-			this.TopMost = true; // Mantém a janela sempre no topo
+			this.FormBorderStyle = FormBorderStyle.None;
+			this.TopMost = true;
 			OrdenarTabIndex();
+
+		 PointerMouseMove.MouseDown += PointerMouseMovePaint_MouseDown;
 		}
 
-		// Permite mover a janela ao clicar e arrastar com o botão esquerdo do mouse
-		protected override void OnMouseDown(MouseEventArgs e)
+		private void PointerMouseMovePaint_MouseDown(object sender, MouseEventArgs e)
 		{
-			base.OnMouseDown(e);
 			if (e.Button == MouseButtons.Left)
 			{
 				ReleaseCapture();
-				SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+				SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
 			}
 		}
 
-		// Eventos de clique dos botões que copiam mensagens padronizadas para a área de transferência
+//		 Eventos de clique dos botões que copiam mensagens padronizadas para a área de transferência
 		void SemEnergiaClick(object sender, EventArgs e)
 		{
 			Clipboard.SetText("Sem contato com a unidade. Devido queda simultânea dos links, possível queda de energia.");
@@ -93,7 +92,18 @@ namespace NOC_Actions
 			InterfaceClienteInformes open_window = new InterfaceClienteInformes();
 			open_window.Show();
 		}
+		void BtnAcessosEUtilitariosClick(object sender, EventArgs e)
+		{
+			var open_window = new Utilitarios();
+			open_window.Show();
+			foreach (Form frm in Application.OpenForms)
+			{
+				if (frm is InterfaceClienteInformes)
+				{
+					frm.Hide();
+					break;
+				}
+			}
+		}
 	}
 }
-
-

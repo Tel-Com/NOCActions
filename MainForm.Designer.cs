@@ -100,14 +100,17 @@ namespace NOC_Actions
 			this.SemEnergia = new System.Windows.Forms.Button();
 			this.btnAberturaDeMassiva = new System.Windows.Forms.Button();
 			this.btnInformesClientes = new System.Windows.Forms.Button();
+			this.btnAcessosEUtilitarios = new System.Windows.Forms.Button();
+			this.PointerMouseMove = new System.Windows.Forms.Panel();
 			this.SuspendLayout();
 			// 
 			// ButtonSemContatoLocal
 			// 
+			this.ButtonSemContatoLocal.Dock = System.Windows.Forms.DockStyle.Right;
 			this.ButtonSemContatoLocal.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ButtonSemContatoLocal.Location = new System.Drawing.Point(300, 0);
+			this.ButtonSemContatoLocal.Location = new System.Drawing.Point(883, 0);
 			this.ButtonSemContatoLocal.Name = "ButtonSemContatoLocal";
-			this.ButtonSemContatoLocal.Size = new System.Drawing.Size(97, 59);
+			this.ButtonSemContatoLocal.Size = new System.Drawing.Size(97, 36);
 			this.ButtonSemContatoLocal.TabIndex = 2;
 			this.ButtonSemContatoLocal.Text = "Sem contato Local";
 			this.ButtonSemContatoLocal.UseVisualStyleBackColor = true;
@@ -115,10 +118,11 @@ namespace NOC_Actions
 			// 
 			// ButtonSemExpediente
 			// 
+			this.ButtonSemExpediente.Dock = System.Windows.Forms.DockStyle.Right;
 			this.ButtonSemExpediente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ButtonSemExpediente.Location = new System.Drawing.Point(400, 0);
+			this.ButtonSemExpediente.Location = new System.Drawing.Point(786, 0);
 			this.ButtonSemExpediente.Name = "ButtonSemExpediente";
-			this.ButtonSemExpediente.Size = new System.Drawing.Size(97, 59);
+			this.ButtonSemExpediente.Size = new System.Drawing.Size(97, 36);
 			this.ButtonSemExpediente.TabIndex = 3;
 			this.ButtonSemExpediente.Text = "Sem Expediente";
 			this.ButtonSemExpediente.UseVisualStyleBackColor = true;
@@ -126,10 +130,11 @@ namespace NOC_Actions
 			// 
 			// ButtonInfraOkCliente
 			// 
+			this.ButtonInfraOkCliente.Dock = System.Windows.Forms.DockStyle.Right;
 			this.ButtonInfraOkCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ButtonInfraOkCliente.Location = new System.Drawing.Point(500, 0);
+			this.ButtonInfraOkCliente.Location = new System.Drawing.Point(689, 0);
 			this.ButtonInfraOkCliente.Name = "ButtonInfraOkCliente";
-			this.ButtonInfraOkCliente.Size = new System.Drawing.Size(97, 59);
+			this.ButtonInfraOkCliente.Size = new System.Drawing.Size(97, 36);
 			this.ButtonInfraOkCliente.TabIndex = 4;
 			this.ButtonInfraOkCliente.Text = "(Cliente) Infra OK";
 			this.ButtonInfraOkCliente.UseVisualStyleBackColor = true;
@@ -137,10 +142,11 @@ namespace NOC_Actions
 			// 
 			// ButtonSemContatoOperadora
 			// 
+			this.ButtonSemContatoOperadora.Dock = System.Windows.Forms.DockStyle.Right;
 			this.ButtonSemContatoOperadora.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ButtonSemContatoOperadora.Location = new System.Drawing.Point(600, 0);
+			this.ButtonSemContatoOperadora.Location = new System.Drawing.Point(592, 0);
 			this.ButtonSemContatoOperadora.Name = "ButtonSemContatoOperadora";
-			this.ButtonSemContatoOperadora.Size = new System.Drawing.Size(97, 59);
+			this.ButtonSemContatoOperadora.Size = new System.Drawing.Size(97, 36);
 			this.ButtonSemContatoOperadora.TabIndex = 5;
 			this.ButtonSemContatoOperadora.Text = "Operadora Não Atende";
 			this.ButtonSemContatoOperadora.UseVisualStyleBackColor = true;
@@ -148,10 +154,11 @@ namespace NOC_Actions
 			// 
 			// ButtonAberturaDeOs
 			// 
+			this.ButtonAberturaDeOs.Dock = System.Windows.Forms.DockStyle.Right;
 			this.ButtonAberturaDeOs.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ButtonAberturaDeOs.Location = new System.Drawing.Point(700, 0);
+			this.ButtonAberturaDeOs.Location = new System.Drawing.Point(495, 0);
 			this.ButtonAberturaDeOs.Name = "ButtonAberturaDeOs";
-			this.ButtonAberturaDeOs.Size = new System.Drawing.Size(97, 59);
+			this.ButtonAberturaDeOs.Size = new System.Drawing.Size(97, 36);
 			this.ButtonAberturaDeOs.TabIndex = 6;
 			this.ButtonAberturaDeOs.Text = "(Frase E-mail) Abertura de OS";
 			this.ButtonAberturaDeOs.UseVisualStyleBackColor = true;
@@ -159,10 +166,11 @@ namespace NOC_Actions
 			// 
 			// ButtonPosicionamentoTecnico
 			// 
+			this.ButtonPosicionamentoTecnico.Dock = System.Windows.Forms.DockStyle.Right;
 			this.ButtonPosicionamentoTecnico.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ButtonPosicionamentoTecnico.Location = new System.Drawing.Point(800, 0);
+			this.ButtonPosicionamentoTecnico.Location = new System.Drawing.Point(398, 0);
 			this.ButtonPosicionamentoTecnico.Name = "ButtonPosicionamentoTecnico";
-			this.ButtonPosicionamentoTecnico.Size = new System.Drawing.Size(97, 59);
+			this.ButtonPosicionamentoTecnico.Size = new System.Drawing.Size(97, 36);
 			this.ButtonPosicionamentoTecnico.TabIndex = 7;
 			this.ButtonPosicionamentoTecnico.Text = "(E-mail) Posiciona. OS";
 			this.ButtonPosicionamentoTecnico.UseVisualStyleBackColor = true;
@@ -170,10 +178,11 @@ namespace NOC_Actions
 			// 
 			// SemEnergia
 			// 
+			this.SemEnergia.Dock = System.Windows.Forms.DockStyle.Right;
 			this.SemEnergia.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.SemEnergia.Location = new System.Drawing.Point(200, 0);
+			this.SemEnergia.Location = new System.Drawing.Point(301, 0);
 			this.SemEnergia.Name = "SemEnergia";
-			this.SemEnergia.Size = new System.Drawing.Size(97, 59);
+			this.SemEnergia.Size = new System.Drawing.Size(97, 36);
 			this.SemEnergia.TabIndex = 8;
 			this.SemEnergia.Text = "Sem Energia";
 			this.SemEnergia.UseVisualStyleBackColor = true;
@@ -181,10 +190,11 @@ namespace NOC_Actions
 			// 
 			// btnAberturaDeMassiva
 			// 
+			this.btnAberturaDeMassiva.Dock = System.Windows.Forms.DockStyle.Right;
 			this.btnAberturaDeMassiva.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnAberturaDeMassiva.Location = new System.Drawing.Point(100, 0);
+			this.btnAberturaDeMassiva.Location = new System.Drawing.Point(204, 0);
 			this.btnAberturaDeMassiva.Name = "btnAberturaDeMassiva";
-			this.btnAberturaDeMassiva.Size = new System.Drawing.Size(97, 59);
+			this.btnAberturaDeMassiva.Size = new System.Drawing.Size(97, 36);
 			this.btnAberturaDeMassiva.TabIndex = 11;
 			this.btnAberturaDeMassiva.Text = "Massiva";
 			this.btnAberturaDeMassiva.UseVisualStyleBackColor = true;
@@ -192,14 +202,36 @@ namespace NOC_Actions
 			// 
 			// btnInformesClientes
 			// 
+			this.btnInformesClientes.Dock = System.Windows.Forms.DockStyle.Right;
 			this.btnInformesClientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnInformesClientes.Location = new System.Drawing.Point(0, 0);
+			this.btnInformesClientes.Location = new System.Drawing.Point(107, 0);
 			this.btnInformesClientes.Name = "btnInformesClientes";
-			this.btnInformesClientes.Size = new System.Drawing.Size(97, 59);
+			this.btnInformesClientes.Size = new System.Drawing.Size(97, 36);
 			this.btnInformesClientes.TabIndex = 12;
 			this.btnInformesClientes.Text = "Informes";
 			this.btnInformesClientes.UseVisualStyleBackColor = true;
 			this.btnInformesClientes.Click += new System.EventHandler(this.BtnInformesClientesClick);
+			// 
+			// btnAcessosEUtilitarios
+			// 
+			this.btnAcessosEUtilitarios.Dock = System.Windows.Forms.DockStyle.Right;
+			this.btnAcessosEUtilitarios.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnAcessosEUtilitarios.Location = new System.Drawing.Point(10, 0);
+			this.btnAcessosEUtilitarios.Name = "btnAcessosEUtilitarios";
+			this.btnAcessosEUtilitarios.Size = new System.Drawing.Size(97, 36);
+			this.btnAcessosEUtilitarios.TabIndex = 13;
+			this.btnAcessosEUtilitarios.Text = "Utilitários";
+			this.btnAcessosEUtilitarios.UseVisualStyleBackColor = true;
+			this.btnAcessosEUtilitarios.Click += new System.EventHandler(this.BtnAcessosEUtilitariosClick);
+			// 
+			// PointerMouseMove
+			// 
+			this.PointerMouseMove.BackColor = System.Drawing.Color.SteelBlue;
+			this.PointerMouseMove.Dock = System.Windows.Forms.DockStyle.Left;
+			this.PointerMouseMove.Location = new System.Drawing.Point(0, 0);
+			this.PointerMouseMove.Name = "PointerMouseMove";
+			this.PointerMouseMove.Size = new System.Drawing.Size(10, 36);
+			this.PointerMouseMove.TabIndex = 14;
 			// 
 			// MainForm
 			// 
@@ -209,7 +241,9 @@ namespace NOC_Actions
 			this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
 			this.BackColor = System.Drawing.Color.Silver;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-			this.ClientSize = new System.Drawing.Size(882, 70);
+			this.ClientSize = new System.Drawing.Size(980, 36);
+			this.Controls.Add(this.PointerMouseMove);
+			this.Controls.Add(this.btnAcessosEUtilitarios);
 			this.Controls.Add(this.btnInformesClientes);
 			this.Controls.Add(this.btnAberturaDeMassiva);
 			this.Controls.Add(this.SemEnergia);
@@ -234,6 +268,8 @@ namespace NOC_Actions
 		private System.Windows.Forms.Button ButtonSemContatoLocal;
 		private System.Windows.Forms.Button btnAberturaDeMassiva;
 		private System.Windows.Forms.Button btnInformesClientes;
+		private System.Windows.Forms.Button btnAcessosEUtilitarios;
+		private System.Windows.Forms.Panel PointerMouseMove;
 		
 	}
 }

@@ -96,6 +96,10 @@
     <Compile Include="Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.Designer.cs">
       <DependentUpon>Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilitarios.cs" />
+    <Compile Include="Utilitarios.Designer.cs">
+      <DependentUpon>Utilitarios.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="InterfaceClienteInformes.resx">
@@ -134,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.resx">
       <DependentUpon>Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilitarios.resx">
+      <DependentUpon>Utilitarios.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

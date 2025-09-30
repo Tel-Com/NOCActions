@@ -13,7 +13,6 @@
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.Panel painelInterface;
 		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button2;
 
 		protected override void Dispose(bool disposing)
 		{
@@ -36,7 +35,6 @@
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.button1 = new System.Windows.Forms.Button();
 			this.painelInterface = new System.Windows.Forms.Panel();
-			this.button2 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -112,7 +110,6 @@
 			// splitContainer1.Panel1
 			// 
 			this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Gainsboro;
-			this.splitContainer1.Panel1.Controls.Add(this.button2);
 			this.splitContainer1.Panel1.Controls.Add(this.button1);
 			this.splitContainer1.Panel1.Controls.Add(this.btnAlarmeComChamado);
 			this.splitContainer1.Panel1.Controls.Add(this.btnAnaliseEnergia);
@@ -146,15 +143,6 @@
 			this.painelInterface.Name = "painelInterface";
 			this.painelInterface.Size = new System.Drawing.Size(470, 380);
 			this.painelInterface.TabIndex = 0;
-			// 
-			// button2
-			// 
-			this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.button2.Location = new System.Drawing.Point(0, 161);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(230, 23);
-			this.button2.TabIndex = 8;
-			this.button2.Text = "Pendência Financeira";
 			// 
 			// InterfaceClienteInformes
 			// 

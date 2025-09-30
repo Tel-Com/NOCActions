@@ -1,0 +1,36 @@
+EOL6442376 / T3!C0m!@@ (JSL)
+EOL1534997 / T3!C0m!@@ (Movida)
+EOL4421197 / T3!C0m!@@ (Centauro)
+
+URL: https://www.meuamericanetempresas.com.br/SimetraCliente/
+Usuário: 06347409000165 
+Senha: SBFC113DA
+-
+07976147007840
+MOVI216SA
+-
+AFIP
+Usuário: 47673793017815 
+Senha: ASSO712SA 
+
+-------------
+
+JSL BERO e MCW
+Como estamos dependente do cliente, vamos cobrar 1x no dia apenas. Cobramos hj pra ver se tem atualização e depois só segunda. Duvido muito que amanhã ou sexta tenha avanço.
+
+Mas qnd forem questionar os responsáveis, já aproveitem para perguntar se sexta irão trabalhar ou se eles acham que devem ter algum avanço só na segunda msm devido feriado.
+
+_______
+
+Não abrir chamado para os casos:
+Movida - MGA/IP/01405: Histórico de dying gasp.
+Movida - LDA/IP/02132: Necessário avaliação da infra local, reincidência na operadora de chamados.
+Movida - RJO/IP/40762: Necessário reboot no modem antes de abrir chamado. Equipamento esta travando.
+Movida: SLS/IP/08581: Histórico de dying gasp.
+Movida: BEX/IP/00239: Histórico de dying gasp.
+Movida - CTA-0798269: Box geralmente com equipamentos desligados devido demanda da loja
+JSL - HORT/IP/01768: Local com histórico de falha na infra. No-break super aquecendo, equipamentos reiniciando.
+JSL - CBA/IP/04834: Responsável desconecta o link da Claro com frequência.
+JSL - OCO/IP/05656: Histórico de dying gasp.
+
+relacionamentoempresas.br@vivo.com.br
