@@ -10,7 +10,7 @@ namespace NOC_Actions
 			InitializeComponent();
 		}
 		
-		private string MenagemDeNotificacaoAoCliente()
+		private string MensagemDeNotificacaoAoCliente()
 		{
 			string getDadosTecnicos = richTextBox1_DadosTecnicos.Text.Trim();
 			string getPrevisaoChegada = textBox1_PrevisaoChegada.Text.Trim();
@@ -24,7 +24,7 @@ namespace NOC_Actions
 		
 		void BtnGravarECopiarClick(object sender, EventArgs e)
 		{
-			string msn = MenagemDeNotificacaoAoCliente();
+			string msn = MensagemDeNotificacaoAoCliente();
 			Clipboard.SetText(msn);
 			
 			richTextBox1_DadosTecnicos.Text = "";
@@ -65,7 +65,7 @@ namespace NOC_Actions
 				return;
 			}
 
-			string previa = MenagemDeNotificacaoAoCliente();
+			string previa = MensagemDeNotificacaoAoCliente();
 			PreviaDaMensagem(previa);
 		}
 	}

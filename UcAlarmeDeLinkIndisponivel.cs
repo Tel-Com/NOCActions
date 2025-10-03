@@ -11,12 +11,18 @@ namespace NOC_Actions
 		{
 			InitializeComponent();
 		}
-		void BtnGravarECopiarClick(object sender, EventArgs e)
+		
+		private string MensagemDeNotificacaoAoCliente()
 		{
 			string getValueTextBox_NomeOperadora = textBox1_nomeOperadora.Text;
 			string getValueHorario_Queda = textBox2_horarioQueda.Text;
-			string informMsn = "Prezados, bom dia! Identificamos alarme do link da " + getValueTextBox_NomeOperadora + " indisponível às " + getValueHorario_Queda + ". Iremos seguir com acionamento junto ao fornecedor.";
-			Clipboard.SetText(informMsn);
+			return "Prezados, bom dia! Identificamos alarme do link da " + getValueTextBox_NomeOperadora + " indisponível às " + getValueHorario_Queda + ". Iremos seguir com acionamento junto ao fornecedor.";
+		}
+		
+		void BtnGravarECopiarClick(object sender, EventArgs e)
+		{
+			string msn = MensagemDeNotificacaoAoCliente();
+			Clipboard.SetText(msn);
 			textBox1_nomeOperadora.Text = "";
 			textBox2_horarioQueda.Text = "";
 			

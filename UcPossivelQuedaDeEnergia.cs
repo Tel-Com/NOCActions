@@ -10,13 +10,15 @@ namespace NOC_Actions
 			InitializeComponent();
 		}
 		
-		void BtnGravarECopiarClick(object sender, EventArgs e)
+		private string MensagemDeNotificacaoAoCliente()
 		{
 			string getValueUnidadeComQueda = textBox1_UnidadeQueda.Text.Trim();
-
-			string msn = "Prezados, poderiam confirmar possível queda de energia na loja "
-				+ getValueUnidadeComQueda
-				+ "? Constatamos que ambos os links estão indisponíveis neste momento.";
+			return "Prezados, poderiam confirmar possível queda de energia na loja "
+				+ getValueUnidadeComQueda + "? Constatamos que ambos os links estão indisponíveis neste momento.";
+		}
+		void BtnGravarECopiarClick(object sender, EventArgs e)
+		{
+			string msn = MensagemDeNotificacaoAoCliente();
 			Clipboard.SetText(msn);
 			textBox1_UnidadeQueda.Text = "";
 		}

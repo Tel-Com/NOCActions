@@ -92,6 +92,7 @@ namespace NOC_Actions
 			this.btnGravarECopiar.TabIndex = 29;
 			this.btnGravarECopiar.Text = "Gravar e Copiar";
 			this.btnGravarECopiar.UseVisualStyleBackColor = true;
+			this.btnGravarECopiar.Click += new System.EventHandler(this.BtnGravarECopiarClick);
 			// 
 			// label4
 			// 

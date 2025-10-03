@@ -11,13 +11,17 @@ namespace NOC_Actions
 		{
 			InitializeComponent();
 		}
-		void BtnGravarECopiarClick(object sender, EventArgs e)
+		
+		private string MensagemDeNotificacaoAoCliente()
 		{
 			string getNumeroChamado = textBox1_ChamadoOperadora.Text.Trim();
 			string getHorarioDeRegistro = textBox2_horarioDoRegistroChamado.Text.Trim();
-
-			string msn = "Prezados, chamado " + getNumeroChamado + " registrado às " + getHorarioDeRegistro + " junto ao fornecedor.";
-
+			return "Prezados, chamado " + getNumeroChamado + " registrado às " + getHorarioDeRegistro + " junto ao fornecedor.";
+		}
+		
+		void BtnGravarECopiarClick(object sender, EventArgs e)
+		{
+			string msn = MensagemDeNotificacaoAoCliente();
 			Clipboard.SetText(msn); 
 			
 			textBox1_ChamadoOperadora.Text = "";
