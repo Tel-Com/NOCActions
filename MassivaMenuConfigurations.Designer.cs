@@ -55,27 +55,28 @@ namespace NOC_Actions
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(12, 87);
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label1.Location = new System.Drawing.Point(12, 81);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(134, 16);
+			this.label1.Size = new System.Drawing.Size(132, 17);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Adicionar Operadora";
 			// 
 			// textBoxAdicionarOperadora
 			// 
-			this.textBoxAdicionarOperadora.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBoxAdicionarOperadora.Location = new System.Drawing.Point(165, 85);
+			this.textBoxAdicionarOperadora.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.textBoxAdicionarOperadora.Location = new System.Drawing.Point(151, 79);
 			this.textBoxAdicionarOperadora.Name = "textBoxAdicionarOperadora";
-			this.textBoxAdicionarOperadora.Size = new System.Drawing.Size(172, 22);
-			this.textBoxAdicionarOperadora.TabIndex = 1;
+			this.textBoxAdicionarOperadora.Size = new System.Drawing.Size(186, 25);
+			this.textBoxAdicionarOperadora.TabIndex = 2;
 			// 
 			// btnAdicionarOperadora
 			// 
-			this.btnAdicionarOperadora.Location = new System.Drawing.Point(345, 85);
+			this.btnAdicionarOperadora.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnAdicionarOperadora.Location = new System.Drawing.Point(345, 82);
 			this.btnAdicionarOperadora.Name = "btnAdicionarOperadora";
 			this.btnAdicionarOperadora.Size = new System.Drawing.Size(77, 23);
-			this.btnAdicionarOperadora.TabIndex = 2;
+			this.btnAdicionarOperadora.TabIndex = 6;
 			this.btnAdicionarOperadora.Text = "Adicionar";
 			this.btnAdicionarOperadora.UseVisualStyleBackColor = true;
 			this.btnAdicionarOperadora.Click += new System.EventHandler(this.BtnAdicionarOperadoraClick);
@@ -83,28 +84,29 @@ namespace NOC_Actions
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.Location = new System.Drawing.Point(12, 115);
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label2.Location = new System.Drawing.Point(12, 109);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(126, 16);
+			this.label2.Size = new System.Drawing.Size(121, 17);
 			this.label2.TabIndex = 3;
 			this.label2.Text = "Opers. adicionadas";
 			// 
 			// comboBoxOperadoraJaAdicionadas
 			// 
-			this.comboBoxOperadoraJaAdicionadas.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.comboBoxOperadoraJaAdicionadas.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.comboBoxOperadoraJaAdicionadas.FormattingEnabled = true;
-			this.comboBoxOperadoraJaAdicionadas.Location = new System.Drawing.Point(165, 113);
+			this.comboBoxOperadoraJaAdicionadas.Location = new System.Drawing.Point(151, 107);
 			this.comboBoxOperadoraJaAdicionadas.Name = "comboBoxOperadoraJaAdicionadas";
-			this.comboBoxOperadoraJaAdicionadas.Size = new System.Drawing.Size(172, 24);
-			this.comboBoxOperadoraJaAdicionadas.TabIndex = 4;
+			this.comboBoxOperadoraJaAdicionadas.Size = new System.Drawing.Size(186, 25);
+			this.comboBoxOperadoraJaAdicionadas.TabIndex = 3;
 			// 
 			// btnDeletarOperadora
 			// 
-			this.btnDeletarOperadora.Location = new System.Drawing.Point(345, 111);
+			this.btnDeletarOperadora.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnDeletarOperadora.Location = new System.Drawing.Point(345, 108);
 			this.btnDeletarOperadora.Name = "btnDeletarOperadora";
 			this.btnDeletarOperadora.Size = new System.Drawing.Size(77, 23);
-			this.btnDeletarOperadora.TabIndex = 5;
+			this.btnDeletarOperadora.TabIndex = 7;
 			this.btnDeletarOperadora.Text = "Deletar";
 			this.btnDeletarOperadora.UseVisualStyleBackColor = true;
 			this.btnDeletarOperadora.Click += new System.EventHandler(this.BtnDeletarOperadoraClick);
@@ -114,66 +116,68 @@ namespace NOC_Actions
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.label3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-			this.label3.Location = new System.Drawing.Point(0, 60);
+			this.label3.Location = new System.Drawing.Point(-2, 56);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(463, 16);
+			this.label3.Size = new System.Drawing.Size(442, 16);
 			this.label3.TabIndex = 6;
-			this.label3.Text = "_________________________________________________________________";
+			this.label3.Text = "______________________________________________________________";
 			// 
 			// buttonDeletarCidade
 			// 
-			this.buttonDeletarCidade.Location = new System.Drawing.Point(345, 39);
+			this.buttonDeletarCidade.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.buttonDeletarCidade.Location = new System.Drawing.Point(345, 35);
 			this.buttonDeletarCidade.Name = "buttonDeletarCidade";
 			this.buttonDeletarCidade.Size = new System.Drawing.Size(77, 23);
-			this.buttonDeletarCidade.TabIndex = 12;
+			this.buttonDeletarCidade.TabIndex = 5;
 			this.buttonDeletarCidade.Text = "Deletar";
 			this.buttonDeletarCidade.UseVisualStyleBackColor = true;
 			this.buttonDeletarCidade.Click += new System.EventHandler(this.ButtonDeletarCidadeClick);
 			// 
 			// comboBoxCidadeAdicionada
 			// 
-			this.comboBoxCidadeAdicionada.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.comboBoxCidadeAdicionada.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.comboBoxCidadeAdicionada.FormattingEnabled = true;
-			this.comboBoxCidadeAdicionada.Location = new System.Drawing.Point(165, 41);
+			this.comboBoxCidadeAdicionada.Location = new System.Drawing.Point(151, 35);
 			this.comboBoxCidadeAdicionada.Name = "comboBoxCidadeAdicionada";
-			this.comboBoxCidadeAdicionada.Size = new System.Drawing.Size(172, 24);
-			this.comboBoxCidadeAdicionada.TabIndex = 11;
+			this.comboBoxCidadeAdicionada.Size = new System.Drawing.Size(186, 25);
+			this.comboBoxCidadeAdicionada.TabIndex = 1;
 			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(12, 41);
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label4.Location = new System.Drawing.Point(12, 35);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(137, 16);
+			this.label4.Size = new System.Drawing.Size(129, 17);
 			this.label4.TabIndex = 10;
 			this.label4.Text = "Cidades adicionadas";
 			// 
 			// buttonAdicionarCidade
 			// 
-			this.buttonAdicionarCidade.Location = new System.Drawing.Point(345, 13);
+			this.buttonAdicionarCidade.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.buttonAdicionarCidade.Location = new System.Drawing.Point(345, 9);
 			this.buttonAdicionarCidade.Name = "buttonAdicionarCidade";
 			this.buttonAdicionarCidade.Size = new System.Drawing.Size(77, 23);
-			this.buttonAdicionarCidade.TabIndex = 9;
+			this.buttonAdicionarCidade.TabIndex = 4;
 			this.buttonAdicionarCidade.Text = "Adicionar";
 			this.buttonAdicionarCidade.UseVisualStyleBackColor = true;
 			this.buttonAdicionarCidade.Click += new System.EventHandler(this.ButtonAdicionarCidadeClick);
 			// 
 			// textBoxAdicionarCidade
 			// 
-			this.textBoxAdicionarCidade.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.textBoxAdicionarCidade.Location = new System.Drawing.Point(165, 13);
+			this.textBoxAdicionarCidade.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.textBoxAdicionarCidade.Location = new System.Drawing.Point(151, 7);
 			this.textBoxAdicionarCidade.Name = "textBoxAdicionarCidade";
-			this.textBoxAdicionarCidade.Size = new System.Drawing.Size(172, 22);
-			this.textBoxAdicionarCidade.TabIndex = 8;
+			this.textBoxAdicionarCidade.Size = new System.Drawing.Size(186, 25);
+			this.textBoxAdicionarCidade.TabIndex = 0;
 			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(12, 16);
+			this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label5.Location = new System.Drawing.Point(12, 10);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(112, 16);
+			this.label5.Size = new System.Drawing.Size(108, 17);
 			this.label5.TabIndex = 7;
 			this.label5.Text = "Adicionar Cidade";
 			// 

@@ -14,9 +14,8 @@ namespace NOC_Actions
 		public MassivaForm()
 		{
 			InitializeComponent();
-			CarregarOperadorasSalvasNoForm(); // Carrega a lista de operadoras ao iniciar o formulário
-			CarregarCidadesSalvasNoForm(); // Carrega a lista de cidades ao iniciar o formulário
-			OrdenarTabIndex();
+			CarregarOperadorasSalvasNoForm();
+			CarregarCidadesSalvasNoForm();
 		}
 
 		// Carrega as cidades salvas no arquivo e adiciona à lista no formulário
@@ -94,16 +93,14 @@ namespace NOC_Actions
 			if (!string.IsNullOrWhiteSpace(textBoxExemplo.Text))
 			{
 				Clipboard.SetText(textBoxExemplo.Text);
+				clearField();
 			}
 		}
 
 		// Evento acionado ao clicar no botão "Apagar"
 		private void BtnApagarClick(object sender, EventArgs e)
 		{
-			// Limpa os campos do formulário
-			textBoxCidades.Text = string.Empty;
-			textBoxOperadora.Text = string.Empty;
-			textBoxExemplo.Clear();
+			clearField();
 		}
 
 		// Evento acionado ao clicar no botão "Configurações"
@@ -122,15 +119,12 @@ namespace NOC_Actions
 			}
 		}
 
-		// Método para organizar a ordem de tabulação dos elementos do formulário
-		private void OrdenarTabIndex()
+//		Parametro responsável por apagar os campos
+		void clearField()
 		{
-			textBoxCidades.TabIndex = 0;
-			textBoxOperadora.TabIndex = 1;
-			btnGerar.TabIndex = 2;
-			buttonCopiar.TabIndex = 3;
-			btnApagar.TabIndex = 4;
-			btnUserInformationsConfig.TabIndex = 5;
+			textBoxCidades.Text = string.Empty;
+			textBoxOperadora.Text = string.Empty;
+			textBoxExemplo.Clear();
 		}
 	}
 }

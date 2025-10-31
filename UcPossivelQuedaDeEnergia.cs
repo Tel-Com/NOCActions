@@ -15,24 +15,35 @@ namespace NOC_Actions
 			string getValueUnidadeComQueda = txtUnitName.Text.Trim();
 			const string prezadosPoderiamConfirmarPossívelQuedaDeEnergiaNaLoja = "Prezados, poderiam confirmar possível queda de energia na loja ";
 			return prezadosPoderiamConfirmarPossívelQuedaDeEnergiaNaLoja
-			+ getValueUnidadeComQueda + "? Constatamos que ambos os links estão indisponíveis neste momento.";
+				+ getValueUnidadeComQueda + "? Constatamos que ambos os links estão indisponíveis neste momento.";
 		}
 		
 		void BtnCloseWindowClick(object sender, EventArgs e)
 		{
-			this.FindForm().Close();
+			CloseWindow();
 		}
 		
 		void BtnClearFieldsClick(object sender, EventArgs e)
 		{
-			txtUnitName.Text = "";
+			ClearField();
 		}
 		
 		void BtnSaveAndCopyClick(object sender, EventArgs e)
 		{
 			string msn = GetCustomerNotificationMessage();
 			Clipboard.SetText(msn);
+			ClearField();
+		}
+		
+		void ClearField()
+		{
 			txtUnitName.Text = "";
 		}
+		
+		void CloseWindow()
+		{
+			this.FindForm().Close();
+		}
+		
 	}
 }

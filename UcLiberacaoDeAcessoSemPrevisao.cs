@@ -19,7 +19,7 @@ namespace NOC_Actions
 		
 		void BtnCloseWindowClick(object sender, EventArgs e)
 		{
-			this.FindForm().Close();
+			CloseWindow();
 		}
 		
 		void BtnMessagePreviewClick(object sender, EventArgs e)
@@ -30,14 +30,24 @@ namespace NOC_Actions
 		
 		void BtnClearFieldsClick(object sender, EventArgs e)
 		{
-			richTextBoxTechDetails.Text = "";
+			ClearField();
 		}
 		
 		void BtnSaveAndCopyClick(object sender, EventArgs e)
 		{
 			string msn = GetCustomerNotificationMessage();
 			Clipboard.SetText(msn);
+			ClearField();
+		}
+		
+		void ClearField()
+		{
 			richTextBoxTechDetails.Text = "";
+		}
+		
+		void CloseWindow()
+		{
+			this.FindForm().Close();
 		}
 	}
 }

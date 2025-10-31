@@ -98,6 +98,7 @@ namespace NOC_Actions
 			this.panel1.Controls.Add(this.button1);
 			this.panel1.Controls.Add(this.panel2);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel1.Enabled = false;
 			this.panel1.Location = new System.Drawing.Point(0, 0);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(512, 60);
@@ -106,7 +107,7 @@ namespace NOC_Actions
 			// button9
 			// 
 			this.button9.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.button9.Location = new System.Drawing.Point(395, 25);
+			this.button9.Location = new System.Drawing.Point(394, 25);
 			this.button9.Name = "button9";
 			this.button9.Size = new System.Drawing.Size(88, 30);
 			this.button9.TabIndex = 4;
@@ -116,7 +117,7 @@ namespace NOC_Actions
 			// button4
 			// 
 			this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.button4.Location = new System.Drawing.Point(305, 25);
+			this.button4.Location = new System.Drawing.Point(304, 25);
 			this.button4.Name = "button4";
 			this.button4.Size = new System.Drawing.Size(88, 30);
 			this.button4.TabIndex = 3;
@@ -126,7 +127,7 @@ namespace NOC_Actions
 			// button3
 			// 
 			this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.button3.Location = new System.Drawing.Point(214, 25);
+			this.button3.Location = new System.Drawing.Point(213, 25);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(88, 30);
 			this.button3.TabIndex = 2;
@@ -136,7 +137,7 @@ namespace NOC_Actions
 			// button2
 			// 
 			this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.button2.Location = new System.Drawing.Point(123, 25);
+			this.button2.Location = new System.Drawing.Point(122, 25);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(88, 30);
 			this.button2.TabIndex = 1;
@@ -146,7 +147,7 @@ namespace NOC_Actions
 			// button1
 			// 
 			this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.button1.Location = new System.Drawing.Point(32, 25);
+			this.button1.Location = new System.Drawing.Point(31, 25);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(88, 30);
 			this.button1.TabIndex = 0;
@@ -161,6 +162,7 @@ namespace NOC_Actions
 			this.panel2.Controls.Add(this.button7);
 			this.panel2.Controls.Add(this.button8);
 			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel2.Enabled = false;
 			this.panel2.Location = new System.Drawing.Point(0, 0);
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(512, 23);

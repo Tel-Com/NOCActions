@@ -21,21 +21,30 @@ namespace NOC_Actions
 		
 		void BtnCloseWindowClick(object sender, EventArgs e)
 		{
-			this.FindForm().Close();
+			CloseWindow();
 		}
 		
 		void BtnClearFieldsClick(object sender, EventArgs e)
 		{
-			txtOperatorCallID.Text = "";
-			textBoxCallRegistrationTime.Text = "";
+			ClearField();
 		}
 		
 		void BtnSaveAndCopyClick(object sender, EventArgs e)
 		{
 			string msn = GetCustomerNotificationMessage();
 			Clipboard.SetText(msn);
+			ClearField();
+		}
+		
+		void ClearField()
+		{
 			txtOperatorCallID.Text = "";
 			textBoxCallRegistrationTime.Text = "";
+		}
+		
+		void CloseWindow()
+		{
+			this.FindForm().Close();
 		}
 	}
 }

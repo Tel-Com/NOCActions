@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 
-
 namespace NOC_Actions
 {
 	public partial class UcPendenciaFinanceiraInformes : UserControl
@@ -17,10 +16,9 @@ namespace NOC_Actions
 		}
 		void BtnCloseWindowClick(object sender, EventArgs e)
 		{
-			this.FindForm().Close();
+			CloseWindow();
 		}
 		
-//		unable
 		void BtnViewInvoiceDetailsClick(object sender, EventArgs e)
 		{
 			this.Hide();
@@ -32,14 +30,25 @@ namespace NOC_Actions
 		
 		void BtnClearFieldsClick(object sender, EventArgs e)
 		{
-			txtFinBlockUnitName.Text = "";
+			ClearField();
 		}
 		
 		void BtnSaveAndCopyClick(object sender, EventArgs e)
 		{
 			string msn = GetCustomerNotificationMessage();
 			Clipboard.SetText(msn);
+			ClearField();
+		}
+		
+		void ClearField()
+		{
 			txtFinBlockUnitName.Text="";
 		}
+		
+		void CloseWindow()
+		{
+			this.FindForm().Close();
+		}
+		
 	}
 }

@@ -1,0 +1,20 @@
+﻿31/10/2025
+criado: registroDeAtt.txt - para registrar as atualizaçoes no código e não perder commits
+Adicionado tabindex para a organização do uso no MassivaForm.cs
+Modificado as fontes para Segoe UI; 9,75pt
+Excluido o tabIndex parametro (OrdenarTabIndex()) de produção
+Removido comentários informando commits
+//				commit:adicionado limpador .text = "" no textBoxExemplo.Text do MassivaForm.cs parametro ButtonCopiarClick
+//			commit: adicionado parametro para a realização de apagar os campos quando gerado ou apagado
+Adicionado o parametro clearField() para limpar os campos quando registrados
+Organizado os campos e buttons dos usercontrols com tabindex
+Removido o tabIndex parametro do MainForm
+adicionado closeWindow no UcPossívelQuedaDeEnergia.cs
+adicionado CloseWindow(){this.FindForm().Close();} para o fechamendo de janela
+adicionado CloseWindow no UcPendenciaFinanceiraFormes.cs e também ClearField() para limpar os campos quando necessário, como também no UcLiberacaoDeAcessoSemPRevisao.cs e também no UcAlarmedELinkIndisponivel.cs e tambem no UcAberturaReparo.cs e também na UcLiberacaoDeAcessoComPrevisao.cs
+excluido o parametro 			OrdenarTabIndex(); e substituido por configuracao interna e trocado a fonte para Segoe UI; 9,75pt como tambem reajustado a posiçaõ dos elementos no form design
+deletado a pasta Informes.cs pois não estava sendo utilizada
+adicionado no MainForm.cs sistema no parametro BtnInformesClientesClick para impedir a duplicacao da janela informes, ou seja, que seja abertura duas ou mais vezes quando já executada (aberta) pelo cliene
+adicionado no parametro BtnInformesClientesClick a ação de abrir e fechar a janela InterfaceClienteInformes, trocando nome do button INFORMES para FECHAR quando esta, interfaceclienteinfomres estiver sendo executada pelo usuário
+________________________________________________________________________________________________________
+

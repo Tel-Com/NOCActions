@@ -76,17 +76,17 @@ namespace NOC_Actions
         	this.textBoxExemplo.BackColor = System.Drawing.SystemColors.ControlLight;
         	this.textBoxExemplo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
         	this.textBoxExemplo.Enabled = false;
-        	this.textBoxExemplo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+        	this.textBoxExemplo.Font = new System.Drawing.Font("Segoe UI", 9.75F);
         	this.textBoxExemplo.Location = new System.Drawing.Point(95, 90);
         	this.textBoxExemplo.Name = "textBoxExemplo";
         	this.textBoxExemplo.ReadOnly = true;
         	this.textBoxExemplo.Size = new System.Drawing.Size(455, 70);
-        	this.textBoxExemplo.TabIndex = 3;
+        	this.textBoxExemplo.TabIndex = 2;
         	this.textBoxExemplo.Text = "";
         	// 
         	// btnApagar
         	// 
-        	this.btnApagar.Font = new System.Drawing.Font("Segoe UI", 9F);
+        	this.btnApagar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
         	this.btnApagar.Location = new System.Drawing.Point(450, 170);
         	this.btnApagar.Name = "btnApagar";
         	this.btnApagar.Size = new System.Drawing.Size(100, 30);
@@ -97,7 +97,7 @@ namespace NOC_Actions
         	// 
         	// buttonCopiar
         	// 
-        	this.buttonCopiar.Font = new System.Drawing.Font("Segoe UI", 9F);
+        	this.buttonCopiar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
         	this.buttonCopiar.Location = new System.Drawing.Point(340, 170);
         	this.buttonCopiar.Name = "buttonCopiar";
         	this.buttonCopiar.Size = new System.Drawing.Size(100, 30);
@@ -108,7 +108,7 @@ namespace NOC_Actions
         	// 
         	// btnGerar
         	// 
-        	this.btnGerar.Font = new System.Drawing.Font("Segoe UI", 9F);
+        	this.btnGerar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
         	this.btnGerar.Location = new System.Drawing.Point(230, 170);
         	this.btnGerar.Name = "btnGerar";
         	this.btnGerar.Size = new System.Drawing.Size(100, 30);
@@ -124,7 +124,7 @@ namespace NOC_Actions
         	this.textBoxOperadora.Location = new System.Drawing.Point(95, 50);
         	this.textBoxOperadora.Name = "textBoxOperadora";
         	this.textBoxOperadora.Size = new System.Drawing.Size(180, 25);
-        	this.textBoxOperadora.TabIndex = 2;
+        	this.textBoxOperadora.TabIndex = 1;
         	// 
         	// textBoxCidades
         	// 
@@ -133,15 +133,15 @@ namespace NOC_Actions
         	this.textBoxCidades.Location = new System.Drawing.Point(95, 15);
         	this.textBoxCidades.Name = "textBoxCidades";
         	this.textBoxCidades.Size = new System.Drawing.Size(180, 25);
-        	this.textBoxCidades.TabIndex = 10;
+        	this.textBoxCidades.TabIndex = 0;
         	// 
         	// btnUserInformationsConfig
         	// 
-        	this.btnUserInformationsConfig.Font = new System.Drawing.Font("Segoe UI", 9F);
+        	this.btnUserInformationsConfig.Font = new System.Drawing.Font("Segoe UI", 9.75F);
         	this.btnUserInformationsConfig.Location = new System.Drawing.Point(95, 170);
         	this.btnUserInformationsConfig.Name = "btnUserInformationsConfig";
         	this.btnUserInformationsConfig.Size = new System.Drawing.Size(100, 30);
-        	this.btnUserInformationsConfig.TabIndex = 11;
+        	this.btnUserInformationsConfig.TabIndex = 6;
         	this.btnUserInformationsConfig.Text = "Config";
         	this.btnUserInformationsConfig.UseVisualStyleBackColor = true;
         	this.btnUserInformationsConfig.Click += new System.EventHandler(this.BtnUserInformationsConfigClick);

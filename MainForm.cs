@@ -21,8 +21,6 @@ namespace NOC_Actions
 			InitializeComponent();
 			this.FormBorderStyle = FormBorderStyle.None;
 			this.TopMost = true;
-			OrdenarTabIndex();
-
 			PointerMouseMove.MouseDown += PointerMouseMovePaint_MouseDown;
 		}
 
@@ -71,29 +69,50 @@ namespace NOC_Actions
 			Clipboard.SetText("Encaminhado e-mail solicitando posicionamento frente ao reparo em aberto junto ao fornecedor.");
 		}
 
-		// Método para organizar a ordem de tabulação dos elementos do formulário
-		private void OrdenarTabIndex()
-		{
-			btnAcessosEUtilitarios.TabIndex = 0;
-			btnInformesClientes.TabIndex = 1;
-			btnAberturaDeMassiva.TabIndex = 2;
-			SemEnergia.TabIndex = 3;
-			ButtonPosicionamentoTecnico.TabIndex = 4;
-			ButtonAberturaDeOs.TabIndex = 5;
-			ButtonInfraOkCliente.TabIndex = 6;
-			ButtonSemExpediente.TabIndex = 7;
-			ButtonSemContatoLocal.TabIndex =8;
-		}
 		void BtnAberturaDeMassivaClick(object sender, EventArgs e)
 		{
-			MassivaForm open_window = new MassivaForm();
+			MassivaForm open_window_massiva = new MassivaForm();
 			open_window.Show();
 		}
+		
+		InterfaceClienteInformes open_window = null;
+		
 		void BtnInformesClientesClick(object sender, EventArgs e)
 		{
-			InterfaceClienteInformes open_window = new InterfaceClienteInformes();
+			
+			if (open_window != null && !open_window.IsDisposed)
+				
+			{
+				open_window.Close();
+				open_window = null;
+				btnInformesClientes.Text = "Informes";
+				return;
+			}
+			
+			foreach (Form form in Application.OpenForms)
+			{
+				if (form is InterfaceClienteInformes) {
+					MessageBox.Show("Processo já em execução!",
+					                "Aviso",
+					                MessageBoxButtons.OK,
+					                MessageBoxIcon.Information);
+
+					form.BringToFront();
+					return;
+				}
+			}
+			
+			open_window = new InterfaceClienteInformes();
+			open_window.FormClosed += (s, args) =>
+			{
+				btnInformesClientes.Text = "Informes";
+				open_window = null;
+			};
+			
 			open_window.Show();
+			btnInformesClientes.Text = "Fechar";
 		}
+
 		void BtnAcessosEUtilitariosClick(object sender, EventArgs e)
 		{
 			var open_window = new Utilitarios();

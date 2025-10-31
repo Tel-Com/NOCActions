@@ -5,13 +5,6 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Security.Principal;
 
-//organizado os usercontrols com tabindex
-//realizado a troca das fontes dos campos e texto, para Segoe UI; 9,75pt
-//retirado do código InterfaceClienteInformes.cs void TabIndex 
-//adicionado labelUserInformation para mostrar e identificar o usuário logado no campo utilitarios.cs
-//adicionado em utilitarios buttons para uso, sendo eles "novo", "apagar", salvar, excluir e sair
-
-
 namespace NOC_Actions
 {
 	public partial class Utilitarios : Form

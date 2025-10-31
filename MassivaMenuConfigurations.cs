@@ -25,7 +25,6 @@ namespace NOC_Actions
 			InitializeComponent();
 			CarregarOperadoraSalvas(); // Carrega as operadoras salvas no ComboBox ao abrir o formulário
 			CarregarCidadeSalvas();
-			OrdenarTabIndex();
 		}
 		
 		// Eventos dos botões que chamam os métodos correspondentes
@@ -141,19 +140,6 @@ namespace NOC_Actions
 				comboBoxCidadeAdicionada.Items.AddRange(cidadesSalvas);
 			}
 			
-		}
-		
-		// Método para organizar a ordem de tabulação dos elementos do formulário
-		private void OrdenarTabIndex()
-		{
-			textBoxAdicionarCidade.TabIndex = 0;
-			comboBoxCidadeAdicionada.TabIndex = 1;
-			buttonAdicionarCidade.TabIndex = 2;
-			buttonDeletarCidade.TabIndex = 3;
-			textBoxAdicionarOperadora.TabIndex = 4;
-			comboBoxOperadoraJaAdicionadas.TabIndex = 5;
-			btnAdicionarOperadora.TabIndex = 6;
-			btnDeletarOperadora.TabIndex = 7;
 		}
 	}
 }

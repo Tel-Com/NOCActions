@@ -40,9 +40,10 @@
 			// btnAlarmeLinkIndisponivel
 			// 
 			this.btnAlarmeLinkIndisponivel.Dock = System.Windows.Forms.DockStyle.Top;
+			this.btnAlarmeLinkIndisponivel.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.btnAlarmeLinkIndisponivel.Location = new System.Drawing.Point(0, 0);
 			this.btnAlarmeLinkIndisponivel.Name = "btnAlarmeLinkIndisponivel";
-			this.btnAlarmeLinkIndisponivel.Size = new System.Drawing.Size(230, 23);
+			this.btnAlarmeLinkIndisponivel.Size = new System.Drawing.Size(249, 24);
 			this.btnAlarmeLinkIndisponivel.TabIndex = 0;
 			this.btnAlarmeLinkIndisponivel.Text = "Alarme de Link Indisponível";
 			this.btnAlarmeLinkIndisponivel.Click += new System.EventHandler(this.BtnAlarmeLinkIndisponivel_Click);
@@ -50,9 +51,10 @@
 			// btnChamadoRegistrado
 			// 
 			this.btnChamadoRegistrado.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btnChamadoRegistrado.Location = new System.Drawing.Point(0, 23);
+			this.btnChamadoRegistrado.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnChamadoRegistrado.Location = new System.Drawing.Point(0, 24);
 			this.btnChamadoRegistrado.Name = "btnChamadoRegistrado";
-			this.btnChamadoRegistrado.Size = new System.Drawing.Size(230, 23);
+			this.btnChamadoRegistrado.Size = new System.Drawing.Size(249, 25);
 			this.btnChamadoRegistrado.TabIndex = 1;
 			this.btnChamadoRegistrado.Text = "Chamado Registrado";
 			this.btnChamadoRegistrado.Click += new System.EventHandler(this.BtnChamadoRegistrado_Click);
@@ -60,9 +62,10 @@
 			// btnLibAcessoSemPrevisao
 			// 
 			this.btnLibAcessoSemPrevisao.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btnLibAcessoSemPrevisao.Location = new System.Drawing.Point(0, 46);
+			this.btnLibAcessoSemPrevisao.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnLibAcessoSemPrevisao.Location = new System.Drawing.Point(0, 49);
 			this.btnLibAcessoSemPrevisao.Name = "btnLibAcessoSemPrevisao";
-			this.btnLibAcessoSemPrevisao.Size = new System.Drawing.Size(230, 23);
+			this.btnLibAcessoSemPrevisao.Size = new System.Drawing.Size(249, 25);
 			this.btnLibAcessoSemPrevisao.TabIndex = 2;
 			this.btnLibAcessoSemPrevisao.Text = "Liberação de Acesso (Sem Previsão)";
 			this.btnLibAcessoSemPrevisao.Click += new System.EventHandler(this.BtnLibAcessoSemPrevisao_Click);
@@ -70,9 +73,10 @@
 			// btnLibAcessoComPrevisao
 			// 
 			this.btnLibAcessoComPrevisao.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btnLibAcessoComPrevisao.Location = new System.Drawing.Point(0, 69);
+			this.btnLibAcessoComPrevisao.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnLibAcessoComPrevisao.Location = new System.Drawing.Point(0, 74);
 			this.btnLibAcessoComPrevisao.Name = "btnLibAcessoComPrevisao";
-			this.btnLibAcessoComPrevisao.Size = new System.Drawing.Size(230, 23);
+			this.btnLibAcessoComPrevisao.Size = new System.Drawing.Size(249, 25);
 			this.btnLibAcessoComPrevisao.TabIndex = 3;
 			this.btnLibAcessoComPrevisao.Text = "Liberação de Acesso (Com Previsão)";
 			this.btnLibAcessoComPrevisao.Click += new System.EventHandler(this.BtnLibAcessoComPrevisao_Click);
@@ -80,9 +84,10 @@
 			// btnAnaliseEnergia
 			// 
 			this.btnAnaliseEnergia.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btnAnaliseEnergia.Location = new System.Drawing.Point(0, 92);
+			this.btnAnaliseEnergia.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnAnaliseEnergia.Location = new System.Drawing.Point(0, 99);
 			this.btnAnaliseEnergia.Name = "btnAnaliseEnergia";
-			this.btnAnaliseEnergia.Size = new System.Drawing.Size(230, 23);
+			this.btnAnaliseEnergia.Size = new System.Drawing.Size(249, 24);
 			this.btnAnaliseEnergia.TabIndex = 4;
 			this.btnAnaliseEnergia.Text = "Análise de Energia";
 			this.btnAnaliseEnergia.Click += new System.EventHandler(this.BtnAnaliseEnergia_Click);
@@ -106,8 +111,8 @@
 			// 
 			this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
 			this.splitContainer1.Panel2.Controls.Add(this.painelInterface);
-			this.splitContainer1.Size = new System.Drawing.Size(704, 380);
-			this.splitContainer1.SplitterDistance = 230;
+			this.splitContainer1.Size = new System.Drawing.Size(765, 380);
+			this.splitContainer1.SplitterDistance = 249;
 			this.splitContainer1.TabIndex = 0;
 			// 
 			// painelInterface
@@ -115,7 +120,7 @@
 			this.painelInterface.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.painelInterface.Location = new System.Drawing.Point(0, 0);
 			this.painelInterface.Name = "painelInterface";
-			this.painelInterface.Size = new System.Drawing.Size(470, 380);
+			this.painelInterface.Size = new System.Drawing.Size(512, 380);
 			this.painelInterface.TabIndex = 0;
 			// 
 			// InterfaceClienteInformes
@@ -123,7 +128,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
-			this.ClientSize = new System.Drawing.Size(704, 380);
+			this.ClientSize = new System.Drawing.Size(765, 380);
 			this.Controls.Add(this.splitContainer1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "InterfaceClienteInformes";
