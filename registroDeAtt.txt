@@ -1,20 +1,48 @@
-﻿31/10/2025
-criado: registroDeAtt.txt - para registrar as atualizaçoes no código e não perder commits
-Adicionado tabindex para a organização do uso no MassivaForm.cs
-Modificado as fontes para Segoe UI; 9,75pt
-Excluido o tabIndex parametro (OrdenarTabIndex()) de produção
-Removido comentários informando commits
-//				commit:adicionado limpador .text = "" no textBoxExemplo.Text do MassivaForm.cs parametro ButtonCopiarClick
-//			commit: adicionado parametro para a realização de apagar os campos quando gerado ou apagado
-Adicionado o parametro clearField() para limpar os campos quando registrados
-Organizado os campos e buttons dos usercontrols com tabindex
-Removido o tabIndex parametro do MainForm
-adicionado closeWindow no UcPossívelQuedaDeEnergia.cs
-adicionado CloseWindow(){this.FindForm().Close();} para o fechamendo de janela
-adicionado CloseWindow no UcPendenciaFinanceiraFormes.cs e também ClearField() para limpar os campos quando necessário, como também no UcLiberacaoDeAcessoSemPRevisao.cs e também no UcAlarmedELinkIndisponivel.cs e tambem no UcAberturaReparo.cs e também na UcLiberacaoDeAcessoComPrevisao.cs
-excluido o parametro 			OrdenarTabIndex(); e substituido por configuracao interna e trocado a fonte para Segoe UI; 9,75pt como tambem reajustado a posiçaõ dos elementos no form design
-deletado a pasta Informes.cs pois não estava sendo utilizada
-adicionado no MainForm.cs sistema no parametro BtnInformesClientesClick para impedir a duplicacao da janela informes, ou seja, que seja abertura duas ou mais vezes quando já executada (aberta) pelo cliene
-adicionado no parametro BtnInformesClientesClick a ação de abrir e fechar a janela InterfaceClienteInformes, trocando nome do button INFORMES para FECHAR quando esta, interfaceclienteinfomres estiver sendo executada pelo usuário
-________________________________________________________________________________________________________
+﻿31/10/2025 - já publicado
+Criado: registroDeAtt.txt – para registrar as atualizações no código e não perder commits.
+Adicionado TabIndex para a organização do uso no MassivaForm.cs.
+Modificadas as fontes para Segoe UI; 9,75pt.
+Excluído o parâmetro tabIndex (OrdenarTabIndex()) de produção.
+Removidos comentários informando commits.
+adicionado limpador .Text = "" no textBoxExemplo.Text do MassivaForm.cs parâmetro ButtonCopiarClick.
+adicionado parâmetro para a realização de apagar os campos quando gerado ou apagado.
+Adicionado o parâmetro clearField() para limpar os campos quando registrados.
+Organizados os campos e botões dos UserControls com TabIndex.
+Removido o parâmetro tabIndex do MainForm.
+Adicionado CloseWindow no UcPossívelQuedaDeEnergia.cs.
+Adicionado CloseWindow() { this.FindForm().Close(); } para o fechamento de janela.
+Adicionado CloseWindow no UcPendenciaFinanceiraFormes.cs e também ClearField() para limpar os campos quando necessário, assim como em UcLiberacaoDeAcessoSemPrevisao.cs, UcAlarmedELinkIndisponivel.cs, UcAberturaReparo.cs e UcLiberacaoDeAcessoComPrevisao.cs.
+Excluído o parâmetro OrdenarTabIndex() e substituído por configuração interna. Fonte alterada para Segoe UI; 9,75pt, com reajuste na posição dos elementos no Form Design.
+Deletada a pasta Informes.cs, pois não estava sendo utilizada.
+Adicionado no MainForm.cs sistema no parâmetro BtnInformesClientesClick para impedir a duplicação da janela Informes, ou seja, evitar que seja aberta duas ou mais vezes quando já executada (aberta) pelo cliente.
+Adicionado no parâmetro BtnInformesClientesClick a ação de abrir e fechar a janela InterfaceClienteInformes, trocando o nome do botão INFORMES para FECHAR quando a InterfaceClienteInformes estiver sendo executada pelo usuário.
+
+_________________________________________
+
+01/11/2025 - Próxima atualização: Deixar o código todo comentado e também ajudar a data hora das mensagens!
+
+parametro clearfiel() criado no utilitários() para realizar o apagamento de campos quando necessários
+deletado buttons e deixado somente o Apagar, salvar e sair
+reorganizado o tabindex
+criado tela de login - LoginUser.cs
+Criado o campo de Login de usuário
+Reajustado os campos necessários para  aaplicação no form: label, campos texto e buttons sair e login
+adicionado cabeçalho
+campo loginform com formato NONE
+retirado comentários desnecessários no campo uc_pendenciafinanceira_ucdetalhamentodefatura.cs
+adicionado o startposition para CenterScreen no form de loginUser.cs
+cor do cabeçalho alterada para ControlDarkDark
+adicionado nome ao cabeçalho LoginUser.cs
+ajustado o tamanho dos buttons Login e Exit no LoginUser.cs
+adicionado sistema de login com credenciais senha e login temporarios, sendo o uso void BtnLoginClick(object sender, EventArgs e)
+{
+if (textBox1_userLogin.Text == "admin" && textBox2_userPassword.Text == "admin") {
+MainForm open_mainForm = new MainForm();
+open_mainForm.Show();
+this.Hide();
+} else
+{
+MessageBox.Show("senha incorreta");
+}
+}
 

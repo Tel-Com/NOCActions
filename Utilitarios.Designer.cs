@@ -22,11 +22,9 @@ namespace NOC_Actions
 		private System.Windows.Forms.Button button6;
 		private System.Windows.Forms.Button button7;
 		private System.Windows.Forms.Button button8;
-		private System.Windows.Forms.Button button4;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Button button9;
+		private System.Windows.Forms.Button btnSave;
+		private System.Windows.Forms.Button btnClearField;
+		private System.Windows.Forms.Button btnExit;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label richTextBox_information;
 		private System.Windows.Forms.Label labelUserInformation;
@@ -55,11 +53,9 @@ namespace NOC_Actions
 			this.richTextBox_TextoUtilitario = new System.Windows.Forms.RichTextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.button9 = new System.Windows.Forms.Button();
-			this.button4 = new System.Windows.Forms.Button();
-			this.button3 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
+			this.btnExit = new System.Windows.Forms.Button();
+			this.btnSave = new System.Windows.Forms.Button();
+			this.btnClearField = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
 			this.button5 = new System.Windows.Forms.Button();
 			this.button6 = new System.Windows.Forms.Button();
@@ -78,7 +74,7 @@ namespace NOC_Actions
 			this.richTextBox_TextoUtilitario.Location = new System.Drawing.Point(12, 78);
 			this.richTextBox_TextoUtilitario.Name = "richTextBox_TextoUtilitario";
 			this.richTextBox_TextoUtilitario.Size = new System.Drawing.Size(488, 183);
-			this.richTextBox_TextoUtilitario.TabIndex = 0;
+			this.richTextBox_TextoUtilitario.TabIndex = 3;
 			this.richTextBox_TextoUtilitario.Text = "";
 			// 
 			// label1
@@ -91,11 +87,9 @@ namespace NOC_Actions
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.Color.Gray;
-			this.panel1.Controls.Add(this.button9);
-			this.panel1.Controls.Add(this.button4);
-			this.panel1.Controls.Add(this.button3);
-			this.panel1.Controls.Add(this.button2);
-			this.panel1.Controls.Add(this.button1);
+			this.panel1.Controls.Add(this.btnExit);
+			this.panel1.Controls.Add(this.btnSave);
+			this.panel1.Controls.Add(this.btnClearField);
 			this.panel1.Controls.Add(this.panel2);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1.Enabled = false;
@@ -104,55 +98,36 @@ namespace NOC_Actions
 			this.panel1.Size = new System.Drawing.Size(512, 60);
 			this.panel1.TabIndex = 2;
 			// 
-			// button9
+			// btnExit
 			// 
-			this.button9.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.button9.Location = new System.Drawing.Point(394, 25);
-			this.button9.Name = "button9";
-			this.button9.Size = new System.Drawing.Size(88, 30);
-			this.button9.TabIndex = 4;
-			this.button9.Text = "Sair";
-			this.button9.UseVisualStyleBackColor = true;
+			this.btnExit.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnExit.Location = new System.Drawing.Point(307, 25);
+			this.btnExit.Name = "btnExit";
+			this.btnExit.Size = new System.Drawing.Size(88, 30);
+			this.btnExit.TabIndex = 2;
+			this.btnExit.Text = "Sair";
+			this.btnExit.UseVisualStyleBackColor = true;
 			// 
-			// button4
+			// btnSave
 			// 
-			this.button4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.button4.Location = new System.Drawing.Point(304, 25);
-			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(88, 30);
-			this.button4.TabIndex = 3;
-			this.button4.Text = "Excluir";
-			this.button4.UseVisualStyleBackColor = true;
+			this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnSave.Location = new System.Drawing.Point(213, 25);
+			this.btnSave.Name = "btnSave";
+			this.btnSave.Size = new System.Drawing.Size(88, 30);
+			this.btnSave.TabIndex = 0;
+			this.btnSave.Text = "Salvar";
+			this.btnSave.UseVisualStyleBackColor = true;
 			// 
-			// button3
+			// btnClearField
 			// 
-			this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.button3.Location = new System.Drawing.Point(213, 25);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(88, 30);
-			this.button3.TabIndex = 2;
-			this.button3.Text = "Salvar";
-			this.button3.UseVisualStyleBackColor = true;
-			// 
-			// button2
-			// 
-			this.button2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.button2.Location = new System.Drawing.Point(122, 25);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(88, 30);
-			this.button2.TabIndex = 1;
-			this.button2.Text = "Apagar";
-			this.button2.UseVisualStyleBackColor = true;
-			// 
-			// button1
-			// 
-			this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.button1.Location = new System.Drawing.Point(31, 25);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(88, 30);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "Novo";
-			this.button1.UseVisualStyleBackColor = true;
+			this.btnClearField.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnClearField.Location = new System.Drawing.Point(119, 25);
+			this.btnClearField.Name = "btnClearField";
+			this.btnClearField.Size = new System.Drawing.Size(88, 30);
+			this.btnClearField.TabIndex = 1;
+			this.btnClearField.Text = "Apagar";
+			this.btnClearField.UseVisualStyleBackColor = true;
+			this.btnClearField.Click += new System.EventHandler(this.BtnClearFieldClick);
 			// 
 			// panel2
 			// 

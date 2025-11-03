@@ -62,9 +62,15 @@ namespace NOC_Actions
 		{
 			File.WriteAllText(caminhoArquivo, richTextBox_TextoUtilitario.Text);
 		}
-		void BtnCloseClick(object sender, EventArgs e)
+		
+		void BtnClearFieldClick(object sender, EventArgs e)
 		{
-			this.Close();
+			ClearField();
+		}
+		
+		void ClearField()
+		{
+			richTextBox_TextoUtilitario.Text = "";
 		}
 	}
 }
