@@ -1,6 +1,33 @@
-﻿05/11/2025
+﻿
+Removido o parametro abaixo da aba: MainForm.cs
 
-Pegado os buttons do utilitarios.cs e aplicado a posição "para frente"
-Trocado o tamanho da fonta da UcPossivelQuedaDeEnergia.cs para Segoe UI; 9,75pt; o mesmo se aplica para UcPendenciaFinanceiraInformes.cs; o mesmo se aplica para UcLiberacaoDeAcessoSemPrevisao.cs todos com Segoe UI; 9,75pt realizado também a troca de títulos e infomes de cada user control para o mesmo tipo de fonte
-Adicionado void CloseWindow() no utilitários.cs com o objetivo de fechar janela
-removido do mainform o button Utilitários e também o Utilitarios.cs por motivos de não necessidade de uso
+void BtnAcessosEUtilitariosClick(object sender, EventArgs e)
+{
+var open_window = new Utilitarios();
+open_window.Show();
+foreach (Form frm in Application.OpenForms)
+{
+if (frm is InterfaceClienteInformes)
+{
+frm.Hide();
+break;
+}
+}
+}
+
+Realizado a troca das fontes dos títulos das abas UcAlarmeDeLinkIndisponivel.cs, UcAberturaReparo.cs para Segoe UI; 9,75pt;
+Ajustado os label de orientações "horário da queda" para autosize e reposiciionado o label "Operadora"
+Realizado o reajuste no MMainForm no parametro void BtnAberturaDeMassivaClick(object sender, EventArgs e) o qual foi trocado o nome open_window para open_window_massiva.Show(); esta mudança permitiu que parasse o erro e permitissse que fosse aberto o formulario MassivaForm.cs
+renomeado variavel string const string msnValidacao = "Prezados, poderiam confirmar possível queda de energia na loja ";
+return msnValidacao para msnValidacao
+Removido o seguinte parâmetro pois o Uc (Uc_PendenciaFinanceira_UcDetalhamentoDeFatura()) dele, se encontra deletado por falta de uso não necessário no momento: void BtnViewInvoiceDetailsClick(object sender, EventArgs e)
+{
+this.Hide();
+var open_userControl_window = new Uc_PendenciaFinanceira_UcDetalhamentoDeFatura();
+this.Parent.Controls.Add(open_userControl_window);
+open_userControl_window.Dock = DockStyle.Fill;
+open_userControl_window.BringToFront();
+}
+Deixado o btnViewInvoiceDetails como Enabled True para uso; criado o seu parametro também, sendo ele BtnViewInvoiceDetailsClick
+Criado um novo button, denominado "Registrar Falha Intern" com name: btnRegistroDeFalhaInternaCliente. Objetivo: Criar um sistema para registro de clientes com falha e histórico interno, no qual a abertura de chamado se torna inútil
+adicionado o usercontrol UcDetalharFaturaDoCliente.cs para o detalhamento da fatura do Cliente como o nome proprio já sugere

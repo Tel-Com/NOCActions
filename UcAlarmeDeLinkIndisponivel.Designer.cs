@@ -81,26 +81,27 @@ namespace NOC_Actions
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label4.Location = new System.Drawing.Point(3, 1);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(130, 13);
+			this.label4.Size = new System.Drawing.Size(152, 17);
 			this.label4.TabIndex = 6;
 			this.label4.Text = "Mensagem a ser exibida";
 			// 
 			// label3
 			// 
+			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label3.Location = new System.Drawing.Point(68, 158);
+			this.label3.Location = new System.Drawing.Point(57, 162);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(100, 23);
+			this.label3.Size = new System.Drawing.Size(115, 17);
 			this.label3.TabIndex = 5;
 			this.label3.Text = "Horário da Queda";
 			// 
 			// label2
 			// 
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label2.Location = new System.Drawing.Point(68, 126);
+			this.label2.Location = new System.Drawing.Point(57, 126);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(100, 23);
 			this.label2.TabIndex = 4;
@@ -135,10 +136,10 @@ namespace NOC_Actions
 			// 
 			// label1
 			// 
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label1.Location = new System.Drawing.Point(3, 23);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(464, 35);
+			this.label1.Size = new System.Drawing.Size(464, 51);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Prezados, bom dia! Identificamos alarme do link da __ (operadora) indisponível as" +
 	" ___ (hh:mm). Iremos seguir com acionamento junto ao fornecedor.";

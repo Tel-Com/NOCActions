@@ -24,6 +24,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Button btnCloseWindow;
 		private System.Windows.Forms.Button btnViewInvoiceDetails;
+		private System.Windows.Forms.CheckBox checkBoxDetalharFatura;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -56,6 +57,7 @@ namespace NOC_Actions
 			this.label2 = new System.Windows.Forms.Label();
 			this.btnCloseWindow = new System.Windows.Forms.Button();
 			this.btnViewInvoiceDetails = new System.Windows.Forms.Button();
+			this.checkBoxDetalharFatura = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// label6
@@ -131,12 +133,11 @@ namespace NOC_Actions
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label2.Location = new System.Drawing.Point(34, 186);
+			this.label2.Location = new System.Drawing.Point(34, 188);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(429, 34);
+			this.label2.Size = new System.Drawing.Size(103, 17);
 			this.label2.TabIndex = 38;
-			this.label2.Text = "Você pode escolher \"detalhar\" para aprimorar e adicionar informações \r\nreferente " +
-	"ao Bloqueio Financeiro no respectivo contrato.";
+			this.label2.Text = "Detalhar Fatura?";
 			// 
 			// btnCloseWindow
 			// 
@@ -151,7 +152,6 @@ namespace NOC_Actions
 			// 
 			// btnViewInvoiceDetails
 			// 
-			this.btnViewInvoiceDetails.Enabled = false;
 			this.btnViewInvoiceDetails.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.btnViewInvoiceDetails.Location = new System.Drawing.Point(153, 315);
 			this.btnViewInvoiceDetails.Name = "btnViewInvoiceDetails";
@@ -161,10 +161,20 @@ namespace NOC_Actions
 			this.btnViewInvoiceDetails.UseVisualStyleBackColor = true;
 			this.btnViewInvoiceDetails.Click += new System.EventHandler(this.BtnViewInvoiceDetailsClick);
 			// 
+			// checkBoxDetalharFatura
+			// 
+			this.checkBoxDetalharFatura.AutoSize = true;
+			this.checkBoxDetalharFatura.Location = new System.Drawing.Point(146, 190);
+			this.checkBoxDetalharFatura.Name = "checkBoxDetalharFatura";
+			this.checkBoxDetalharFatura.Size = new System.Drawing.Size(15, 14);
+			this.checkBoxDetalharFatura.TabIndex = 39;
+			this.checkBoxDetalharFatura.UseVisualStyleBackColor = true;
+			// 
 			// UcPendenciaFinanceiraInformes
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.checkBoxDetalharFatura);
 			this.Controls.Add(this.btnViewInvoiceDetails);
 			this.Controls.Add(this.btnCloseWindow);
 			this.Controls.Add(this.label6);

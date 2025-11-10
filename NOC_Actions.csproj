@@ -50,6 +50,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UcDetalharFaturaDoCliente.cs" />
+    <Compile Include="UcDetalharFaturaDoCliente.Designer.cs">
+      <DependentUpon>UcDetalharFaturaDoCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="InterfaceClienteInformes.cs" />
     <Compile Include="InterfaceClienteInformes.Designer.cs">
       <DependentUpon>InterfaceClienteInformes.cs</DependentUpon>
@@ -96,10 +100,6 @@
     <Compile Include="UcPossivelQuedaDeEnergia.Designer.cs">
       <DependentUpon>UcPossivelQuedaDeEnergia.cs</DependentUpon>
     </Compile>
-    <Compile Include="Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.cs" />
-    <Compile Include="Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.Designer.cs">
-      <DependentUpon>Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="InterfaceClienteInformes.resx">
@@ -110,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcDetalharFaturaDoCliente.resx">
+      <DependentUpon>UcDetalharFaturaDoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UcLiberacaoAcessoComPrevisao.resx">
       <DependentUpon>UcLiberacaoAcessoComPrevisao.cs</DependentUpon>
@@ -138,9 +141,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UcPossivelQuedaDeEnergia.resx">
       <DependentUpon>UcPossivelQuedaDeEnergia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.resx">
-      <DependentUpon>Uc_PendenciaFinanceira_UcDetalhamentoDeFatura.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

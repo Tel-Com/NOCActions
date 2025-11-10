@@ -5,11 +5,14 @@ using System.Windows.Forms;
 
 namespace NOC_Actions
 {
-	public partial class Uc_PendenciaFinanceira_UcDetalhamentoDeFatura : UserControl
+	public partial class UcDetalharFaturaDoCliente : UserControl
 	{
-		public Uc_PendenciaFinanceira_UcDetalhamentoDeFatura()
+		public UcDetalharFaturaDoCliente()
 		{
 			InitializeComponent();
 		}
+		
+		
+			
 	}
 }

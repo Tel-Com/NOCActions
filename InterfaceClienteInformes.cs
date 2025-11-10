@@ -58,5 +58,12 @@ namespace NOC_Actions
 //			Prezados, constatamos a existência de um bloqueio administrativo-financeiro no contrato da unidade...
 			MostrarUserControl (new UcPendenciaFinanceiraInformes());
 		}
+		void BtnPendenciaFinanceiraClick(object sender, EventArgs e)
+		{
+//				Prezados, XXXXXXXX! Identificamos um Bloqueio Administratrivo Financeiro no Circuito XXXX. Poderiam checar? 
+			MostrarUserControl(new UcPendenciaFinanceiraInformes());
+			
+			
+		}
 	}
 }

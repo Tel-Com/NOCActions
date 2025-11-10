@@ -11,6 +11,9 @@
 
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.Panel painelInterface;
+		private System.Windows.Forms.Label label_userName;
+		private System.Windows.Forms.Button btnPendenciaFinanceira;
+		private System.Windows.Forms.Button btnRegistroDeFalhaInternaCliente;
 
 		protected override void Dispose(bool disposing)
 		{
@@ -30,7 +33,10 @@
 			this.btnLibAcessoComPrevisao = new System.Windows.Forms.Button();
 			this.btnAnaliseEnergia = new System.Windows.Forms.Button();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.btnPendenciaFinanceira = new System.Windows.Forms.Button();
+			this.label_userName = new System.Windows.Forms.Label();
 			this.painelInterface = new System.Windows.Forms.Panel();
+			this.btnRegistroDeFalhaInternaCliente = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
@@ -101,6 +107,9 @@
 			// splitContainer1.Panel1
 			// 
 			this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Gainsboro;
+			this.splitContainer1.Panel1.Controls.Add(this.btnRegistroDeFalhaInternaCliente);
+			this.splitContainer1.Panel1.Controls.Add(this.btnPendenciaFinanceira);
+			this.splitContainer1.Panel1.Controls.Add(this.label_userName);
 			this.splitContainer1.Panel1.Controls.Add(this.btnAnaliseEnergia);
 			this.splitContainer1.Panel1.Controls.Add(this.btnLibAcessoComPrevisao);
 			this.splitContainer1.Panel1.Controls.Add(this.btnLibAcessoSemPrevisao);
@@ -115,6 +124,28 @@
 			this.splitContainer1.SplitterDistance = 249;
 			this.splitContainer1.TabIndex = 0;
 			// 
+			// btnPendenciaFinanceira
+			// 
+			this.btnPendenciaFinanceira.Dock = System.Windows.Forms.DockStyle.Top;
+			this.btnPendenciaFinanceira.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnPendenciaFinanceira.Location = new System.Drawing.Point(0, 123);
+			this.btnPendenciaFinanceira.Name = "btnPendenciaFinanceira";
+			this.btnPendenciaFinanceira.Size = new System.Drawing.Size(249, 24);
+			this.btnPendenciaFinanceira.TabIndex = 5;
+			this.btnPendenciaFinanceira.Text = "Pendência Financeira";
+			this.btnPendenciaFinanceira.Click += new System.EventHandler(this.BtnPendenciaFinanceiraClick);
+			// 
+			// label_userName
+			// 
+			this.label_userName.AutoSize = true;
+			this.label_userName.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label_userName.ForeColor = System.Drawing.SystemColors.ControlDark;
+			this.label_userName.Location = new System.Drawing.Point(7, 356);
+			this.label_userName.Name = "label_userName";
+			this.label_userName.Size = new System.Drawing.Size(68, 17);
+			this.label_userName.TabIndex = 0;
+			this.label_userName.Text = "userName";
+			// 
 			// painelInterface
 			// 
 			this.painelInterface.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -122,6 +153,16 @@
 			this.painelInterface.Name = "painelInterface";
 			this.painelInterface.Size = new System.Drawing.Size(512, 380);
 			this.painelInterface.TabIndex = 0;
+			// 
+			// btnRegistroDeFalhaInternaCliente
+			// 
+			this.btnRegistroDeFalhaInternaCliente.Dock = System.Windows.Forms.DockStyle.Top;
+			this.btnRegistroDeFalhaInternaCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnRegistroDeFalhaInternaCliente.Location = new System.Drawing.Point(0, 147);
+			this.btnRegistroDeFalhaInternaCliente.Name = "btnRegistroDeFalhaInternaCliente";
+			this.btnRegistroDeFalhaInternaCliente.Size = new System.Drawing.Size(249, 24);
+			this.btnRegistroDeFalhaInternaCliente.TabIndex = 6;
+			this.btnRegistroDeFalhaInternaCliente.Text = "Registrar Falha Interna";
 			// 
 			// InterfaceClienteInformes
 			// 
@@ -135,6 +176,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "InterfaceClienteInformes";
 			this.splitContainer1.Panel1.ResumeLayout(false);
+			this.splitContainer1.Panel1.PerformLayout();
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);

@@ -12,6 +12,13 @@ namespace NOC_Actions
 		{
 			InitializeComponent();
 		}
+		
+		public LoginUser(string userName)
+		{
+			InitializeComponent();
+			userName += machinaNameUser;
+		}
+		
 		void BtnLoginClick(object sender, EventArgs e)
 		{
 			if (textBox1_userLogin.Text == machinaNameUser && textBox2_userPassword.Text == machinaNameUser) {

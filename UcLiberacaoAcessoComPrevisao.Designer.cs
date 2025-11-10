@@ -76,10 +76,10 @@ namespace NOC_Actions
 			// label4
 			// 
 			this.label4.AutoSize = true;
-			this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label4.Location = new System.Drawing.Point(3, 1);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(130, 13);
+			this.label4.Size = new System.Drawing.Size(152, 17);
 			this.label4.TabIndex = 15;
 			this.label4.Text = "Mensagem a ser exibida";
 			// 
@@ -96,18 +96,18 @@ namespace NOC_Actions
 			// 
 			// label1
 			// 
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-			this.label1.Location = new System.Drawing.Point(3, 22);
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(3, 17);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(464, 35);
+			this.label1.Size = new System.Drawing.Size(464, 82);
 			this.label1.TabIndex = 9;
 			this.label1.Text = "Prezados, necessário acionamento com a loja para liberação de acesso do(s) técnic" +
 	"o(s) abaixo. Previsão de chegada as __ (hh) OU no período da manhã/tarde/noite.";
 			// 
 			// label3
 			// 
-			this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-			this.label3.Location = new System.Drawing.Point(39, 251);
+			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label3.Location = new System.Drawing.Point(39, 257);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(391, 35);
 			this.label3.TabIndex = 23;
@@ -117,7 +117,7 @@ namespace NOC_Actions
 			// richTextBoxTechnicalData
 			// 
 			this.richTextBoxTechnicalData.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.richTextBoxTechnicalData.Location = new System.Drawing.Point(57, 94);
+			this.richTextBoxTechnicalData.Location = new System.Drawing.Point(57, 100);
 			this.richTextBoxTechnicalData.Name = "richTextBoxTechnicalData";
 			this.richTextBoxTechnicalData.Size = new System.Drawing.Size(359, 96);
 			this.richTextBoxTechnicalData.TabIndex = 0;
@@ -126,7 +126,7 @@ namespace NOC_Actions
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(39, 237);
+			this.label5.Location = new System.Drawing.Point(39, 243);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(391, 13);
 			this.label5.TabIndex = 21;
@@ -134,16 +134,18 @@ namespace NOC_Actions
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(39, 70);
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label2.Location = new System.Drawing.Point(34, 82);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(134, 23);
+			this.label2.Size = new System.Drawing.Size(144, 17);
 			this.label2.TabIndex = 20;
 			this.label2.Text = "Equipe Técnica (Dados)";
 			// 
 			// textBoxEstimatedArrival
 			// 
 			this.textBoxEstimatedArrival.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.textBoxEstimatedArrival.Location = new System.Drawing.Point(172, 211);
+			this.textBoxEstimatedArrival.Location = new System.Drawing.Point(172, 217);
 			this.textBoxEstimatedArrival.Name = "textBoxEstimatedArrival";
 			this.textBoxEstimatedArrival.Size = new System.Drawing.Size(237, 25);
 			this.textBoxEstimatedArrival.TabIndex = 1;
@@ -151,10 +153,10 @@ namespace NOC_Actions
 			// label6
 			// 
 			this.label6.AutoSize = true;
-			this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-			this.label6.Location = new System.Drawing.Point(56, 217);
+			this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label6.Location = new System.Drawing.Point(34, 221);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(114, 13);
+			this.label6.Size = new System.Drawing.Size(132, 17);
 			this.label6.TabIndex = 25;
 			this.label6.Text = "Previsão de Chagada";
 			// 

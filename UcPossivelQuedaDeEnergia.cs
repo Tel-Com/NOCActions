@@ -13,8 +13,8 @@ namespace NOC_Actions
 		private string GetCustomerNotificationMessage()
 		{
 			string getValueUnidadeComQueda = txtUnitName.Text.Trim();
-			const string prezadosPoderiamConfirmarPossívelQuedaDeEnergiaNaLoja = "Prezados, poderiam confirmar possível queda de energia na loja ";
-			return prezadosPoderiamConfirmarPossívelQuedaDeEnergiaNaLoja
+			const string msnValidacao = "Prezados, poderiam confirmar possível queda de energia na loja ";
+			return msnValidacao
 				+ getValueUnidadeComQueda + "? Constatamos que ambos os links estão indisponíveis neste momento.";
 		}
 		
@@ -44,6 +44,5 @@ namespace NOC_Actions
 		{
 			this.FindForm().Close();
 		}
-		
 	}
 }

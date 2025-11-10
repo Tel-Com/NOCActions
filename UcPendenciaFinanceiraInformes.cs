@@ -10,29 +10,33 @@ namespace NOC_Actions
 			InitializeComponent();
 		}
 		
+		private void MostrarUserControl(UserControl uc)
+		{
+			this.Controls.Clear();
+			uc.Dock = DockStyle.Fill;
+			this.Controls.Add(uc);
+		}
+		
 		private string GetCustomerNotificationMessage()
 		{
 			return "Prezados, informamos que foi identificado um bloqueio de natureza administrativo-financeira no contrato da unidade: " + Environment.NewLine + Environment.NewLine + txtFinBlockUnitName.Text.Trim();
+			
+			if (checkBoxDetalharFatura.Checked)
+			{
+				
+			}
+			
 		}
 		void BtnCloseWindowClick(object sender, EventArgs e)
 		{
 			CloseWindow();
 		}
 		
-		void BtnViewInvoiceDetailsClick(object sender, EventArgs e)
-		{
-			this.Hide();
-			var open_userControl_window = new Uc_PendenciaFinanceira_UcDetalhamentoDeFatura();
-			this.Parent.Controls.Add(open_userControl_window);
-			open_userControl_window.Dock = DockStyle.Fill;
-			open_userControl_window.BringToFront();
-		}
-		
 		void BtnClearFieldsClick(object sender, EventArgs e)
 		{
 			ClearField();
 		}
-		
+
 		void BtnSaveAndCopyClick(object sender, EventArgs e)
 		{
 			string msn = GetCustomerNotificationMessage();
@@ -40,6 +44,10 @@ namespace NOC_Actions
 			ClearField();
 		}
 		
+		void BtnViewInvoiceDetailsClick(object sender, EventArgs e)
+		{
+			MostrarUserControl(new UcDetalharFaturaDoCliente());
+		}
 		void ClearField()
 		{
 			txtFinBlockUnitName.Text="";
@@ -49,6 +57,5 @@ namespace NOC_Actions
 		{
 			this.FindForm().Close();
 		}
-		
 	}
 }

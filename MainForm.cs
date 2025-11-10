@@ -72,7 +72,7 @@ namespace NOC_Actions
 		void BtnAberturaDeMassivaClick(object sender, EventArgs e)
 		{
 			MassivaForm open_window_massiva = new MassivaForm();
-			open_window.Show();
+			open_window_massiva.Show();
 		}
 		
 		InterfaceClienteInformes open_window = null;
@@ -111,20 +111,6 @@ namespace NOC_Actions
 			
 			open_window.Show();
 			btnInformesClientes.Text = "Fechar";
-		}
-
-		void BtnAcessosEUtilitariosClick(object sender, EventArgs e)
-		{
-			var open_window = new Utilitarios();
-			open_window.Show();
-			foreach (Form frm in Application.OpenForms)
-			{
-				if (frm is InterfaceClienteInformes)
-				{
-					frm.Hide();
-					break;
-				}
-			}
 		}
 	}
 }
