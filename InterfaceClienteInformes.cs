@@ -62,8 +62,6 @@ namespace NOC_Actions
 		{
 //				Prezados, XXXXXXXX! Identificamos um Bloqueio Administratrivo Financeiro no Circuito XXXX. Poderiam checar? 
 			MostrarUserControl(new UcPendenciaFinanceiraInformes());
-			
-			
 		}
 	}
 }

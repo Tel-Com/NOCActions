@@ -22,6 +22,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.Button btnLogin;
 		private System.Windows.Forms.Button btnSair;
 		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label4;
 		
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -52,6 +53,7 @@ namespace NOC_Actions
 			this.label3 = new System.Windows.Forms.Label();
 			this.btnLogin = new System.Windows.Forms.Button();
 			this.btnSair = new System.Windows.Forms.Button();
+			this.label4 = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -114,7 +116,7 @@ namespace NOC_Actions
 			// btnLogin
 			// 
 			this.btnLogin.ForeColor = System.Drawing.Color.Black;
-			this.btnLogin.Location = new System.Drawing.Point(293, 113);
+			this.btnLogin.Location = new System.Drawing.Point(299, 136);
 			this.btnLogin.Name = "btnLogin";
 			this.btnLogin.Size = new System.Drawing.Size(79, 26);
 			this.btnLogin.TabIndex = 5;
@@ -125,7 +127,7 @@ namespace NOC_Actions
 			// btnSair
 			// 
 			this.btnSair.ForeColor = System.Drawing.Color.Black;
-			this.btnSair.Location = new System.Drawing.Point(212, 113);
+			this.btnSair.Location = new System.Drawing.Point(218, 136);
 			this.btnSair.Name = "btnSair";
 			this.btnSair.Size = new System.Drawing.Size(79, 26);
 			this.btnSair.TabIndex = 6;
@@ -133,11 +135,24 @@ namespace NOC_Actions
 			this.btnSair.UseVisualStyleBackColor = true;
 			this.btnSair.Click += new System.EventHandler(this.BtnSairClick);
 			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.BackColor = System.Drawing.SystemColors.Control;
+			this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.ForeColor = System.Drawing.Color.Gainsboro;
+			this.label4.Location = new System.Drawing.Point(1, 102);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(388, 21);
+			this.label4.TabIndex = 7;
+			this.label4.Text = "______________________________________________________";
+			// 
 			// LoginUser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(390, 148);
+			this.ClientSize = new System.Drawing.Size(390, 174);
+			this.Controls.Add(this.label4);
 			this.Controls.Add(this.btnSair);
 			this.Controls.Add(this.btnLogin);
 			this.Controls.Add(this.panel1);
@@ -154,7 +169,7 @@ namespace NOC_Actions
 			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
-			this.PerformLayout();
+
 		}
 
 	}

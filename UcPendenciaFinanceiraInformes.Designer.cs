@@ -169,6 +169,8 @@ namespace NOC_Actions
 			this.checkBoxDetalharFatura.Size = new System.Drawing.Size(15, 14);
 			this.checkBoxDetalharFatura.TabIndex = 39;
 			this.checkBoxDetalharFatura.UseVisualStyleBackColor = true;
+			this.checkBoxDetalharFatura.CheckedChanged += new System.EventHandler(this.checkBoxDetalharFatura_CheckedChanged);
+
 			// 
 			// UcPendenciaFinanceiraInformes
 			// 

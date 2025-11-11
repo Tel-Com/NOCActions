@@ -1,33 +1,6 @@
-﻿
-Removido o parametro abaixo da aba: MainForm.cs
-
-void BtnAcessosEUtilitariosClick(object sender, EventArgs e)
-{
-var open_window = new Utilitarios();
-open_window.Show();
-foreach (Form frm in Application.OpenForms)
-{
-if (frm is InterfaceClienteInformes)
-{
-frm.Hide();
-break;
-}
-}
-}
-
-Realizado a troca das fontes dos títulos das abas UcAlarmeDeLinkIndisponivel.cs, UcAberturaReparo.cs para Segoe UI; 9,75pt;
-Ajustado os label de orientações "horário da queda" para autosize e reposiciionado o label "Operadora"
-Realizado o reajuste no MMainForm no parametro void BtnAberturaDeMassivaClick(object sender, EventArgs e) o qual foi trocado o nome open_window para open_window_massiva.Show(); esta mudança permitiu que parasse o erro e permitissse que fosse aberto o formulario MassivaForm.cs
-renomeado variavel string const string msnValidacao = "Prezados, poderiam confirmar possível queda de energia na loja ";
-return msnValidacao para msnValidacao
-Removido o seguinte parâmetro pois o Uc (Uc_PendenciaFinanceira_UcDetalhamentoDeFatura()) dele, se encontra deletado por falta de uso não necessário no momento: void BtnViewInvoiceDetailsClick(object sender, EventArgs e)
-{
-this.Hide();
-var open_userControl_window = new Uc_PendenciaFinanceira_UcDetalhamentoDeFatura();
-this.Parent.Controls.Add(open_userControl_window);
-open_userControl_window.Dock = DockStyle.Fill;
-open_userControl_window.BringToFront();
-}
-Deixado o btnViewInvoiceDetails como Enabled True para uso; criado o seu parametro também, sendo ele BtnViewInvoiceDetailsClick
-Criado um novo button, denominado "Registrar Falha Intern" com name: btnRegistroDeFalhaInternaCliente. Objetivo: Criar um sistema para registro de clientes com falha e histórico interno, no qual a abertura de chamado se torna inútil
-adicionado o usercontrol UcDetalharFaturaDoCliente.cs para o detalhamento da fatura do Cliente como o nome proprio já sugere
+﻿nomeados os campos da UcDetalharFaturaDoCliente.cs
+adicionado btnAnexar no UcDetalharFaturaDoCliente.cs
+Ajustado o desing da tela de login, sendo ela a LoginUser.cs
+Adicionado o evento BtnDuvidaClick para retornar a aplicação anterior do user control UcPendenciaFinanceiraInformes.cs
+criado private string DetalhamentoDeFatura() no UcDetalharFaturaDoCliente.cs para análise dos preenchimentos e aplicar o informe necessário quando registrado nos campos; adicionado também 		private bool AnaliseDeCamposVazios() para checar se os campos estão preenchidos corretamente elém de personalizar os estilos dos campos do form; adicionado btnDuvida para tirar dúvidas de como usar a ferramenta Corrigido a frase do UcDetalharFaturaDoCliente.cs, haja vista que a posição das palavras do informes estavam sem semantica do portugues e haviam a nacessiade de correção de espaço
+Adicionado this.checkBoxDetalharFatura.CheckedChanged += new System.EventHandler(this.checkBoxDetalharFatura_CheckedChanged); no UcPendenciaFinanceiraInformes.Design.cs com o objetivo de habilitar e desabilitar o uso do button de detalhamento da fatura que dá acesso ao UcControl: UcDetalharFaturaDoCliente.cs

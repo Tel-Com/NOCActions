@@ -8,6 +8,8 @@ namespace NOC_Actions
 		public UcPendenciaFinanceiraInformes()
 		{
 			InitializeComponent();
+			
+			btnViewInvoiceDetails.Enabled = false;
 		}
 		
 		private void MostrarUserControl(UserControl uc)
@@ -15,18 +17,14 @@ namespace NOC_Actions
 			this.Controls.Clear();
 			uc.Dock = DockStyle.Fill;
 			this.Controls.Add(uc);
+			
 		}
 		
 		private string GetCustomerNotificationMessage()
 		{
 			return "Prezados, informamos que foi identificado um bloqueio de natureza administrativo-financeira no contrato da unidade: " + Environment.NewLine + Environment.NewLine + txtFinBlockUnitName.Text.Trim();
-			
-			if (checkBoxDetalharFatura.Checked)
-			{
-				
-			}
-			
 		}
+
 		void BtnCloseWindowClick(object sender, EventArgs e)
 		{
 			CloseWindow();
@@ -42,6 +40,11 @@ namespace NOC_Actions
 			string msn = GetCustomerNotificationMessage();
 			Clipboard.SetText(msn);
 			ClearField();
+		}
+		
+		void checkBoxDetalharFatura_CheckedChanged(object sender, EventArgs e)
+		{
+			btnViewInvoiceDetails.Enabled = checkBoxDetalharFatura.Checked;
 		}
 		
 		void BtnViewInvoiceDetailsClick(object sender, EventArgs e)
