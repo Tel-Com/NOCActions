@@ -1,2 +1,1 @@
-﻿alterado textBox da 'Unidade' para ComboBox para opção de escolhas e a implementação do autocomplete
-adicionado a opção 'unidade' no Config_UcDetalharFaturaDoCliente.cs; renomeado comboBox e outros elementos que fazem parte do userControl
+﻿
