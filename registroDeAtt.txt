@@ -1,1 +1,3 @@
-﻿
+﻿declarado BtnRegistroDeFalhaInternaClienteClick() - ainda sem uso para definição de uso
+using 'using System.IO;' e 'using System.Linq;' adicionado no Config_UcDetalharFaturaDoCliente.cs para o uso de Path
+adicionado parametros SalvarItensNoArquivo_Operadora, RegistrarNoArquivo e CarregarOperadoraSalva para salvar as operadora no combobox na sessão Config_UcDetalharFaturaDoCliente;

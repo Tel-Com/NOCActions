@@ -133,6 +133,7 @@
 			this.btnRegistroDeFalhaInternaCliente.Size = new System.Drawing.Size(268, 24);
 			this.btnRegistroDeFalhaInternaCliente.TabIndex = 6;
 			this.btnRegistroDeFalhaInternaCliente.Text = "Registrar Ocorrência Interna";
+			this.btnRegistroDeFalhaInternaCliente.Click += new System.EventHandler(this.BtnRegistroDeFalhaInternaClienteClick);
 			// 
 			// btnPendenciaFinanceira
 			// 

@@ -32,6 +32,14 @@ namespace NOC_Actions
 				SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
 			}
 		}
+		
+		private void MostrarUserControl(UserControl uc)
+		{
+			this.Controls.Clear();
+			uc.Dock = DockStyle.Fill;
+			this.Controls.Add(uc);
+		}
+		
 
 //		 Eventos de clique dos botões que copiam mensagens padronizadas para a área de transferência
 		void SemEnergiaClick(object sender, EventArgs e)
@@ -113,9 +121,6 @@ namespace NOC_Actions
 			btnInformesClientes.Text = "Fechar";
 		}
 
-		void BtnMensagemEletrônicaClick(object sender, EventArgs e)
-		{
-	
-		}
+		void BtnMensagemEletrônicaClick(object sender, EventArgs e) {}
 	}
 }

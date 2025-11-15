@@ -71,6 +71,7 @@ namespace NOC_Actions
 			string msn = DetalhamentoDeFatura();
 			Clipboard.SetText(msn);
 		}
+		
 		void BtnConfigFormClick(object sender, EventArgs e)
 		{
 			MostrarUserControl(new Config_UcDetalharFaturaDoCliente());
