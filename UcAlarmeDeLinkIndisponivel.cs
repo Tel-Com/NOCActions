@@ -69,7 +69,56 @@ namespace NOC_Actions
 			}
 		}
 
+		private void DeletarInformesSelecionado()
+		{
+			if (comboBoxCarrierName.SelectedItem == null)
+			{
+				MessageBox.Show("Nenhum item selecionado para excluir.");
+				return;
+			}
 
+			string itemSelecionado = comboBoxCarrierName.SelectedItem.ToString();
+			comboBoxCarrierName.Items.Remove(itemSelecionado);
+
+			// Atualiza o arquivo com os itens restantes
+			File.WriteAllLines(Uc_AlarmeDeLinkIndisponivel_arquivoOperadora, comboBoxCarrierName.Items.Cast<string>());
+
+			MessageBox.Show("Item removido com sucesso!");
+		}
+
+		
+		private void DeletarListaDeInformesCompleta()
+		{
+			if (comboBoxCarrierName.Items.Count == 0)
+			{
+				MessageBox.Show("A lista já está vazia.");
+				return;
+			}
+
+			if (MessageBox.Show("Deseja realmente apagar toda a lista?",
+			                    "Confirmação",
+			                    MessageBoxButtons.YesNo,
+			                    MessageBoxIcon.Warning) == DialogResult.Yes)
+			{
+				comboBoxCarrierName.Items.Clear();
+				File.WriteAllText(Uc_AlarmeDeLinkIndisponivel_arquivoOperadora, "");
+				
+				MessageBox.Show("Lista completamente apagada!");
+			}
+		}
+
+		
+		void BtnDeletarTodosOsItensSelecionadosDaListaClick(object sender, EventArgs e)
+		{
+			DeletarListaDeInformesCompleta();
+		}
+
+		void BtnDeletarItemSelecionadoDaListaClick(object sender, EventArgs e)
+		{
+			DeletarInformesSelecionado();
+		}
+
+		
 		void BtnCloseWindowClick(object sender, EventArgs e)
 		{
 			CloseWindow();
@@ -99,9 +148,50 @@ namespace NOC_Actions
 		{
 			this.FindForm().Close();
 		}
+		void CheckBox1CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox_Sim.Checked) {
+				DesativarElementosNoFormTemporariamente(true);
+			}
+		}
+		void CheckBox2CheckedChanged(object sender, EventArgs e)
+		{
+			if (checkBox_Não.Checked) {
+				checkBox_Sim.Checked = false;
+				DesativarElementosNoFormTemporariamente(false);
+			}
+		}
+		
+		void DesativarElementosNoFormTemporariamente(bool modoAtivo)
+		{
+			if (modoAtivo) {
+				checkBox_Não.Checked = false;
+				btnDeletarItemSelecionadoDaLista.Enabled = true;
+				btnDeletarTodosOsItensSelecionadosDaLista.Enabled = true;
+				
+				labelModoDiretor.Visible = true;
+				btnSaveAndCopy.Enabled = false;
+				btnClearFields.Enabled = false;
+				btnPrevia.Enabled = false;
+				textBoxDowntime.Enabled = false;
+				
+				labelAvisoDeUso.Visible = true;
+				labelAvisoDeUso.Text = "Deletar Lista: Esta ação apagará todos os itens da lista.\nDeletar Selecionado: Esta ação apagará apenas o item atualmente\nselecionado.";
+			}
+			else
+			{
+				checkBox_Sim.Checked = false;
+				btnDeletarItemSelecionadoDaLista.Enabled = false;
+				btnDeletarTodosOsItensSelecionadosDaLista.Enabled = false;
+				
+				labelModoDiretor.Visible = false;
+				labelAvisoDeUso.Visible = false;
+				
+				btnSaveAndCopy.Enabled = true;
+				btnClearFields.Enabled = true;
+				btnPrevia.Enabled = true;
+				textBoxDowntime.Enabled = true;
+			}
+		}
 	}
 }
-
-
-// declarado variavel para armazenamento em 'txt' das operadoras no UcAlarmeDeLinkIndisponivel
-// adicionado parametros para salvar e dar vida ao sistema de autocomplete no UcAlarmeDeLinkIndisponivel

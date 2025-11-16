@@ -24,6 +24,14 @@ namespace NOC_Actions
 		private System.Windows.Forms.Button btnClearFields;
 		private System.Windows.Forms.Label title_ExemploDeMensagem;
 		private System.Windows.Forms.Button btnCloseWindow;
+		private System.Windows.Forms.Button btnDeletarTodosOsItensSelecionadosDaLista;
+		private System.Windows.Forms.Button btnDeletarItemSelecionadoDaLista;
+		private System.Windows.Forms.Button btnPrevia;
+		private System.Windows.Forms.CheckBox checkBox_Sim;
+		private System.Windows.Forms.CheckBox checkBox_Não;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label labelAvisoDeUso;
+		private System.Windows.Forms.Label labelModoDiretor;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -56,6 +64,14 @@ namespace NOC_Actions
 			this.title_ExemploDeMensagem = new System.Windows.Forms.Label();
 			this.btnCloseWindow = new System.Windows.Forms.Button();
 			this.comboBoxCarrierName = new System.Windows.Forms.ComboBox();
+			this.btnDeletarTodosOsItensSelecionadosDaLista = new System.Windows.Forms.Button();
+			this.btnDeletarItemSelecionadoDaLista = new System.Windows.Forms.Button();
+			this.btnPrevia = new System.Windows.Forms.Button();
+			this.checkBox_Sim = new System.Windows.Forms.CheckBox();
+			this.checkBox_Não = new System.Windows.Forms.CheckBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.labelAvisoDeUso = new System.Windows.Forms.Label();
+			this.labelModoDiretor = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label5
@@ -162,11 +178,123 @@ namespace NOC_Actions
 			this.comboBoxCarrierName.Size = new System.Drawing.Size(196, 25);
 			this.comboBoxCarrierName.TabIndex = 0;
 			// 
+			// btnDeletarTodosOsItensSelecionadosDaLista
+			// 
+			this.btnDeletarTodosOsItensSelecionadosDaLista.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnDeletarTodosOsItensSelecionadosDaLista.Enabled = false;
+			this.btnDeletarTodosOsItensSelecionadosDaLista.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnDeletarTodosOsItensSelecionadosDaLista.Location = new System.Drawing.Point(339, 219);
+			this.btnDeletarTodosOsItensSelecionadosDaLista.Name = "btnDeletarTodosOsItensSelecionadosDaLista";
+			this.btnDeletarTodosOsItensSelecionadosDaLista.Size = new System.Drawing.Size(96, 40);
+			this.btnDeletarTodosOsItensSelecionadosDaLista.TabIndex = 9;
+			this.btnDeletarTodosOsItensSelecionadosDaLista.Text = "Deletar Lista";
+			this.btnDeletarTodosOsItensSelecionadosDaLista.UseVisualStyleBackColor = true;
+			this.btnDeletarTodosOsItensSelecionadosDaLista.Click += new System.EventHandler(this.BtnDeletarTodosOsItensSelecionadosDaListaClick);
+			// 
+			// btnDeletarItemSelecionadoDaLista
+			// 
+			this.btnDeletarItemSelecionadoDaLista.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnDeletarItemSelecionadoDaLista.Enabled = false;
+			this.btnDeletarItemSelecionadoDaLista.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnDeletarItemSelecionadoDaLista.Location = new System.Drawing.Point(200, 219);
+			this.btnDeletarItemSelecionadoDaLista.Name = "btnDeletarItemSelecionadoDaLista";
+			this.btnDeletarItemSelecionadoDaLista.Size = new System.Drawing.Size(133, 40);
+			this.btnDeletarItemSelecionadoDaLista.TabIndex = 10;
+			this.btnDeletarItemSelecionadoDaLista.Text = "Deletar Selecionado";
+			this.btnDeletarItemSelecionadoDaLista.UseVisualStyleBackColor = true;
+			this.btnDeletarItemSelecionadoDaLista.Click += new System.EventHandler(this.BtnDeletarItemSelecionadoDaListaClick);
+			// 
+			// btnPrevia
+			// 
+			this.btnPrevia.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnPrevia.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnPrevia.Location = new System.Drawing.Point(153, 315);
+			this.btnPrevia.Name = "btnPrevia";
+			this.btnPrevia.Size = new System.Drawing.Size(96, 44);
+			this.btnPrevia.TabIndex = 11;
+			this.btnPrevia.Text = "Prévia";
+			this.btnPrevia.UseVisualStyleBackColor = true;
+			// 
+			// checkBox_Sim
+			// 
+			this.checkBox_Sim.AutoSize = true;
+			this.checkBox_Sim.BackColor = System.Drawing.Color.Transparent;
+			this.checkBox_Sim.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.checkBox_Sim.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.checkBox_Sim.Location = new System.Drawing.Point(52, 236);
+			this.checkBox_Sim.Name = "checkBox_Sim";
+			this.checkBox_Sim.Size = new System.Drawing.Size(48, 21);
+			this.checkBox_Sim.TabIndex = 12;
+			this.checkBox_Sim.Text = "Sim";
+			this.checkBox_Sim.UseVisualStyleBackColor = false;
+			this.checkBox_Sim.CheckedChanged += new System.EventHandler(this.CheckBox1CheckedChanged);
+			// 
+			// checkBox_Não
+			// 
+			this.checkBox_Não.AutoSize = true;
+			this.checkBox_Não.BackColor = System.Drawing.Color.Transparent;
+			this.checkBox_Não.Checked = true;
+			this.checkBox_Não.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBox_Não.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.checkBox_Não.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.checkBox_Não.Location = new System.Drawing.Point(98, 236);
+			this.checkBox_Não.Name = "checkBox_Não";
+			this.checkBox_Não.Size = new System.Drawing.Size(52, 21);
+			this.checkBox_Não.TabIndex = 13;
+			this.checkBox_Não.Text = "Não";
+			this.checkBox_Não.UseVisualStyleBackColor = false;
+			this.checkBox_Não.CheckedChanged += new System.EventHandler(this.CheckBox2CheckedChanged);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.BackColor = System.Drawing.Color.Transparent;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label1.Location = new System.Drawing.Point(44, 216);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(73, 17);
+			this.label1.TabIndex = 14;
+			this.label1.Text = "Operadora";
+			// 
+			// labelAvisoDeUso
+			// 
+			this.labelAvisoDeUso.AutoSize = true;
+			this.labelAvisoDeUso.BackColor = System.Drawing.Color.Transparent;
+			this.labelAvisoDeUso.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.labelAvisoDeUso.ForeColor = System.Drawing.Color.Red;
+			this.labelAvisoDeUso.Location = new System.Drawing.Point(44, 260);
+			this.labelAvisoDeUso.Name = "labelAvisoDeUso";
+			this.labelAvisoDeUso.Size = new System.Drawing.Size(39, 17);
+			this.labelAvisoDeUso.TabIndex = 15;
+			this.labelAvisoDeUso.Text = "Aviso";
+			this.labelAvisoDeUso.Visible = false;
+			// 
+			// labelModoDiretor
+			// 
+			this.labelModoDiretor.AutoSize = true;
+			this.labelModoDiretor.BackColor = System.Drawing.Color.Transparent;
+			this.labelModoDiretor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.labelModoDiretor.ForeColor = System.Drawing.Color.Red;
+			this.labelModoDiretor.Location = new System.Drawing.Point(325, 6);
+			this.labelModoDiretor.Name = "labelModoDiretor";
+			this.labelModoDiretor.Size = new System.Drawing.Size(142, 17);
+			this.labelModoDiretor.TabIndex = 16;
+			this.labelModoDiretor.Text = "Modo Diretor ativado";
+			this.labelModoDiretor.Visible = false;
+			// 
 			// UcAlarmeDeLinkIndisponivel
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
+			this.Controls.Add(this.labelModoDiretor);
+			this.Controls.Add(this.labelAvisoDeUso);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.checkBox_Não);
+			this.Controls.Add(this.checkBox_Sim);
+			this.Controls.Add(this.btnPrevia);
+			this.Controls.Add(this.btnDeletarTodosOsItensSelecionadosDaLista);
+			this.Controls.Add(this.btnDeletarItemSelecionadoDaLista);
 			this.Controls.Add(this.comboBoxCarrierName);
 			this.Controls.Add(this.btnCloseWindow);
 			this.Controls.Add(this.label5);

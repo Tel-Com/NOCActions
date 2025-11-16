@@ -332,6 +332,7 @@
 			this.btnDeletarLista.TabIndex = 30;
 			this.btnDeletarLista.Text = "Deletar Lista";
 			this.btnDeletarLista.UseVisualStyleBackColor = true;
+			this.btnDeletarLista.Click += new System.EventHandler(this.BtnDeletarListaClick);
 			// 
 			// btnDeletarItemSelecionadoNaLista
 			// 
@@ -344,6 +345,7 @@
 			this.btnDeletarItemSelecionadoNaLista.TabIndex = 31;
 			this.btnDeletarItemSelecionadoNaLista.Text = "Deletar Selecionado";
 			this.btnDeletarItemSelecionadoNaLista.UseVisualStyleBackColor = true;
+			this.btnDeletarItemSelecionadoNaLista.Click += new System.EventHandler(this.BtnDeletarItemSelecionadoNaListaClick);
 			// 
 			// panel1
 			// 

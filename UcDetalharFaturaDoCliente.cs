@@ -133,6 +133,52 @@ namespace NOC_Actions
 			}
 		}
 		
+		private void DeletarInformesSelecionado(ComboBox comboBox, string arquivoTxt)
+		{
+			if (comboBox.SelectedItem == null)
+			{
+				MessageBox.Show("Nenhum item selecionado para excluir.");
+				return;
+			}
+
+			string itemSelecionado = comboBox.SelectedItem.ToString();
+			comboBox.Items.Remove(itemSelecionado);
+
+			File.WriteAllLines(arquivoTxt, comboBox.Items.Cast<string>());
+
+			MessageBox.Show("Item removido com sucesso!");
+		}
+
+		private void DeletarListaDeInformesCompleta(ComboBox comboBox, string arquivoTxt)
+		{
+			if (comboBox.Items.Count == 0)
+			{
+				MessageBox.Show("A lista já está vazia.");
+				return;
+			}
+
+			if (MessageBox.Show("Deseja realmente apagar toda a lista?",
+			                    "Confirmação",
+			                    MessageBoxButtons.YesNo,
+			                    MessageBoxIcon.Warning) == DialogResult.Yes)
+			{
+				comboBox.Items.Clear();
+				File.WriteAllText(arquivoTxt, "");
+				MessageBox.Show("Lista completamente apagada!");
+			}
+		}
+
+		
+		void BtnDeletarItemSelecionadoNaListaClick(object sender, EventArgs e)
+		{
+			DeletarInformesSelecionado(comboBox_UnidadeASerNotificada, arquivo_unidadeComPendenciaFinanceira);
+		}
+		
+		void BtnDeletarListaClick(object sender, EventArgs e)
+		{
+			DeletarListaDeInformesCompleta(comboBox_UnidadeASerNotificada, arquivo_unidadeComPendenciaFinanceira);
+		}
+		
 		void BtnPreviaClick(object sender, EventArgs e)
 		{
 			string previa = DetalhamentoDeFatura();
@@ -174,7 +220,6 @@ namespace NOC_Actions
 				DesabilitarComponentesQuandoOModoEditorForAtivado(false);
 			}
 		}
-
 		
 		void DesabilitarComponentesQuandoOModoEditorForAtivado(bool modoAtivo)
 		{
