@@ -118,5 +118,11 @@ namespace NOC_Actions
 		{
 			MostrarUserControl(new UcDetalharFaturaDoCliente());
 		}
+		
+		void BtnVerRegistrosClick(object sender, EventArgs e)
+		{
+			Uc_BancoDeArmazenamentoDeDados openForm_BancoDeArmazenamentoDeDados = new Uc_BancoDeArmazenamentoDeDados();
+			openForm_BancoDeArmazenamentoDeDados.Show();
+		}
 	}
 }

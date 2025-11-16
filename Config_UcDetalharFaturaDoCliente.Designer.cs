@@ -181,6 +181,7 @@
 			this.btnVerRegistros.TabIndex = 39;
 			this.btnVerRegistros.Text = "Mostrar Registros";
 			this.btnVerRegistros.UseVisualStyleBackColor = true;
+			this.btnVerRegistros.Click += new System.EventHandler(this.BtnVerRegistrosClick);
 			// 
 			// Config_UcDetalharFaturaDoCliente
 			// 

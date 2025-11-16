@@ -1,3 +1,4 @@
-﻿adicionado no detalhamento da fatura a opção de informes sobre religue por confiança
-ajustado o design de alguns buttons
-criado o user controle Uc_BancoDeArmazenamentoDeDados.cs com a finalidade de listar todas as informações salvas pelo usuário
+﻿deletado por questão de UX, o Condif_UcDetalharFaturaDoCliente.cs; será aplicado agora diretamente o modo de salvar em arquivo dentro do proprio userControl, facilitando e agilizando o processo como um todo
+adicionado modo diretor no qual permite com que o usuário faça a edição dos campos que deseja e também, aplicado um modo de segurança onde bloqueia outras ações no Form do userControl não deixando que o usuário faça outra coisa a nãos ser editar quando a opção Check editar estiver ativada no momento
+adicionado também o bloqueio de deixar dois Check ativados ao mesmo tempo
+adicionado no UcDetalharFaturaDoCliente.cs sistema de salvamento no txt

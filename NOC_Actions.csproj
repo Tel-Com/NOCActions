@@ -50,10 +50,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config_UcDetalharFaturaDoCliente.cs" />
-    <Compile Include="Config_UcDetalharFaturaDoCliente.Designer.cs">
-      <DependentUpon>Config_UcDetalharFaturaDoCliente.cs</DependentUpon>
-    </Compile>
     <Compile Include="UcDetalharFaturaDoCliente.cs" />
     <Compile Include="UcDetalharFaturaDoCliente.Designer.cs">
       <DependentUpon>UcDetalharFaturaDoCliente.cs</DependentUpon>
@@ -110,9 +106,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Config_UcDetalharFaturaDoCliente.resx">
-      <DependentUpon>Config_UcDetalharFaturaDoCliente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="InterfaceClienteInformes.resx">
       <DependentUpon>InterfaceClienteInformes.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UcPossivelQuedaDeEnergia.resx">
       <DependentUpon>UcPossivelQuedaDeEnergia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uc_BancoDeArmazenamentoDeDados.resx">
+      <DependentUpon>Uc_BancoDeArmazenamentoDeDados.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

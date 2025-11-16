@@ -24,9 +24,15 @@
 		private System.Windows.Forms.MaskedTextBox maskedTextBox_ValorDaFatura;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.ComboBox textBox_StatusDaFatura;
-		private System.Windows.Forms.Label btnConfigForm;
 		private System.Windows.Forms.ComboBox textBox_TipoDeOperadoraDoContrato;
 		private System.Windows.Forms.ComboBox comboBox_UnidadeASerNotificada;
+		private System.Windows.Forms.Button btnDeletarLista;
+		private System.Windows.Forms.Button btnDeletarItemSelecionadoNaLista;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.CheckBox checkBox_PermitirEdicaoSim;
+		private System.Windows.Forms.CheckBox checkBox_PermitirEdicaoNao;
+		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Label label_modoDiretorAtivado;
 		
 		protected override void Dispose(bool disposing)
 		{
@@ -61,9 +67,15 @@
 			this.maskedTextBox_ValorDaFatura = new System.Windows.Forms.MaskedTextBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.textBox_StatusDaFatura = new System.Windows.Forms.ComboBox();
-			this.btnConfigForm = new System.Windows.Forms.Label();
 			this.textBox_TipoDeOperadoraDoContrato = new System.Windows.Forms.ComboBox();
 			this.comboBox_UnidadeASerNotificada = new System.Windows.Forms.ComboBox();
+			this.btnDeletarLista = new System.Windows.Forms.Button();
+			this.btnDeletarItemSelecionadoNaLista = new System.Windows.Forms.Button();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.checkBox_PermitirEdicaoSim = new System.Windows.Forms.CheckBox();
+			this.checkBox_PermitirEdicaoNao = new System.Windows.Forms.CheckBox();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label_modoDiretorAtivado = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -80,6 +92,7 @@
 			// 
 			this.richTextBox_ObservacaoDaFatura.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.richTextBox_ObservacaoDaFatura.Location = new System.Drawing.Point(3, 98);
+			this.richTextBox_ObservacaoDaFatura.MaxLength = 240;
 			this.richTextBox_ObservacaoDaFatura.Name = "richTextBox_ObservacaoDaFatura";
 			this.richTextBox_ObservacaoDaFatura.Size = new System.Drawing.Size(464, 57);
 			this.richTextBox_ObservacaoDaFatura.TabIndex = 1;
@@ -155,6 +168,7 @@
 			this.religuePorConfianca_Sim.TabIndex = 10;
 			this.religuePorConfianca_Sim.Text = "Sim";
 			this.religuePorConfianca_Sim.UseVisualStyleBackColor = true;
+			this.religuePorConfianca_Sim.CheckedChanged += new System.EventHandler(this.ReliguePorConfianca_SimCheckedChanged);
 			// 
 			// religuePorConfianca_Nao
 			// 
@@ -167,6 +181,7 @@
 			this.religuePorConfianca_Nao.TabIndex = 11;
 			this.religuePorConfianca_Nao.Text = "Não";
 			this.religuePorConfianca_Nao.UseVisualStyleBackColor = true;
+			this.religuePorConfianca_Nao.CheckedChanged += new System.EventHandler(this.ReliguePorConfianca_NaoCheckedChanged);
 			// 
 			// btnVoltar
 			// 
@@ -284,18 +299,6 @@
 			this.textBox_StatusDaFatura.Size = new System.Drawing.Size(228, 25);
 			this.textBox_StatusDaFatura.TabIndex = 25;
 			// 
-			// btnConfigForm
-			// 
-			this.btnConfigForm.AutoSize = true;
-			this.btnConfigForm.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnConfigForm.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.btnConfigForm.Location = new System.Drawing.Point(450, 0);
-			this.btnConfigForm.Name = "btnConfigForm";
-			this.btnConfigForm.Size = new System.Drawing.Size(26, 17);
-			this.btnConfigForm.TabIndex = 27;
-			this.btnConfigForm.Text = "⚙️";
-			this.btnConfigForm.Click += new System.EventHandler(this.BtnConfigFormClick);
-			// 
 			// textBox_TipoDeOperadoraDoContrato
 			// 
 			this.textBox_TipoDeOperadoraDoContrato.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -318,14 +321,105 @@
 			this.comboBox_UnidadeASerNotificada.Size = new System.Drawing.Size(228, 25);
 			this.comboBox_UnidadeASerNotificada.TabIndex = 29;
 			// 
+			// btnDeletarLista
+			// 
+			this.btnDeletarLista.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnDeletarLista.Enabled = false;
+			this.btnDeletarLista.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnDeletarLista.Location = new System.Drawing.Point(371, 262);
+			this.btnDeletarLista.Name = "btnDeletarLista";
+			this.btnDeletarLista.Size = new System.Drawing.Size(96, 41);
+			this.btnDeletarLista.TabIndex = 30;
+			this.btnDeletarLista.Text = "Deletar Lista";
+			this.btnDeletarLista.UseVisualStyleBackColor = true;
+			// 
+			// btnDeletarItemSelecionadoNaLista
+			// 
+			this.btnDeletarItemSelecionadoNaLista.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnDeletarItemSelecionadoNaLista.Enabled = false;
+			this.btnDeletarItemSelecionadoNaLista.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnDeletarItemSelecionadoNaLista.Location = new System.Drawing.Point(231, 262);
+			this.btnDeletarItemSelecionadoNaLista.Name = "btnDeletarItemSelecionadoNaLista";
+			this.btnDeletarItemSelecionadoNaLista.Size = new System.Drawing.Size(135, 41);
+			this.btnDeletarItemSelecionadoNaLista.TabIndex = 31;
+			this.btnDeletarItemSelecionadoNaLista.Text = "Deletar Selecionado";
+			this.btnDeletarItemSelecionadoNaLista.UseVisualStyleBackColor = true;
+			// 
+			// panel1
+			// 
+			this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.panel1.Location = new System.Drawing.Point(119, 267);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(3, 42);
+			this.panel1.TabIndex = 32;
+			// 
+			// checkBox_PermitirEdicaoSim
+			// 
+			this.checkBox_PermitirEdicaoSim.AutoSize = true;
+			this.checkBox_PermitirEdicaoSim.BackColor = System.Drawing.Color.Transparent;
+			this.checkBox_PermitirEdicaoSim.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.checkBox_PermitirEdicaoSim.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.checkBox_PermitirEdicaoSim.Location = new System.Drawing.Point(129, 286);
+			this.checkBox_PermitirEdicaoSim.Name = "checkBox_PermitirEdicaoSim";
+			this.checkBox_PermitirEdicaoSim.Size = new System.Drawing.Size(48, 21);
+			this.checkBox_PermitirEdicaoSim.TabIndex = 33;
+			this.checkBox_PermitirEdicaoSim.Text = "Sim";
+			this.checkBox_PermitirEdicaoSim.UseVisualStyleBackColor = false;
+			this.checkBox_PermitirEdicaoSim.CheckedChanged += new System.EventHandler(this.CheckBox_PermitirEdicaoSimCheckedChanged);
+			// 
+			// checkBox_PermitirEdicaoNao
+			// 
+			this.checkBox_PermitirEdicaoNao.AutoSize = true;
+			this.checkBox_PermitirEdicaoNao.BackColor = System.Drawing.Color.Transparent;
+			this.checkBox_PermitirEdicaoNao.Checked = true;
+			this.checkBox_PermitirEdicaoNao.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBox_PermitirEdicaoNao.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.checkBox_PermitirEdicaoNao.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.checkBox_PermitirEdicaoNao.Location = new System.Drawing.Point(176, 286);
+			this.checkBox_PermitirEdicaoNao.Name = "checkBox_PermitirEdicaoNao";
+			this.checkBox_PermitirEdicaoNao.Size = new System.Drawing.Size(52, 21);
+			this.checkBox_PermitirEdicaoNao.TabIndex = 34;
+			this.checkBox_PermitirEdicaoNao.Text = "Não";
+			this.checkBox_PermitirEdicaoNao.UseVisualStyleBackColor = false;
+			this.checkBox_PermitirEdicaoNao.CheckedChanged += new System.EventHandler(this.CheckBox_PermitirEdicaoNaoCheckedChanged);
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label10.Location = new System.Drawing.Point(125, 265);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(102, 17);
+			this.label10.TabIndex = 35;
+			this.label10.Text = "Permitir Edição?";
+			// 
+			// label_modoDiretorAtivado
+			// 
+			this.label_modoDiretorAtivado.AutoSize = true;
+			this.label_modoDiretorAtivado.BackColor = System.Drawing.Color.Transparent;
+			this.label_modoDiretorAtivado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_modoDiretorAtivado.ForeColor = System.Drawing.Color.Red;
+			this.label_modoDiretorAtivado.Location = new System.Drawing.Point(324, 2);
+			this.label_modoDiretorAtivado.Name = "label_modoDiretorAtivado";
+			this.label_modoDiretorAtivado.Size = new System.Drawing.Size(142, 17);
+			this.label_modoDiretorAtivado.TabIndex = 36;
+			this.label_modoDiretorAtivado.Text = "Modo Diretor ativado";
+			this.label_modoDiretorAtivado.Visible = false;
+			// 
 			// UcDetalharFaturaDoCliente
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Control;
+			this.Controls.Add(this.label_modoDiretorAtivado);
+			this.Controls.Add(this.label10);
+			this.Controls.Add(this.checkBox_PermitirEdicaoNao);
+			this.Controls.Add(this.checkBox_PermitirEdicaoSim);
+			this.Controls.Add(this.panel1);
+			this.Controls.Add(this.btnDeletarLista);
+			this.Controls.Add(this.btnDeletarItemSelecionadoNaLista);
 			this.Controls.Add(this.comboBox_UnidadeASerNotificada);
 			this.Controls.Add(this.textBox_TipoDeOperadoraDoContrato);
-			this.Controls.Add(this.btnConfigForm);
 			this.Controls.Add(this.textBox_StatusDaFatura);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.maskedTextBox_ValorDaFatura);

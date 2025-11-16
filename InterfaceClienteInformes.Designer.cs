@@ -13,7 +13,7 @@
 		private System.Windows.Forms.Panel painelInterface;
 		private System.Windows.Forms.Label label_userName;
 		private System.Windows.Forms.Button btnPendenciaFinanceira;
-		private System.Windows.Forms.Button btnRegistroDeFalhaInternaCliente;
+		private System.Windows.Forms.Button btnNoTicket;
 
 		protected override void Dispose(bool disposing)
 		{
@@ -33,7 +33,7 @@
 			this.btnLibAcessoComPrevisao = new System.Windows.Forms.Button();
 			this.btnAnaliseEnergia = new System.Windows.Forms.Button();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.btnRegistroDeFalhaInternaCliente = new System.Windows.Forms.Button();
+			this.btnNoTicket = new System.Windows.Forms.Button();
 			this.btnPendenciaFinanceira = new System.Windows.Forms.Button();
 			this.label_userName = new System.Windows.Forms.Label();
 			this.painelInterface = new System.Windows.Forms.Panel();
@@ -112,7 +112,7 @@
 			// splitContainer1.Panel1
 			// 
 			this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Gainsboro;
-			this.splitContainer1.Panel1.Controls.Add(this.btnRegistroDeFalhaInternaCliente);
+			this.splitContainer1.Panel1.Controls.Add(this.btnNoTicket);
 			this.splitContainer1.Panel1.Controls.Add(this.btnPendenciaFinanceira);
 			this.splitContainer1.Panel1.Controls.Add(this.label_userName);
 			this.splitContainer1.Panel1.Controls.Add(this.btnAnaliseEnergia);
@@ -129,17 +129,17 @@
 			this.splitContainer1.SplitterDistance = 268;
 			this.splitContainer1.TabIndex = 0;
 			// 
-			// btnRegistroDeFalhaInternaCliente
+			// btnNoTicket
 			// 
-			this.btnRegistroDeFalhaInternaCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnRegistroDeFalhaInternaCliente.Dock = System.Windows.Forms.DockStyle.Top;
-			this.btnRegistroDeFalhaInternaCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.btnRegistroDeFalhaInternaCliente.Location = new System.Drawing.Point(0, 147);
-			this.btnRegistroDeFalhaInternaCliente.Name = "btnRegistroDeFalhaInternaCliente";
-			this.btnRegistroDeFalhaInternaCliente.Size = new System.Drawing.Size(268, 24);
-			this.btnRegistroDeFalhaInternaCliente.TabIndex = 6;
-			this.btnRegistroDeFalhaInternaCliente.Text = "Registrar Ocorrência Interna";
-			this.btnRegistroDeFalhaInternaCliente.Click += new System.EventHandler(this.BtnRegistroDeFalhaInternaClienteClick);
+			this.btnNoTicket.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnNoTicket.Dock = System.Windows.Forms.DockStyle.Top;
+			this.btnNoTicket.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.btnNoTicket.Location = new System.Drawing.Point(0, 147);
+			this.btnNoTicket.Name = "btnNoTicket";
+			this.btnNoTicket.Size = new System.Drawing.Size(268, 24);
+			this.btnNoTicket.TabIndex = 6;
+			this.btnNoTicket.Text = "No-Ticket";
+			this.btnNoTicket.Click += new System.EventHandler(this.BtnRegistroDeFalhaInternaClienteClick);
 			// 
 			// btnPendenciaFinanceira
 			// 
@@ -156,9 +156,11 @@
 			// label_userName
 			// 
 			this.label_userName.AutoSize = true;
+			this.label_userName.BackColor = System.Drawing.Color.Transparent;
+			this.label_userName.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.label_userName.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.label_userName.ForeColor = System.Drawing.SystemColors.ControlDark;
-			this.label_userName.Location = new System.Drawing.Point(7, 356);
+			this.label_userName.Location = new System.Drawing.Point(0, 363);
 			this.label_userName.Name = "label_userName";
 			this.label_userName.Size = new System.Drawing.Size(68, 17);
 			this.label_userName.TabIndex = 0;
