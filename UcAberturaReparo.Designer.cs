@@ -169,6 +169,7 @@ namespace NOC_Actions
 			this.btnPreviaMsn.TabIndex = 18;
 			this.btnPreviaMsn.Text = "Prévia";
 			this.btnPreviaMsn.UseVisualStyleBackColor = true;
+			this.btnPreviaMsn.Click += new System.EventHandler(this.BtnPreviaMsnClick);
 			// 
 			// UcAberturaDeReparo
 			// 

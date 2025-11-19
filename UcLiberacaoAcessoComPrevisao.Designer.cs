@@ -109,7 +109,7 @@ namespace NOC_Actions
 			// label3
 			// 
 			this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label3.Location = new System.Drawing.Point(39, 257);
+			this.label3.Location = new System.Drawing.Point(45, 200);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(391, 35);
 			this.label3.TabIndex = 23;
@@ -128,7 +128,7 @@ namespace NOC_Actions
 			// label5
 			// 
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(39, 243);
+			this.label5.Location = new System.Drawing.Point(38, 285);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(391, 13);
 			this.label5.TabIndex = 21;
@@ -138,16 +138,16 @@ namespace NOC_Actions
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label2.Location = new System.Drawing.Point(34, 82);
+			this.label2.Location = new System.Drawing.Point(26, 79);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(144, 17);
+			this.label2.Size = new System.Drawing.Size(147, 17);
 			this.label2.TabIndex = 20;
-			this.label2.Text = "Equipe Técnica (Dados)";
+			this.label2.Text = "Equipe Técnica (Dados):";
 			// 
 			// textBoxEstimatedArrival
 			// 
 			this.textBoxEstimatedArrival.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.textBoxEstimatedArrival.Location = new System.Drawing.Point(172, 217);
+			this.textBoxEstimatedArrival.Location = new System.Drawing.Point(183, 257);
 			this.textBoxEstimatedArrival.Name = "textBoxEstimatedArrival";
 			this.textBoxEstimatedArrival.Size = new System.Drawing.Size(237, 25);
 			this.textBoxEstimatedArrival.TabIndex = 1;
@@ -156,7 +156,7 @@ namespace NOC_Actions
 			// 
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label6.Location = new System.Drawing.Point(34, 221);
+			this.label6.Location = new System.Drawing.Point(45, 261);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(132, 17);
 			this.label6.TabIndex = 25;

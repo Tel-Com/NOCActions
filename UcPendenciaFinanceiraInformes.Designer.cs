@@ -30,6 +30,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.CheckBox checkEditarCampoUnidade;
 		private System.Windows.Forms.Label labelEditarCampoUnidade;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label_modoDiretorAtivado;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -68,6 +69,7 @@ namespace NOC_Actions
 			this.checkEditarCampoUnidade = new System.Windows.Forms.CheckBox();
 			this.labelEditarCampoUnidade = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
+			this.label_modoDiretorAtivado = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label6
@@ -186,7 +188,7 @@ namespace NOC_Actions
 			this.txtLabel_campoDeAviso.BackColor = System.Drawing.Color.Transparent;
 			this.txtLabel_campoDeAviso.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.txtLabel_campoDeAviso.ForeColor = System.Drawing.Color.Red;
-			this.txtLabel_campoDeAviso.Location = new System.Drawing.Point(52, 212);
+			this.txtLabel_campoDeAviso.Location = new System.Drawing.Point(38, 224);
 			this.txtLabel_campoDeAviso.Name = "txtLabel_campoDeAviso";
 			this.txtLabel_campoDeAviso.Size = new System.Drawing.Size(83, 17);
 			this.txtLabel_campoDeAviso.TabIndex = 42;
@@ -250,10 +252,24 @@ namespace NOC_Actions
 			this.label2.TabIndex = 38;
 			this.label2.Text = "Detalhar Fatura?";
 			// 
+			// label_modoDiretorAtivado
+			// 
+			this.label_modoDiretorAtivado.AutoSize = true;
+			this.label_modoDiretorAtivado.BackColor = System.Drawing.Color.Transparent;
+			this.label_modoDiretorAtivado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_modoDiretorAtivado.ForeColor = System.Drawing.Color.Red;
+			this.label_modoDiretorAtivado.Location = new System.Drawing.Point(324, 5);
+			this.label_modoDiretorAtivado.Name = "label_modoDiretorAtivado";
+			this.label_modoDiretorAtivado.Size = new System.Drawing.Size(142, 17);
+			this.label_modoDiretorAtivado.TabIndex = 51;
+			this.label_modoDiretorAtivado.Text = "Modo Diretor ativado";
+			this.label_modoDiretorAtivado.Visible = false;
+			// 
 			// UcPendenciaFinanceiraInformes
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.label_modoDiretorAtivado);
 			this.Controls.Add(this.checkEditarCampoUnidade);
 			this.Controls.Add(this.labelEditarCampoUnidade);
 			this.Controls.Add(this.btnDeletarItemSelecionadoDaLista);

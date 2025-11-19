@@ -169,7 +169,7 @@ namespace NOC_Actions
 			// 
 			// comboBoxCarrierName
 			// 
-			this.comboBoxCarrierName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.comboBoxCarrierName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
 			this.comboBoxCarrierName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.comboBoxCarrierName.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.comboBoxCarrierName.FormattingEnabled = true;

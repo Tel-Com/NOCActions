@@ -1,1 +1,10 @@
-﻿
+﻿trocado para Suggest o autocompletemode de alguns usercontrols
+reajustado a posição de aviso de detalhamento de fatura
+adicionado buttonde prévia para verificar a saída da msn no chamado registrado; aplicado toUpper() no protocolo do chamado
+declarado o button No-Ticket 
+criado user control UcRegistroDeOcorrenciaInterna para a utilização de chamados de incidencia interna, ou seja, contratos que possuem falhas dentro da empresa e que não necessita necessariamente de chamado naquele momento
+modificado o design do usercontrol UcLiberacaoAcessoComPrevisao.cs
+renomeado alguns parâmetros temporariamente
+criado o parametro com o usercontrol já pré-programado UcRegistroDeOcorrenciaInterna com a finalidade de registro de ocorrências sem a necessidade de abertura de reparo técnico
+criado Class para uso nos contratos da UcRegistroDeOcorrenciaInterna.cs
+criado userControl para InformacoesContrato_ReincidenciaDeFalha.cs com a finalidade de registrar informações dos contratos individuais

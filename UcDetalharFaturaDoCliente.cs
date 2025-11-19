@@ -20,8 +20,8 @@ namespace NOC_Actions
 				checkBox_PermitirEdicaoNao.Checked = false;
 			}
 			CarregarItensNoForm(arquivo_unidadeComPendenciaFinanceira, comboBox_UnidadeASerNotificada);
-			CarregarItensNoForm(arquivo_operadoraQueBloqueouOServico, textBox_TipoDeOperadoraDoContrato);
-			CarregarItensNoForm(arquivo_statusDoContrato, textBox_StatusDaFatura);
+			CarregarItensNoForm(arquivo_operadoraQueBloqueouOServico, comboBox_TipoDeOperadoraDoContrato);
+			CarregarItensNoForm(arquivo_statusDoContrato, comboBox_StatusDaFatura);
 			
 		}
 		
@@ -47,11 +47,11 @@ namespace NOC_Actions
 		private bool AnaliseDeCamposVazios()
 		{
 			if (string.IsNullOrWhiteSpace(comboBox_UnidadeASerNotificada.Text) &&
-			    string.IsNullOrWhiteSpace(textBox_TipoDeOperadoraDoContrato.Text) &&
+			    string.IsNullOrWhiteSpace(comboBox_TipoDeOperadoraDoContrato.Text) &&
 			    string.IsNullOrWhiteSpace(richTextBox_ObservacaoDaFatura.Text) &&
 			    string.IsNullOrWhiteSpace(maskedTextBox_ValorDaFatura.Text) &&
 			    string.IsNullOrWhiteSpace(maskedTextBox_VencimentoFatura.Text) &&
-			    string.IsNullOrWhiteSpace(textBox_StatusDaFatura .Text) &&
+			    string.IsNullOrWhiteSpace(comboBox_StatusDaFatura .Text) &&
 			    string.IsNullOrWhiteSpace(textBox_CodigoDeBarrasDaFatura.Text))
 			{
 				return true;
@@ -73,11 +73,11 @@ namespace NOC_Actions
 				"A seguir, seguem os detalhes referentes à situação:" + Environment.NewLine + Environment.NewLine;
 
 			string detalheFatura =
-				"Operadora: " + textBox_TipoDeOperadoraDoContrato.Text + Environment.NewLine +
+				"Operadora: " + comboBox_TipoDeOperadoraDoContrato.Text + Environment.NewLine +
 				"Valor da Fatura: " + maskedTextBox_ValorDaFatura.Text + Environment.NewLine +
 				"Data de Vencimento: " + maskedTextBox_VencimentoFatura.Text + Environment.NewLine +
 				"Código de Pagamento: " + textBox_CodigoDeBarrasDaFatura.Text + Environment.NewLine +
-				"Status: " + textBox_StatusDaFatura.Text + Environment.NewLine +
+				"Status: " + comboBox_StatusDaFatura.Text + Environment.NewLine +
 				"Observações: " + richTextBox_ObservacaoDaFatura.Text + Environment.NewLine +
 				"Religamento por inadimplemento: " + CheckReliguePorConfianca();
 
@@ -148,7 +148,7 @@ namespace NOC_Actions
 
 			MessageBox.Show("Item removido com sucesso!");
 		}
-
+		
 		private void DeletarListaDeInformesCompleta(ComboBox comboBox, string arquivoTxt)
 		{
 			if (comboBox.Items.Count == 0)
@@ -157,26 +157,35 @@ namespace NOC_Actions
 				return;
 			}
 
-			if (MessageBox.Show("Deseja realmente apagar toda a lista?",
-			                    "Confirmação",
-			                    MessageBoxButtons.YesNo,
-			                    MessageBoxIcon.Warning) == DialogResult.Yes)
+			DialogResult resultado = MessageBox.Show(
+				"Deseja realmente apagar toda a lista?",
+				"Confirmação",
+				MessageBoxButtons.YesNo,
+				MessageBoxIcon.Warning
+				
+			);
+
+			if (resultado == DialogResult.Yes)
 			{
 				comboBox.Items.Clear();
-				File.WriteAllText(arquivoTxt, "");
+				File.WriteAllText(arquivoTxt, string.Empty);
 				MessageBox.Show("Lista completamente apagada!");
 			}
 		}
-
 		
 		void BtnDeletarItemSelecionadoNaListaClick(object sender, EventArgs e)
 		{
 			DeletarInformesSelecionado(comboBox_UnidadeASerNotificada, arquivo_unidadeComPendenciaFinanceira);
+			DeletarInformesSelecionado(comboBox_TipoDeOperadoraDoContrato, arquivo_operadoraQueBloqueouOServico);
+			DeletarInformesSelecionado(comboBox_StatusDaFatura, arquivo_statusDoContrato);
 		}
 		
 		void BtnDeletarListaClick(object sender, EventArgs e)
 		{
 			DeletarListaDeInformesCompleta(comboBox_UnidadeASerNotificada, arquivo_unidadeComPendenciaFinanceira);
+			DeletarListaDeInformesCompleta(comboBox_TipoDeOperadoraDoContrato, arquivo_operadoraQueBloqueouOServico);
+			DeletarListaDeInformesCompleta(comboBox_StatusDaFatura, arquivo_statusDoContrato);
+			
 		}
 		
 		void BtnPreviaClick(object sender, EventArgs e)
@@ -194,8 +203,8 @@ namespace NOC_Actions
 		{
 			
 			AdicionarAoArquivo(comboBox_UnidadeASerNotificada, arquivo_unidadeComPendenciaFinanceira);
-			AdicionarAoArquivo(textBox_TipoDeOperadoraDoContrato, arquivo_operadoraQueBloqueouOServico);
-			AdicionarAoArquivo(textBox_StatusDaFatura,  arquivo_statusDoContrato);
+			AdicionarAoArquivo(comboBox_TipoDeOperadoraDoContrato, arquivo_operadoraQueBloqueouOServico);
+			AdicionarAoArquivo(comboBox_StatusDaFatura,  arquivo_statusDoContrato);
 			
 			string msn = DetalhamentoDeFatura();
 			Clipboard.SetText(msn);

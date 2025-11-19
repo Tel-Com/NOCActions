@@ -17,3 +17,4 @@ C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Action
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.pdb
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.UcDetalharFaturaDoCliente.resources
 C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.Uc_BancoDeArmazenamentoDeDados.resources
+C:\Users\fjstavares\Tel&Com_desenvolvimento_noc\NOC_Actions\obj\Debug\NOC_Actions.UcRegistroDeOcorrenciaInterna.resources

@@ -16,7 +16,7 @@ namespace NOC_Actions
 		{
 			string getNumeroChamado = txtOperatorCallID.Text.Trim();
 			string getHorarioDeRegistro = textBoxCallRegistrationTime.Text.Trim();
-			return "Prezados, o chamado " + getNumeroChamado + " foi registrado às " + getHorarioDeRegistro + " junto ao fornecedor.";
+			return "Prezados, o chamado " + getNumeroChamado.ToUpper() + " foi registrado às " + getHorarioDeRegistro + " junto ao fornecedor.";
 		}
 		
 		void BtnCloseWindowClick(object sender, EventArgs e)
@@ -34,6 +34,12 @@ namespace NOC_Actions
 			string msn = GetCustomerNotificationMessage();
 			Clipboard.SetText(msn);
 			ClearField();
+		}
+				
+		void BtnPreviaMsnClick(object sender, EventArgs e)
+		{
+			string msnDetalhar = GetCustomerNotificationMessage();
+			MessageBox.Show(msnDetalhar);
 		}
 		
 		void ClearField()

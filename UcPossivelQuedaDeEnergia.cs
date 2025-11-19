@@ -54,12 +54,20 @@ namespace NOC_Actions
 		void CheckEditarCampoUnidadeCheckedChanged(object sender, EventArgs e)
 		{
 			if (checkEditarCampoUnidade.Checked) {
+				label_modoDiretorAtivado.Visible = true;
 				labelAviso.Visible = true;
+				btnPrevia.Enabled = false;
+				btnClearFields.Enabled = false;
+				btnSaveAndCopy.Enabled = false;
 				labelAviso.Text = "Deletar Lista: Esta ação apagará todos os itens da lista.\nDeletar Selecionado: Esta ação apagará apenas o item atualmente selecionado.";
 				btnDeletarListaCompleta.Visible = true;
 				btnDeletarItemSelecionadoDaLista.Visible = true;
 			} else
 			{
+				label_modoDiretorAtivado.Visible = false;
+				btnPrevia.Enabled = true;
+				btnClearFields.Enabled = true;
+				btnSaveAndCopy.Enabled = true;
 				labelAviso.Visible = false;
 				btnDeletarListaCompleta.Visible = false;
 				btnDeletarItemSelecionadoDaLista.Visible = false;

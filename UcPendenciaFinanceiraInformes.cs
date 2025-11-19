@@ -27,18 +27,18 @@ namespace NOC_Actions
 			return "Prezados, identificamos a existência de um bloqueio de caráter administrativo-financeiro no contrato da unidade: " + comboBoxUnidadeComPendenciaFinanceira.Text.Trim().ToUpper();
 		}
 
-		private void SalvarItensNoArquivo()
+		private void EncaminhandoESalvandoConteudosNoArquivo()
 		{
 			string salvarArquivoDeUnidadeComPendenciaFinanceira = comboBoxUnidadeComPendenciaFinanceira.Text.Trim();
 			
 			if (!string.IsNullOrWhiteSpace(salvarArquivoDeUnidadeComPendenciaFinanceira) && !comboBoxUnidadeComPendenciaFinanceira.Items.Contains(salvarArquivoDeUnidadeComPendenciaFinanceira))
 			{
 				comboBoxUnidadeComPendenciaFinanceira.Items.Add(salvarArquivoDeUnidadeComPendenciaFinanceira);
-				SalvarItemNoArquivo(comboBoxUnidadeComPendenciaFinanceira, UcPendenciaFinanceiraInformes_arquivoUnidadeComPendenciaFinanceira);
+				SalvarItensArquivo(comboBoxUnidadeComPendenciaFinanceira, UcPendenciaFinanceiraInformes_arquivoUnidadeComPendenciaFinanceira);
 			}
 		}
 		
-		private void SalvarItemNoArquivo(ComboBox comboBox, string caminhoArquivo)
+		private void SalvarItensArquivo(ComboBox comboBox, string caminhoArquivo)
 		{
 			try {
 				File.WriteAllLines(caminhoArquivo, comboBox.Items.Cast<string>());
@@ -69,7 +69,7 @@ namespace NOC_Actions
 		{
 			if (comboBoxUnidadeComPendenciaFinanceira != null) {
 				comboBoxUnidadeComPendenciaFinanceira.Items.Remove(comboBoxUnidadeComPendenciaFinanceira.SelectedItem);
-				SalvarItemNoArquivo(comboBoxUnidadeComPendenciaFinanceira, UcPendenciaFinanceiraInformes_arquivoUnidadeComPendenciaFinanceira);
+				SalvarItensArquivo(comboBoxUnidadeComPendenciaFinanceira, UcPendenciaFinanceiraInformes_arquivoUnidadeComPendenciaFinanceira);
 			}
 		}
 		
@@ -77,7 +77,7 @@ namespace NOC_Actions
 		{
 			if (comboBoxUnidadeComPendenciaFinanceira.Items.Count > 0) {
 				comboBoxUnidadeComPendenciaFinanceira.Items.Clear();
-				SalvarItemNoArquivo(comboBoxUnidadeComPendenciaFinanceira, UcPendenciaFinanceiraInformes_arquivoUnidadeComPendenciaFinanceira);
+				SalvarItensArquivo(comboBoxUnidadeComPendenciaFinanceira, UcPendenciaFinanceiraInformes_arquivoUnidadeComPendenciaFinanceira);
 			}
 		}
 		
@@ -85,23 +85,27 @@ namespace NOC_Actions
 		{
 			string msn = GetCustomerNotificationMessage();
 			Clipboard.SetText(msn);
-			SalvarItensNoArquivo();
+			EncaminhandoESalvandoConteudosNoArquivo();
 			ClearField();
 		}
 		
 		void checkBoxDetalharFatura_CheckedChanged(object sender, EventArgs e)
 		{
 			if (checkBoxDetalharFatura.Checked) {
+				btnClearFields.Enabled = false;
+				btnSaveAndCopy.Enabled = false;
 				labelEditarCampoUnidade.Visible = false;
 				checkEditarCampoUnidade.Visible = false;
 				txtLabel_campoDeAviso.Visible = true;
 				btnDeletarListaCompleta.Visible = false;
 				btnDeletarItemSelecionadoDaLista.Visible = false;
-				
+				txtLabel_campoDeAviso.Location = new System.Drawing.Point(38, 224);
 				btnViewInvoiceDetails.Enabled = checkBoxDetalharFatura.Checked;
 				txtLabel_campoDeAviso.Text = "Aviso: ao clicar em “Detalhar a Fatura”, você receberá informações\nadicionais para serem incluídas. Isso pode gerar inconsistências em\nvalores, datas e outros dados. Tenha cuidado ao preencher todos os\ncampos e revise cuidadosamente as informações inseridas.";
 			} else
 			{
+				btnClearFields.Enabled = true;
+				btnSaveAndCopy.Enabled = true;
 				labelEditarCampoUnidade.Visible = true;
 				checkEditarCampoUnidade.Visible = true;
 				btnViewInvoiceDetails.Enabled = false;
@@ -112,6 +116,11 @@ namespace NOC_Actions
 		void CheckEditarCampoUnidadeCheckedChanged(object sender, EventArgs e)
 		{
 			if (checkEditarCampoUnidade.Checked) {
+				
+				label_modoDiretorAtivado.Visible = true;
+				btnSaveAndCopy.Enabled = false;
+				btnClearFields.Enabled = false;
+				btnViewInvoiceDetails.Enabled = false;
 				btnDeletarListaCompleta.Visible = true;
 				btnDeletarItemSelecionadoDaLista.Visible = true;
 				txtLabel_campoDeAviso.Location = new System.Drawing.Point(34, 242);
@@ -119,6 +128,10 @@ namespace NOC_Actions
 				txtLabel_campoDeAviso.Text = "Deletar Lista: Esta ação apagará todos os itens da lista.\nDeletar Selecionado: Esta ação apagará apenas o item atualmente\nselecionado.";
 			} else
 			{
+				label_modoDiretorAtivado.Visible = false;
+				btnSaveAndCopy.Enabled = true;
+				btnClearFields.Enabled = true;
+				btnViewInvoiceDetails.Enabled = true;
 				btnDeletarListaCompleta.Visible = false;
 				btnDeletarItemSelecionadoDaLista.Visible = false;
 				txtLabel_campoDeAviso.Location = new System.Drawing.Point(34, 208);
@@ -141,9 +154,10 @@ namespace NOC_Actions
 		{
 			this.FindForm().Close();
 		}
+		
 		void UcPendenciaFinanceiraInformesLoad(object sender, EventArgs e)
 		{
-	
+			
 		}
 	}
 }

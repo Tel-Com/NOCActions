@@ -10,7 +10,7 @@ namespace NOC_Actions
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InterfaceClienteInformes());
+            Application.Run(new MainForm());
         }
     }
 }

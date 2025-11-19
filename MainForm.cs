@@ -121,6 +121,8 @@ namespace NOC_Actions
 			btnInformesClientes.Text = "Fechar";
 		}
 
+//		desativados temporariamente
 		void BtnMensagemEletrônicaClick(object sender, EventArgs e) {}
+		void BtnAvisoSolicitacoesClick(object sender, EventArgs e) {}
 	}
 }

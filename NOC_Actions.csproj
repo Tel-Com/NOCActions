@@ -50,6 +50,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class_InformacoesContrato_ReincidenciaDeFalha.cs" />
     <Compile Include="UcDetalharFaturaDoCliente.cs" />
     <Compile Include="UcDetalharFaturaDoCliente.Designer.cs">
       <DependentUpon>UcDetalharFaturaDoCliente.cs</DependentUpon>
@@ -65,6 +66,10 @@
     <Compile Include="MainForm.cs" />
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcInformacoesContrato_ReincidenciaDeFalha.cs" />
+    <Compile Include="UcInformacoesContrato_ReincidenciaDeFalha.Designer.cs">
+      <DependentUpon>UcInformacoesContrato_ReincidenciaDeFalha.cs</DependentUpon>
     </Compile>
     <Compile Include="UcPendenciaFinanceiraInformes.cs" />
     <Compile Include="UcPendenciaFinanceiraInformes.Designer.cs">
@@ -99,6 +104,10 @@
     <Compile Include="UcPossivelQuedaDeEnergia.cs" />
     <Compile Include="UcPossivelQuedaDeEnergia.Designer.cs">
       <DependentUpon>UcPossivelQuedaDeEnergia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcRegistroDeOcorrenciaInterna.cs" />
+    <Compile Include="UcRegistroDeOcorrenciaInterna.Designer.cs">
+      <DependentUpon>UcRegistroDeOcorrenciaInterna.cs</DependentUpon>
     </Compile>
     <Compile Include="Uc_BancoDeArmazenamentoDeDados.cs" />
     <Compile Include="Uc_BancoDeArmazenamentoDeDados.Designer.cs">
@@ -145,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UcPossivelQuedaDeEnergia.resx">
       <DependentUpon>UcPossivelQuedaDeEnergia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcRegistroDeOcorrenciaInterna.resx">
+      <DependentUpon>UcRegistroDeOcorrenciaInterna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Uc_BancoDeArmazenamentoDeDados.resx">
       <DependentUpon>Uc_BancoDeArmazenamentoDeDados.cs</DependentUpon>

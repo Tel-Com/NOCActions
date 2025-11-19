@@ -23,8 +23,8 @@
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.MaskedTextBox maskedTextBox_ValorDaFatura;
 		private System.Windows.Forms.Label label9;
-		private System.Windows.Forms.ComboBox textBox_StatusDaFatura;
-		private System.Windows.Forms.ComboBox textBox_TipoDeOperadoraDoContrato;
+		private System.Windows.Forms.ComboBox comboBox_StatusDaFatura;
+		private System.Windows.Forms.ComboBox comboBox_TipoDeOperadoraDoContrato;
 		private System.Windows.Forms.ComboBox comboBox_UnidadeASerNotificada;
 		private System.Windows.Forms.Button btnDeletarLista;
 		private System.Windows.Forms.Button btnDeletarItemSelecionadoNaLista;
@@ -66,8 +66,8 @@
 			this.label8 = new System.Windows.Forms.Label();
 			this.maskedTextBox_ValorDaFatura = new System.Windows.Forms.MaskedTextBox();
 			this.label9 = new System.Windows.Forms.Label();
-			this.textBox_StatusDaFatura = new System.Windows.Forms.ComboBox();
-			this.textBox_TipoDeOperadoraDoContrato = new System.Windows.Forms.ComboBox();
+			this.comboBox_StatusDaFatura = new System.Windows.Forms.ComboBox();
+			this.comboBox_TipoDeOperadoraDoContrato = new System.Windows.Forms.ComboBox();
 			this.comboBox_UnidadeASerNotificada = new System.Windows.Forms.ComboBox();
 			this.btnDeletarLista = new System.Windows.Forms.Button();
 			this.btnDeletarItemSelecionadoNaLista = new System.Windows.Forms.Button();
@@ -288,31 +288,31 @@
 			this.label9.TabIndex = 24;
 			this.label9.Text = "Status do Contrato";
 			// 
-			// textBox_StatusDaFatura
+			// comboBox_StatusDaFatura
 			// 
-			this.textBox_StatusDaFatura.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.textBox_StatusDaFatura.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.textBox_StatusDaFatura.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.textBox_StatusDaFatura.FormattingEnabled = true;
-			this.textBox_StatusDaFatura.Location = new System.Drawing.Point(239, 179);
-			this.textBox_StatusDaFatura.Name = "textBox_StatusDaFatura";
-			this.textBox_StatusDaFatura.Size = new System.Drawing.Size(228, 25);
-			this.textBox_StatusDaFatura.TabIndex = 25;
+			this.comboBox_StatusDaFatura.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.comboBox_StatusDaFatura.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.comboBox_StatusDaFatura.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.comboBox_StatusDaFatura.FormattingEnabled = true;
+			this.comboBox_StatusDaFatura.Location = new System.Drawing.Point(239, 179);
+			this.comboBox_StatusDaFatura.Name = "comboBox_StatusDaFatura";
+			this.comboBox_StatusDaFatura.Size = new System.Drawing.Size(228, 25);
+			this.comboBox_StatusDaFatura.TabIndex = 25;
 			// 
-			// textBox_TipoDeOperadoraDoContrato
+			// comboBox_TipoDeOperadoraDoContrato
 			// 
-			this.textBox_TipoDeOperadoraDoContrato.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-			this.textBox_TipoDeOperadoraDoContrato.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-			this.textBox_TipoDeOperadoraDoContrato.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.textBox_TipoDeOperadoraDoContrato.FormattingEnabled = true;
-			this.textBox_TipoDeOperadoraDoContrato.Location = new System.Drawing.Point(239, 49);
-			this.textBox_TipoDeOperadoraDoContrato.Name = "textBox_TipoDeOperadoraDoContrato";
-			this.textBox_TipoDeOperadoraDoContrato.Size = new System.Drawing.Size(228, 25);
-			this.textBox_TipoDeOperadoraDoContrato.TabIndex = 28;
+			this.comboBox_TipoDeOperadoraDoContrato.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+			this.comboBox_TipoDeOperadoraDoContrato.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+			this.comboBox_TipoDeOperadoraDoContrato.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.comboBox_TipoDeOperadoraDoContrato.FormattingEnabled = true;
+			this.comboBox_TipoDeOperadoraDoContrato.Location = new System.Drawing.Point(239, 49);
+			this.comboBox_TipoDeOperadoraDoContrato.Name = "comboBox_TipoDeOperadoraDoContrato";
+			this.comboBox_TipoDeOperadoraDoContrato.Size = new System.Drawing.Size(228, 25);
+			this.comboBox_TipoDeOperadoraDoContrato.TabIndex = 28;
 			// 
 			// comboBox_UnidadeASerNotificada
 			// 
-			this.comboBox_UnidadeASerNotificada.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.comboBox_UnidadeASerNotificada.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
 			this.comboBox_UnidadeASerNotificada.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.comboBox_UnidadeASerNotificada.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.comboBox_UnidadeASerNotificada.FormattingEnabled = true;
@@ -421,8 +421,8 @@
 			this.Controls.Add(this.btnDeletarLista);
 			this.Controls.Add(this.btnDeletarItemSelecionadoNaLista);
 			this.Controls.Add(this.comboBox_UnidadeASerNotificada);
-			this.Controls.Add(this.textBox_TipoDeOperadoraDoContrato);
-			this.Controls.Add(this.textBox_StatusDaFatura);
+			this.Controls.Add(this.comboBox_TipoDeOperadoraDoContrato);
+			this.Controls.Add(this.comboBox_StatusDaFatura);
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.maskedTextBox_ValorDaFatura);
 			this.Controls.Add(this.label8);

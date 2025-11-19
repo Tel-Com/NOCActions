@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace NOC_Actions
 {
 	public partial class InterfaceClienteInformes : Form
 	{
+		
 		public InterfaceClienteInformes()
 		{
 			InitializeComponent();
 		}
-		
+
 		private void MostrarUserControl(UserControl uc)
 		{
 			painelInterface.Controls.Clear();
@@ -53,19 +54,22 @@ namespace NOC_Actions
 //			Prezados, poderiam confirmar possível queda de energia na loja CE___? Constatamos que ambos os links estão indisponíveis neste momento.
 			MostrarUserControl(new UcPossivelQuedaDeEnergia());
 		}
+		
 		void Button1Click(object sender, EventArgs e)
 		{
 //			Prezados, constatamos a existência de um bloqueio administrativo-financeiro no contrato da unidade...
 			MostrarUserControl (new UcPendenciaFinanceiraInformes());
 		}
+		
 		void BtnPendenciaFinanceiraClick(object sender, EventArgs e)
 		{
-//				Prezados, XXXXXXXX! Identificamos um Bloqueio Administratrivo Financeiro no Circuito XXXX. Poderiam checar? 
+//				Prezados, XXXXXXXX! Identificamos um Bloqueio Administratrivo Financeiro no Circuito XXXX. Poderiam checar?
 			MostrarUserControl(new UcPendenciaFinanceiraInformes());
 		}
+		
 		void BtnRegistroDeFalhaInternaClienteClick(object sender, EventArgs e)
 		{
-			
+			MostrarUserControl(new UcRegistroDeOcorrenciaInterna());
 		}
 	}
 }

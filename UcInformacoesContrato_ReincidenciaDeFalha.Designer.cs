@@ -1,14 +1,14 @@
 ﻿/*
- * Created by SharpDevelop.
- * User: fjstavares
- * Date: 11/07/2025
- * Time: 11:07
+ * Criado por SharpDevelop.
+ * Usuário: fjstavares
+ * Data: 19/11/2025
+ * Hora: 11:39
  * 
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ * Para alterar este modelo use Ferramentas | Opções | Codificação | Editar Cabeçalhos Padrão.
  */
 namespace NOC_Actions
 {
-	partial class Informes
+	partial class UcInformacoesContrato_ReincidenciaDeFalha
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -16,7 +16,7 @@ namespace NOC_Actions
 		private System.ComponentModel.IContainer components = null;
 		
 		/// <summary>
-		/// Disposes resources used by the form.
+		/// Disposes resources used by the control.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
@@ -36,17 +36,11 @@ namespace NOC_Actions
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.SuspendLayout();
 			// 
-			// Informes
+			// UcInformacoesContrato_ReincidenciaDeFalha
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(361, 284);
-			this.Name = "Informes";
-			this.Text = "Informes";
-			this.ResumeLayout(false);
-
+			this.Name = "UcInformacoesContrato_ReincidenciaDeFalha";
 		}
 	}
 }

@@ -1,4 +1,4 @@
-﻿namespace NOC_Actions
+﻿﻿namespace NOC_Actions
 {
 	partial class InterfaceClienteInformes
 	{
@@ -11,7 +11,7 @@
 
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.Panel painelInterface;
-		private System.Windows.Forms.Label label_userName;
+		private System.Windows.Forms.Label label_login_username;
 		private System.Windows.Forms.Button btnPendenciaFinanceira;
 		private System.Windows.Forms.Button btnNoTicket;
 
@@ -35,7 +35,7 @@
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.btnNoTicket = new System.Windows.Forms.Button();
 			this.btnPendenciaFinanceira = new System.Windows.Forms.Button();
-			this.label_userName = new System.Windows.Forms.Label();
+			this.label_login_username = new System.Windows.Forms.Label();
 			this.painelInterface = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
 			this.splitContainer1.Panel1.SuspendLayout();
@@ -114,7 +114,7 @@
 			this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Gainsboro;
 			this.splitContainer1.Panel1.Controls.Add(this.btnNoTicket);
 			this.splitContainer1.Panel1.Controls.Add(this.btnPendenciaFinanceira);
-			this.splitContainer1.Panel1.Controls.Add(this.label_userName);
+			this.splitContainer1.Panel1.Controls.Add(this.label_login_username);
 			this.splitContainer1.Panel1.Controls.Add(this.btnAnaliseEnergia);
 			this.splitContainer1.Panel1.Controls.Add(this.btnLibAcessoComPrevisao);
 			this.splitContainer1.Panel1.Controls.Add(this.btnLibAcessoSemPrevisao);
@@ -153,18 +153,18 @@
 			this.btnPendenciaFinanceira.Text = "Pendência Financeira";
 			this.btnPendenciaFinanceira.Click += new System.EventHandler(this.BtnPendenciaFinanceiraClick);
 			// 
-			// label_userName
+			// label_login_username
 			// 
-			this.label_userName.AutoSize = true;
-			this.label_userName.BackColor = System.Drawing.Color.Transparent;
-			this.label_userName.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.label_userName.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label_userName.ForeColor = System.Drawing.SystemColors.ControlDark;
-			this.label_userName.Location = new System.Drawing.Point(0, 363);
-			this.label_userName.Name = "label_userName";
-			this.label_userName.Size = new System.Drawing.Size(68, 17);
-			this.label_userName.TabIndex = 0;
-			this.label_userName.Text = "userName";
+			this.label_login_username.AutoSize = true;
+			this.label_login_username.BackColor = System.Drawing.Color.Transparent;
+			this.label_login_username.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.label_login_username.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.label_login_username.ForeColor = System.Drawing.SystemColors.ControlDark;
+			this.label_login_username.Location = new System.Drawing.Point(0, 363);
+			this.label_login_username.Name = "label_login_username";
+			this.label_login_username.Size = new System.Drawing.Size(68, 17);
+			this.label_login_username.TabIndex = 0;
+			this.label_login_username.Text = "userName";
 			// 
 			// painelInterface
 			// 

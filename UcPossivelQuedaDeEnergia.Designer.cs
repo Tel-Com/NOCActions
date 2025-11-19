@@ -27,6 +27,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.Button btnDeletarListaCompleta;
 		private System.Windows.Forms.CheckBox checkEditarCampoUnidade;
 		private System.Windows.Forms.Label labelAviso;
+		private System.Windows.Forms.Label label_modoDiretorAtivado;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -62,6 +63,7 @@ namespace NOC_Actions
 			this.btnDeletarListaCompleta = new System.Windows.Forms.Button();
 			this.checkEditarCampoUnidade = new System.Windows.Forms.CheckBox();
 			this.labelAviso = new System.Windows.Forms.Label();
+			this.label_modoDiretorAtivado = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// label5
@@ -153,7 +155,7 @@ namespace NOC_Actions
 			// 
 			// comboBox_UnidadeComFaltaDeEnergia
 			// 
-			this.comboBox_UnidadeComFaltaDeEnergia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+			this.comboBox_UnidadeComFaltaDeEnergia.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
 			this.comboBox_UnidadeComFaltaDeEnergia.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
 			this.comboBox_UnidadeComFaltaDeEnergia.Font = new System.Drawing.Font("Segoe UI", 9.75F);
 			this.comboBox_UnidadeComFaltaDeEnergia.FormattingEnabled = true;
@@ -213,10 +215,24 @@ namespace NOC_Actions
 			this.labelAviso.Text = "Aviso de uso";
 			this.labelAviso.Visible = false;
 			// 
+			// label_modoDiretorAtivado
+			// 
+			this.label_modoDiretorAtivado.AutoSize = true;
+			this.label_modoDiretorAtivado.BackColor = System.Drawing.Color.Transparent;
+			this.label_modoDiretorAtivado.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label_modoDiretorAtivado.ForeColor = System.Drawing.Color.Red;
+			this.label_modoDiretorAtivado.Location = new System.Drawing.Point(325, 5);
+			this.label_modoDiretorAtivado.Name = "label_modoDiretorAtivado";
+			this.label_modoDiretorAtivado.Size = new System.Drawing.Size(142, 17);
+			this.label_modoDiretorAtivado.TabIndex = 52;
+			this.label_modoDiretorAtivado.Text = "Modo Diretor ativado";
+			this.label_modoDiretorAtivado.Visible = false;
+			// 
 			// UcPossivelQuedaDeEnergia
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.label_modoDiretorAtivado);
 			this.Controls.Add(this.labelAviso);
 			this.Controls.Add(this.checkEditarCampoUnidade);
 			this.Controls.Add(this.btnDeletarItemSelecionadoDaLista);
