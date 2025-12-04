@@ -1,4 +1,1 @@
-﻿faça um git commit como se fosse um engenheiro de software da google:
-
-adicionado um único arquivo para salvar as informações de Contratos com Ocorrencia Interna
-fix: corrigido duplo clique do ListBox exibindo objeto ao invés do item
+﻿Adicionado sistema de LOAD para carrregar as informações no UcRegistroDeOcorrencias.cs > listBox
