@@ -5,8 +5,8 @@ namespace NOC_Actions
 {
 	public partial class LoginUser : Form
 	{
-		string machinaNameUser = Environment.UserName;
-
+		LoginUsuario class_login = new LoginUsuario();
+		
 		public LoginUser()
 		{
 			InitializeComponent();
@@ -15,12 +15,13 @@ namespace NOC_Actions
 		public LoginUser(string userName)
 		{
 			InitializeComponent();
-			userName += machinaNameUser;
+			userName += class_login;
+
 		}
 		
 		void BtnLoginClick(object sender, EventArgs e)
 		{
-			if (textBox1_userLogin.Text == machinaNameUser && textBox2_userPassword.Text == machinaNameUser) {
+			if (textBox1_userLogin.Text == class_login.UserLogin_Windows && textBox2_userPassword.Text == class_login.UserLogin_Windows) {
 				MainForm open_mainForm = new MainForm();
 				open_mainForm.Show();
 				this.Hide();
@@ -35,3 +36,4 @@ namespace NOC_Actions
 		}
 	}
 }
+
