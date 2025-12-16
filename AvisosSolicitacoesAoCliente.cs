@@ -20,7 +20,7 @@ namespace NOC_Actions
 		
 		void BtnAnaliseDeInfraClick(object sender, EventArgs e)
 		{
-			MostrarUserControl(new btnEditarTipoDeAnalise());
+			MostrarUserControl(new Uc_AnaliseDeInfra());
 		}
 		
 		void BtnLiberacaoDeAcessoClick(object sender, EventArgs e)

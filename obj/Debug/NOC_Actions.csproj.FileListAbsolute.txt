@@ -15,7 +15,6 @@ C:\Users\fjstavares\telcom_dev\NOC_Actions\obj\Debug\NOC_Actions.UcAlarmeDeLinkI
 C:\Users\fjstavares\telcom_dev\NOC_Actions\obj\Debug\NOC_Actions.UcLiberacaoDeAcessoSemPrevisao.resources
 C:\Users\fjstavares\telcom_dev\NOC_Actions\obj\Debug\NOC_Actions.UcPossivelQuedaDeEnergia.resources
 C:\Users\fjstavares\telcom_dev\NOC_Actions\obj\Debug\NOC_Actions.UcRegistroDeOcorrenciaInterna.resources
-C:\Users\fjstavares\telcom_dev\NOC_Actions\obj\Debug\NOC_Actions.btnEditarTipoDeAnalise.resources
 C:\Users\fjstavares\telcom_dev\NOC_Actions\obj\Debug\NOC_Actions.Uc_BloqueioFinanceiro.resources
 C:\Users\fjstavares\telcom_dev\NOC_Actions\obj\Debug\NOC_Actions.Uc_LiberacaoDeAcesso.resources
 C:\Users\fjstavares\telcom_dev\NOC_Actions\obj\Debug\NOC_Actions.Uc_PossivelQuedaDeEnergia.resources
@@ -24,3 +23,4 @@ C:\Users\fjstavares\telcom_dev\NOC_Actions\obj\Debug\NOC_Actions.csproj.Generate
 C:\Users\fjstavares\telcom_dev\NOC_Actions\obj\Debug\NOC_Actions.exe
 C:\Users\fjstavares\telcom_dev\NOC_Actions\obj\Debug\NOC_Actions.pdb
 C:\Users\fjstavares\telcom_dev\NOC_Actions\bin\Debug\NOC_Actions.pdb
+C:\Users\fjstavares\telcom_dev\NOC_Actions\obj\Debug\NOC_Actions.Uc_AnaliseDeInfra.resources

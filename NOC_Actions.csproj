@@ -50,6 +50,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArquivosComInformacoes\Class_Arquivos_Uc_AnaliseDeInfra.cs" />
     <Compile Include="AvisosSolicitacoesAoCliente.cs" />
     <Compile Include="AvisosSolicitacoesAoCliente.Designer.cs">
       <DependentUpon>AvisosSolicitacoesAoCliente.cs</DependentUpon>

@@ -8,7 +8,7 @@
  */
 namespace NOC_Actions
 {
-	partial class btnEditarTipoDeAnalise
+	partial class Uc_AnaliseDeInfra
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -19,7 +19,6 @@ namespace NOC_Actions
 		private System.Windows.Forms.Button btnApagarCampos;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.ComboBox comboBox_operadora;
 		private System.Windows.Forms.ComboBox comboBox_unidade;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label_aviso;
@@ -30,6 +29,7 @@ namespace NOC_Actions
 		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button btnGerarAlerta;
+		private System.Windows.Forms.ComboBox comboBox_unidadeParaAnalise;
 		
 		/// <summary>
 		/// Disposes resources used by the control.
@@ -57,7 +57,7 @@ namespace NOC_Actions
 			this.btnApagarCampos = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.comboBox_operadora = new System.Windows.Forms.ComboBox();
+			this.comboBox_unidadeParaAnalise = new System.Windows.Forms.ComboBox();
 			this.comboBox_unidade = new System.Windows.Forms.ComboBox();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label_aviso = new System.Windows.Forms.Label();
@@ -95,6 +95,7 @@ namespace NOC_Actions
 			this.btnSalvarECopiar.TabIndex = 4;
 			this.btnSalvarECopiar.Text = "Gravar e Copiar";
 			this.btnSalvarECopiar.UseVisualStyleBackColor = false;
+			this.btnSalvarECopiar.Click += new System.EventHandler(this.BtnSalvarECopiarClick);
 			// 
 			// btnApagarCampos
 			// 
@@ -129,14 +130,14 @@ namespace NOC_Actions
 			this.label2.TabIndex = 16;
 			this.label2.Text = "Operadora";
 			// 
-			// comboBox_operadora
+			// comboBox_unidadeParaAnalise
 			// 
-			this.comboBox_operadora.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.comboBox_operadora.FormattingEnabled = true;
-			this.comboBox_operadora.Location = new System.Drawing.Point(11, 42);
-			this.comboBox_operadora.Name = "comboBox_operadora";
-			this.comboBox_operadora.Size = new System.Drawing.Size(151, 25);
-			this.comboBox_operadora.TabIndex = 0;
+			this.comboBox_unidadeParaAnalise.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+			this.comboBox_unidadeParaAnalise.FormattingEnabled = true;
+			this.comboBox_unidadeParaAnalise.Location = new System.Drawing.Point(11, 42);
+			this.comboBox_unidadeParaAnalise.Name = "comboBox_unidadeParaAnalise";
+			this.comboBox_unidadeParaAnalise.Size = new System.Drawing.Size(151, 25);
+			this.comboBox_unidadeParaAnalise.TabIndex = 0;
 			// 
 			// comboBox_unidade
 			// 
@@ -245,7 +246,7 @@ namespace NOC_Actions
 			this.btnGerarAlerta.Text = "Gerar";
 			this.btnGerarAlerta.UseVisualStyleBackColor = false;
 			// 
-			// btnEditarTipoDeAnalise
+			// Uc_AnaliseDeInfra
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -260,13 +261,13 @@ namespace NOC_Actions
 			this.Controls.Add(this.label_aviso);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.comboBox_unidade);
-			this.Controls.Add(this.comboBox_operadora);
+			this.Controls.Add(this.comboBox_unidadeParaAnalise);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.btnCloseWindow);
 			this.Controls.Add(this.btnSalvarECopiar);
 			this.Controls.Add(this.btnApagarCampos);
-			this.Name = "btnEditarTipoDeAnalise";
+			this.Name = "Uc_AnaliseDeInfra";
 			this.Size = new System.Drawing.Size(470, 380);
 			this.ResumeLayout(false);
 			this.PerformLayout();
