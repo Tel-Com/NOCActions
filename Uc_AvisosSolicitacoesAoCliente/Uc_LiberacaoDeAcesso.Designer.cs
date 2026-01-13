@@ -352,6 +352,7 @@ namespace NOC_Actions
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Uc_LiberacaoDeAcesso";
             this.Size = new System.Drawing.Size(627, 468);
+            this.Load += new System.EventHandler(this.Uc_LiberacaoDeAcesso_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

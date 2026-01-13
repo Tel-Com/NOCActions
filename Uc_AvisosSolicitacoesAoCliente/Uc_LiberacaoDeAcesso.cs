@@ -194,8 +194,12 @@ namespace NOC_Actions
             this.FindForm().Close();
         }
 
-       #endregion
+        #endregion
 
+        private void Uc_LiberacaoDeAcesso_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
     
