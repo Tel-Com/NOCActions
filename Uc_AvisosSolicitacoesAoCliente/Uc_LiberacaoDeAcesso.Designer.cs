@@ -19,18 +19,18 @@ namespace NOC_Actions
 		private System.Windows.Forms.Button btnSalvarECopiar;
 		private System.Windows.Forms.Button btnApagarCampos;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.Label labelNomeEqTecnica;
+		private System.Windows.Forms.TextBox textBox_nomeEquipeTecnica;
+        private System.Windows.Forms.Label labelNomeEqTecnica;
 		private System.Windows.Forms.Label labelOperadora;
-		private System.Windows.Forms.ComboBox comboBox1;
-		private System.Windows.Forms.ComboBox comboBox2;
-		private System.Windows.Forms.Label labelChegada;
-		private System.Windows.Forms.ComboBox comboBox3;
-		private System.Windows.Forms.Label labelUnidade;
+		private System.Windows.Forms.ComboBox comboBox_operadoraResponsavel;
+        private System.Windows.Forms.ComboBox comboBox_previaoDeChegada;
+        private System.Windows.Forms.Label labelChegada;
+		private System.Windows.Forms.ComboBox comboBox_unidadeParaLiberacaoDeAcesso;
+        private System.Windows.Forms.Label labelUnidade;
 		private System.Windows.Forms.Label labelEnderecoDaUnidade;
-		private System.Windows.Forms.ComboBox comboBox4;
-		private System.Windows.Forms.RichTextBox richTextBox_MensagemASerEncaminhadaAoCliente;
-		private System.Windows.Forms.Label labelMensagemASerEncaminhada;
+		private System.Windows.Forms.ComboBox comboBox_enderecoDaUnidadeResponsavel;
+        private System.Windows.Forms.RichTextBox richTextBox_mensagemASerEncaminhadaAoCliente;
+        private System.Windows.Forms.Label labelMensagemASerEncaminhada;
 		private System.Windows.Forms.Label label8;
 		
 		/// <summary>
@@ -54,244 +54,311 @@ namespace NOC_Actions
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.btnGerarAlerta = new System.Windows.Forms.Button();
-			this.btnCloseWindow = new System.Windows.Forms.Button();
-			this.btnSalvarECopiar = new System.Windows.Forms.Button();
-			this.btnApagarCampos = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.labelNomeEqTecnica = new System.Windows.Forms.Label();
-			this.labelOperadora = new System.Windows.Forms.Label();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.comboBox2 = new System.Windows.Forms.ComboBox();
-			this.labelChegada = new System.Windows.Forms.Label();
-			this.comboBox3 = new System.Windows.Forms.ComboBox();
-			this.labelUnidade = new System.Windows.Forms.Label();
-			this.labelEnderecoDaUnidade = new System.Windows.Forms.Label();
-			this.comboBox4 = new System.Windows.Forms.ComboBox();
-			this.richTextBox_MensagemASerEncaminhadaAoCliente = new System.Windows.Forms.RichTextBox();
-			this.labelMensagemASerEncaminhada = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
-			this.SuspendLayout();
-			// 
-			// btnGerarAlerta
-			// 
-			this.btnGerarAlerta.BackColor = System.Drawing.Color.Transparent;
-			this.btnGerarAlerta.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnGerarAlerta.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.btnGerarAlerta.ForeColor = System.Drawing.Color.Black;
-			this.btnGerarAlerta.Location = new System.Drawing.Point(258, 320);
-			this.btnGerarAlerta.Name = "btnGerarAlerta";
-			this.btnGerarAlerta.Size = new System.Drawing.Size(96, 44);
-			this.btnGerarAlerta.TabIndex = 43;
-			this.btnGerarAlerta.Text = "Gerar";
-			this.btnGerarAlerta.UseVisualStyleBackColor = false;
-			// 
-			// btnCloseWindow
-			// 
-			this.btnCloseWindow.BackColor = System.Drawing.Color.Transparent;
-			this.btnCloseWindow.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnCloseWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.btnCloseWindow.ForeColor = System.Drawing.Color.Black;
-			this.btnCloseWindow.Location = new System.Drawing.Point(36, 320);
-			this.btnCloseWindow.Name = "btnCloseWindow";
-			this.btnCloseWindow.Size = new System.Drawing.Size(96, 44);
-			this.btnCloseWindow.TabIndex = 35;
-			this.btnCloseWindow.Text = "Fechar";
-			this.btnCloseWindow.UseVisualStyleBackColor = false;
-			// 
-			// btnSalvarECopiar
-			// 
-			this.btnSalvarECopiar.BackColor = System.Drawing.Color.Transparent;
-			this.btnSalvarECopiar.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnSalvarECopiar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.btnSalvarECopiar.ForeColor = System.Drawing.Color.Black;
-			this.btnSalvarECopiar.Location = new System.Drawing.Point(360, 320);
-			this.btnSalvarECopiar.Name = "btnSalvarECopiar";
-			this.btnSalvarECopiar.Size = new System.Drawing.Size(96, 44);
-			this.btnSalvarECopiar.TabIndex = 33;
-			this.btnSalvarECopiar.Text = "Gravar e Copiar";
-			this.btnSalvarECopiar.UseVisualStyleBackColor = false;
-			// 
-			// btnApagarCampos
-			// 
-			this.btnApagarCampos.BackColor = System.Drawing.Color.Transparent;
-			this.btnApagarCampos.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnApagarCampos.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.btnApagarCampos.ForeColor = System.Drawing.Color.Black;
-			this.btnApagarCampos.Location = new System.Drawing.Point(138, 320);
-			this.btnApagarCampos.Name = "btnApagarCampos";
-			this.btnApagarCampos.Size = new System.Drawing.Size(114, 44);
-			this.btnApagarCampos.TabIndex = 34;
-			this.btnApagarCampos.Text = "Apagar campos";
-			this.btnApagarCampos.UseVisualStyleBackColor = false;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label1.Location = new System.Drawing.Point(3, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(206, 17);
-			this.label1.TabIndex = 44;
-			this.label1.Text = "Mensagem - Liberação de acesso";
-			// 
-			// textBox1
-			// 
-			this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.textBox1.Location = new System.Drawing.Point(13, 46);
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(187, 76);
-			this.textBox1.TabIndex = 45;
-			// 
-			// labelNomeEqTecnica
-			// 
-			this.labelNomeEqTecnica.AutoSize = true;
-			this.labelNomeEqTecnica.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.labelNomeEqTecnica.Location = new System.Drawing.Point(13, 26);
-			this.labelNomeEqTecnica.Name = "labelNomeEqTecnica";
-			this.labelNomeEqTecnica.Size = new System.Drawing.Size(112, 17);
-			this.labelNomeEqTecnica.TabIndex = 46;
-			this.labelNomeEqTecnica.Text = "Nome Eq. Técnica";
-			// 
-			// labelOperadora
-			// 
-			this.labelOperadora.AutoSize = true;
-			this.labelOperadora.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.labelOperadora.Location = new System.Drawing.Point(216, 26);
-			this.labelOperadora.Name = "labelOperadora";
-			this.labelOperadora.Size = new System.Drawing.Size(73, 17);
-			this.labelOperadora.TabIndex = 47;
-			this.labelOperadora.Text = "Operadora";
-			// 
-			// comboBox1
-			// 
-			this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(216, 46);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(120, 25);
-			this.comboBox1.TabIndex = 48;
-			// 
-			// comboBox2
-			// 
-			this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Location = new System.Drawing.Point(342, 46);
-			this.comboBox2.Name = "comboBox2";
-			this.comboBox2.Size = new System.Drawing.Size(114, 25);
-			this.comboBox2.TabIndex = 50;
-			// 
-			// labelChegada
-			// 
-			this.labelChegada.AutoSize = true;
-			this.labelChegada.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.labelChegada.Location = new System.Drawing.Point(342, 26);
-			this.labelChegada.Name = "labelChegada";
-			this.labelChegada.Size = new System.Drawing.Size(92, 17);
-			this.labelChegada.TabIndex = 49;
-			this.labelChegada.Text = "Prev. Chegada";
-			// 
-			// comboBox3
-			// 
-			this.comboBox3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.comboBox3.FormattingEnabled = true;
-			this.comboBox3.Location = new System.Drawing.Point(216, 97);
-			this.comboBox3.Name = "comboBox3";
-			this.comboBox3.Size = new System.Drawing.Size(240, 25);
-			this.comboBox3.TabIndex = 51;
-			// 
-			// labelUnidade
-			// 
-			this.labelUnidade.AutoSize = true;
-			this.labelUnidade.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.labelUnidade.Location = new System.Drawing.Point(216, 77);
-			this.labelUnidade.Name = "labelUnidade";
-			this.labelUnidade.Size = new System.Drawing.Size(57, 17);
-			this.labelUnidade.TabIndex = 52;
-			this.labelUnidade.Text = "Unidade";
-			// 
-			// labelEnderecoDaUnidade
-			// 
-			this.labelEnderecoDaUnidade.AutoSize = true;
-			this.labelEnderecoDaUnidade.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.labelEnderecoDaUnidade.Location = new System.Drawing.Point(13, 127);
-			this.labelEnderecoDaUnidade.Name = "labelEnderecoDaUnidade";
-			this.labelEnderecoDaUnidade.Size = new System.Drawing.Size(135, 17);
-			this.labelEnderecoDaUnidade.TabIndex = 54;
-			this.labelEnderecoDaUnidade.Text = "Endereço da Unidade";
-			// 
-			// comboBox4
-			// 
-			this.comboBox4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.comboBox4.FormattingEnabled = true;
-			this.comboBox4.Location = new System.Drawing.Point(13, 147);
-			this.comboBox4.Name = "comboBox4";
-			this.comboBox4.Size = new System.Drawing.Size(443, 25);
-			this.comboBox4.TabIndex = 53;
-			// 
-			// richTextBox_MensagemASerEncaminhadaAoCliente
-			// 
-			this.richTextBox_MensagemASerEncaminhadaAoCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.richTextBox_MensagemASerEncaminhadaAoCliente.Location = new System.Drawing.Point(13, 198);
-			this.richTextBox_MensagemASerEncaminhadaAoCliente.Name = "richTextBox_MensagemASerEncaminhadaAoCliente";
-			this.richTextBox_MensagemASerEncaminhadaAoCliente.Size = new System.Drawing.Size(445, 98);
-			this.richTextBox_MensagemASerEncaminhadaAoCliente.TabIndex = 55;
-			this.richTextBox_MensagemASerEncaminhadaAoCliente.Text = "";
-			// 
-			// labelMensagemASerEncaminhada
-			// 
-			this.labelMensagemASerEncaminhada.AutoSize = true;
-			this.labelMensagemASerEncaminhada.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.labelMensagemASerEncaminhada.Location = new System.Drawing.Point(13, 178);
-			this.labelMensagemASerEncaminhada.Name = "labelMensagemASerEncaminhada";
-			this.labelMensagemASerEncaminhada.Size = new System.Drawing.Size(187, 17);
-			this.labelMensagemASerEncaminhada.TabIndex = 56;
-			this.labelMensagemASerEncaminhada.Text = "Mensagem a ser encaminhada";
-			// 
-			// label8
-			// 
-			this.label8.AutoSize = true;
-			this.label8.BackColor = System.Drawing.Color.Transparent;
-			this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-			this.label8.ForeColor = System.Drawing.SystemColors.ControlLight;
-			this.label8.Location = new System.Drawing.Point(1, 294);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(468, 17);
-			this.label8.TabIndex = 57;
-			this.label8.Text = "_________________________________________________________________________________" +
-	"___________";
-			// 
-			// Uc_LiberacaoDeAcesso
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.SystemColors.Control;
-			this.Controls.Add(this.label8);
-			this.Controls.Add(this.labelMensagemASerEncaminhada);
-			this.Controls.Add(this.richTextBox_MensagemASerEncaminhadaAoCliente);
-			this.Controls.Add(this.labelEnderecoDaUnidade);
-			this.Controls.Add(this.comboBox4);
-			this.Controls.Add(this.labelUnidade);
-			this.Controls.Add(this.comboBox3);
-			this.Controls.Add(this.comboBox2);
-			this.Controls.Add(this.labelChegada);
-			this.Controls.Add(this.comboBox1);
-			this.Controls.Add(this.labelOperadora);
-			this.Controls.Add(this.labelNomeEqTecnica);
-			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.btnGerarAlerta);
-			this.Controls.Add(this.btnCloseWindow);
-			this.Controls.Add(this.btnSalvarECopiar);
-			this.Controls.Add(this.btnApagarCampos);
-			this.Location = new System.Drawing.Point(437, 3);
-			this.Name = "Uc_LiberacaoDeAcesso";
-			this.Size = new System.Drawing.Size(470, 380);
-			this.ResumeLayout(false);
-			this.PerformLayout();
+            this.btnGerarAlerta = new System.Windows.Forms.Button();
+            this.btnCloseWindow = new System.Windows.Forms.Button();
+            this.btnSalvarECopiar = new System.Windows.Forms.Button();
+            this.btnApagarCampos = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox_nomeEquipeTecnica = new System.Windows.Forms.TextBox();
+            this.labelNomeEqTecnica = new System.Windows.Forms.Label();
+            this.labelOperadora = new System.Windows.Forms.Label();
+            this.comboBox_operadoraResponsavel = new System.Windows.Forms.ComboBox();
+            this.comboBox_previaoDeChegada = new System.Windows.Forms.ComboBox();
+            this.labelChegada = new System.Windows.Forms.Label();
+            this.comboBox_unidadeParaLiberacaoDeAcesso = new System.Windows.Forms.ComboBox();
+            this.labelUnidade = new System.Windows.Forms.Label();
+            this.labelEnderecoDaUnidade = new System.Windows.Forms.Label();
+            this.comboBox_enderecoDaUnidadeResponsavel = new System.Windows.Forms.ComboBox();
+            this.richTextBox_mensagemASerEncaminhadaAoCliente = new System.Windows.Forms.RichTextBox();
+            this.labelMensagemASerEncaminhada = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox_credenciaisDePessoaFisica = new System.Windows.Forms.TextBox();
+            this.btnAmplicarTexto = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnGerarAlerta
+            // 
+            this.btnGerarAlerta.BackColor = System.Drawing.Color.Transparent;
+            this.btnGerarAlerta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGerarAlerta.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.btnGerarAlerta.ForeColor = System.Drawing.Color.Black;
+            this.btnGerarAlerta.Location = new System.Drawing.Point(344, 394);
+            this.btnGerarAlerta.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGerarAlerta.Name = "btnGerarAlerta";
+            this.btnGerarAlerta.Size = new System.Drawing.Size(128, 54);
+            this.btnGerarAlerta.TabIndex = 43;
+            this.btnGerarAlerta.Text = "Gerar";
+            this.btnGerarAlerta.UseVisualStyleBackColor = false;
+            this.btnGerarAlerta.Click += new System.EventHandler(this.btnGerarAlerta_Click);
+            // 
+            // btnCloseWindow
+            // 
+            this.btnCloseWindow.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloseWindow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCloseWindow.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.btnCloseWindow.ForeColor = System.Drawing.Color.Black;
+            this.btnCloseWindow.Location = new System.Drawing.Point(48, 394);
+            this.btnCloseWindow.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCloseWindow.Name = "btnCloseWindow";
+            this.btnCloseWindow.Size = new System.Drawing.Size(128, 54);
+            this.btnCloseWindow.TabIndex = 35;
+            this.btnCloseWindow.Text = "Fechar";
+            this.btnCloseWindow.UseVisualStyleBackColor = false;
+            this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click);
+            // 
+            // btnSalvarECopiar
+            // 
+            this.btnSalvarECopiar.BackColor = System.Drawing.Color.Transparent;
+            this.btnSalvarECopiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvarECopiar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.btnSalvarECopiar.ForeColor = System.Drawing.Color.Black;
+            this.btnSalvarECopiar.Location = new System.Drawing.Point(480, 394);
+            this.btnSalvarECopiar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalvarECopiar.Name = "btnSalvarECopiar";
+            this.btnSalvarECopiar.Size = new System.Drawing.Size(128, 54);
+            this.btnSalvarECopiar.TabIndex = 33;
+            this.btnSalvarECopiar.Text = "Gravar e Copiar";
+            this.btnSalvarECopiar.UseVisualStyleBackColor = false;
+            this.btnSalvarECopiar.Click += new System.EventHandler(this.btnSalvarECopiar_Click);
+            // 
+            // btnApagarCampos
+            // 
+            this.btnApagarCampos.BackColor = System.Drawing.Color.Transparent;
+            this.btnApagarCampos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnApagarCampos.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.btnApagarCampos.ForeColor = System.Drawing.Color.Black;
+            this.btnApagarCampos.Location = new System.Drawing.Point(184, 394);
+            this.btnApagarCampos.Margin = new System.Windows.Forms.Padding(4);
+            this.btnApagarCampos.Name = "btnApagarCampos";
+            this.btnApagarCampos.Size = new System.Drawing.Size(152, 54);
+            this.btnApagarCampos.TabIndex = 34;
+            this.btnApagarCampos.Text = "Apagar campos";
+            this.btnApagarCampos.UseVisualStyleBackColor = false;
+            this.btnApagarCampos.Click += new System.EventHandler(this.btnApagarCampos_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label1.Location = new System.Drawing.Point(4, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(263, 23);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "Mensagem - Liberação de acesso";
+            // 
+            // textBox_nomeEquipeTecnica
+            // 
+            this.textBox_nomeEquipeTecnica.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.textBox_nomeEquipeTecnica.Location = new System.Drawing.Point(21, 59);
+            this.textBox_nomeEquipeTecnica.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_nomeEquipeTecnica.Name = "textBox_nomeEquipeTecnica";
+            this.textBox_nomeEquipeTecnica.Size = new System.Drawing.Size(248, 29);
+            this.textBox_nomeEquipeTecnica.TabIndex = 45;
+            // 
+            // labelNomeEqTecnica
+            // 
+            this.labelNomeEqTecnica.AutoSize = true;
+            this.labelNomeEqTecnica.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.labelNomeEqTecnica.Location = new System.Drawing.Point(17, 32);
+            this.labelNomeEqTecnica.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNomeEqTecnica.Name = "labelNomeEqTecnica";
+            this.labelNomeEqTecnica.Size = new System.Drawing.Size(145, 23);
+            this.labelNomeEqTecnica.TabIndex = 46;
+            this.labelNomeEqTecnica.Text = "Nome Eq. Técnica";
+            // 
+            // labelOperadora
+            // 
+            this.labelOperadora.AutoSize = true;
+            this.labelOperadora.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.labelOperadora.Location = new System.Drawing.Point(288, 32);
+            this.labelOperadora.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelOperadora.Name = "labelOperadora";
+            this.labelOperadora.Size = new System.Drawing.Size(92, 23);
+            this.labelOperadora.TabIndex = 47;
+            this.labelOperadora.Text = "Operadora";
+            // 
+            // comboBox_operadoraResponsavel
+            // 
+            this.comboBox_operadoraResponsavel.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.comboBox_operadoraResponsavel.FormattingEnabled = true;
+            this.comboBox_operadoraResponsavel.Location = new System.Drawing.Point(288, 57);
+            this.comboBox_operadoraResponsavel.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox_operadoraResponsavel.Name = "comboBox_operadoraResponsavel";
+            this.comboBox_operadoraResponsavel.Size = new System.Drawing.Size(159, 29);
+            this.comboBox_operadoraResponsavel.TabIndex = 48;
+            // 
+            // comboBox_previaoDeChegada
+            // 
+            this.comboBox_previaoDeChegada.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.comboBox_previaoDeChegada.FormattingEnabled = true;
+            this.comboBox_previaoDeChegada.Location = new System.Drawing.Point(456, 57);
+            this.comboBox_previaoDeChegada.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox_previaoDeChegada.Name = "comboBox_previaoDeChegada";
+            this.comboBox_previaoDeChegada.Size = new System.Drawing.Size(151, 29);
+            this.comboBox_previaoDeChegada.TabIndex = 50;
+            // 
+            // labelChegada
+            // 
+            this.labelChegada.AutoSize = true;
+            this.labelChegada.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.labelChegada.Location = new System.Drawing.Point(456, 32);
+            this.labelChegada.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelChegada.Name = "labelChegada";
+            this.labelChegada.Size = new System.Drawing.Size(120, 23);
+            this.labelChegada.TabIndex = 49;
+            this.labelChegada.Text = "Prev. Chegada";
+            // 
+            // comboBox_unidadeParaLiberacaoDeAcesso
+            // 
+            this.comboBox_unidadeParaLiberacaoDeAcesso.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.comboBox_unidadeParaLiberacaoDeAcesso.FormattingEnabled = true;
+            this.comboBox_unidadeParaLiberacaoDeAcesso.Location = new System.Drawing.Point(288, 119);
+            this.comboBox_unidadeParaLiberacaoDeAcesso.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox_unidadeParaLiberacaoDeAcesso.Name = "comboBox_unidadeParaLiberacaoDeAcesso";
+            this.comboBox_unidadeParaLiberacaoDeAcesso.Size = new System.Drawing.Size(319, 29);
+            this.comboBox_unidadeParaLiberacaoDeAcesso.TabIndex = 51;
+            // 
+            // labelUnidade
+            // 
+            this.labelUnidade.AutoSize = true;
+            this.labelUnidade.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.labelUnidade.Location = new System.Drawing.Point(288, 95);
+            this.labelUnidade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelUnidade.Name = "labelUnidade";
+            this.labelUnidade.Size = new System.Drawing.Size(74, 23);
+            this.labelUnidade.TabIndex = 52;
+            this.labelUnidade.Text = "Unidade";
+            // 
+            // labelEnderecoDaUnidade
+            // 
+            this.labelEnderecoDaUnidade.AutoSize = true;
+            this.labelEnderecoDaUnidade.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.labelEnderecoDaUnidade.Location = new System.Drawing.Point(17, 153);
+            this.labelEnderecoDaUnidade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelEnderecoDaUnidade.Name = "labelEnderecoDaUnidade";
+            this.labelEnderecoDaUnidade.Size = new System.Drawing.Size(174, 23);
+            this.labelEnderecoDaUnidade.TabIndex = 54;
+            this.labelEnderecoDaUnidade.Text = "Endereço da Unidade";
+            // 
+            // comboBox_enderecoDaUnidadeResponsavel
+            // 
+            this.comboBox_enderecoDaUnidadeResponsavel.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.comboBox_enderecoDaUnidadeResponsavel.FormattingEnabled = true;
+            this.comboBox_enderecoDaUnidadeResponsavel.Location = new System.Drawing.Point(21, 177);
+            this.comboBox_enderecoDaUnidadeResponsavel.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBox_enderecoDaUnidadeResponsavel.Name = "comboBox_enderecoDaUnidadeResponsavel";
+            this.comboBox_enderecoDaUnidadeResponsavel.Size = new System.Drawing.Size(586, 29);
+            this.comboBox_enderecoDaUnidadeResponsavel.TabIndex = 53;
+            // 
+            // richTextBox_mensagemASerEncaminhadaAoCliente
+            // 
+            this.richTextBox_mensagemASerEncaminhadaAoCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.richTextBox_mensagemASerEncaminhadaAoCliente.Location = new System.Drawing.Point(21, 244);
+            this.richTextBox_mensagemASerEncaminhadaAoCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.richTextBox_mensagemASerEncaminhadaAoCliente.Name = "richTextBox_mensagemASerEncaminhadaAoCliente";
+            this.richTextBox_mensagemASerEncaminhadaAoCliente.Size = new System.Drawing.Size(586, 120);
+            this.richTextBox_mensagemASerEncaminhadaAoCliente.TabIndex = 55;
+            this.richTextBox_mensagemASerEncaminhadaAoCliente.Text = "";
+            // 
+            // labelMensagemASerEncaminhada
+            // 
+            this.labelMensagemASerEncaminhada.AutoSize = true;
+            this.labelMensagemASerEncaminhada.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.labelMensagemASerEncaminhada.Location = new System.Drawing.Point(17, 219);
+            this.labelMensagemASerEncaminhada.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelMensagemASerEncaminhada.Name = "labelMensagemASerEncaminhada";
+            this.labelMensagemASerEncaminhada.Size = new System.Drawing.Size(243, 23);
+            this.labelMensagemASerEncaminhada.TabIndex = 56;
+            this.labelMensagemASerEncaminhada.Text = "Mensagem a ser encaminhada";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label8.Location = new System.Drawing.Point(1, 365);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(654, 23);
+            this.label8.TabIndex = 57;
+            this.label8.Text = "_________________________________________________________________________________" +
+    "___________";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.label2.Location = new System.Drawing.Point(18, 94);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 23);
+            this.label2.TabIndex = 58;
+            this.label2.Text = "CPF / RG";
+            // 
+            // textBox_credenciaisDePessoaFisica
+            // 
+            this.textBox_credenciaisDePessoaFisica.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.textBox_credenciaisDePessoaFisica.Location = new System.Drawing.Point(21, 119);
+            this.textBox_credenciaisDePessoaFisica.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox_credenciaisDePessoaFisica.Name = "textBox_credenciaisDePessoaFisica";
+            this.textBox_credenciaisDePessoaFisica.Size = new System.Drawing.Size(248, 29);
+            this.textBox_credenciaisDePessoaFisica.TabIndex = 59;
+            // 
+            // btnAmplicarTexto
+            // 
+            this.btnAmplicarTexto.AutoSize = true;
+            this.btnAmplicarTexto.BackColor = System.Drawing.Color.Transparent;
+            this.btnAmplicarTexto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAmplicarTexto.Font = new System.Drawing.Font("Segoe UI", 8.75F);
+            this.btnAmplicarTexto.ForeColor = System.Drawing.Color.Black;
+            this.btnAmplicarTexto.Location = new System.Drawing.Point(567, 213);
+            this.btnAmplicarTexto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAmplicarTexto.Name = "btnAmplicarTexto";
+            this.btnAmplicarTexto.Size = new System.Drawing.Size(40, 30);
+            this.btnAmplicarTexto.TabIndex = 60;
+            this.btnAmplicarTexto.Text = "🔎";
+            this.btnAmplicarTexto.UseVisualStyleBackColor = false;
+            // 
+            // Uc_LiberacaoDeAcesso
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.btnAmplicarTexto);
+            this.Controls.Add(this.textBox_credenciaisDePessoaFisica);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.labelMensagemASerEncaminhada);
+            this.Controls.Add(this.richTextBox_mensagemASerEncaminhadaAoCliente);
+            this.Controls.Add(this.labelEnderecoDaUnidade);
+            this.Controls.Add(this.comboBox_enderecoDaUnidadeResponsavel);
+            this.Controls.Add(this.labelUnidade);
+            this.Controls.Add(this.comboBox_unidadeParaLiberacaoDeAcesso);
+            this.Controls.Add(this.comboBox_previaoDeChegada);
+            this.Controls.Add(this.labelChegada);
+            this.Controls.Add(this.comboBox_operadoraResponsavel);
+            this.Controls.Add(this.labelOperadora);
+            this.Controls.Add(this.labelNomeEqTecnica);
+            this.Controls.Add(this.textBox_nomeEquipeTecnica);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnGerarAlerta);
+            this.Controls.Add(this.btnCloseWindow);
+            this.Controls.Add(this.btnSalvarECopiar);
+            this.Controls.Add(this.btnApagarCampos);
+            this.Location = new System.Drawing.Point(437, 3);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Name = "Uc_LiberacaoDeAcesso";
+            this.Size = new System.Drawing.Size(627, 468);
+            this.ResumeLayout(false);
+            this.PerformLayout();
 
 		}
-	}
+
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox_credenciaisDePessoaFisica;
+        private System.Windows.Forms.Button btnAmplicarTexto;
+    }
 }

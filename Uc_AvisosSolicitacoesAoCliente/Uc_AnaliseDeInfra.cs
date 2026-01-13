@@ -245,6 +245,7 @@ namespace NOC_Actions
                 return false;
             }
         }
+
         void CloseWindow()
         {
             this.FindForm().Close();

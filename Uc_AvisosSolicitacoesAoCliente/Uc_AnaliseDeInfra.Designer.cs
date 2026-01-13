@@ -253,7 +253,7 @@
             this.btnExcluirTodosOsCampos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExcluirTodosOsCampos.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.btnExcluirTodosOsCampos.ForeColor = System.Drawing.Color.Black;
-            this.btnExcluirTodosOsCampos.Location = new System.Drawing.Point(391, 113);
+            this.btnExcluirTodosOsCampos.Location = new System.Drawing.Point(398, 113);
             this.btnExcluirTodosOsCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluirTodosOsCampos.Name = "btnExcluirTodosOsCampos";
             this.btnExcluirTodosOsCampos.Size = new System.Drawing.Size(122, 38);

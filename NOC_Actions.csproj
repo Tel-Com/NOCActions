@@ -158,6 +158,12 @@
     <Compile Include="UcRegistroDeOcorrenciaInterna.Designer.cs">
       <DependentUpon>UcRegistroDeOcorrenciaInterna.cs</DependentUpon>
     </Compile>
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\AmpliarMensagemDeTexto_LiberacaoDeAcesso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uc_AvisosSolicitacoesAoCliente\AmpliarMensagemDeTexto_LiberacaoDeAcesso.Designer.cs">
+      <DependentUpon>AmpliarMensagemDeTexto_LiberacaoDeAcesso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Uc_AvisosSolicitacoesAoCliente\Config_AnaliseDeInfra.cs" />
     <Compile Include="Uc_AvisosSolicitacoesAoCliente\Config_AnaliseDeInfra.Designer.cs">
       <DependentUpon>Config_AnaliseDeInfra.cs</DependentUpon>
@@ -243,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UcRegistroDeOcorrenciaInterna.resx">
       <DependentUpon>UcRegistroDeOcorrenciaInterna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uc_AvisosSolicitacoesAoCliente\AmpliarMensagemDeTexto_LiberacaoDeAcesso.resx">
+      <DependentUpon>AmpliarMensagemDeTexto_LiberacaoDeAcesso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Uc_AvisosSolicitacoesAoCliente\Config_AnaliseDeInfra.resx">
       <DependentUpon>Config_AnaliseDeInfra.cs</DependentUpon>
