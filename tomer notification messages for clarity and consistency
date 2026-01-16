@@ -1,0 +1,1127 @@
+[33mcommit c449caa55009f756d55dbc594c9686b2d44bcc41[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: devsantiag <contatofasantiago@hotmail.com>
+Date:   Thu Jan 15 16:53:28 2026 -0300
+
+    feat(ui/ux): improve customer notifications, web integration and keyboard navigation
+    
+    - Refined predefined customer notification messages for clarity and consistency
+    - Added embedded web system to access Sercom/Telecom portals and services
+    - Aligned new UserControls with proper TabIndex configuration
+    - Implemented automatic focus handling to move focus from buttons to UserControls,
+      starting at TabIndex 0 to enable full keyboard navigation
+
+[33mcommit cc28f26be3b5a145f0c47baed2a9fd5384d825c8[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: devsantiag <contatofasantiago@hotmail.com>
+Date:   Tue Jan 13 18:03:27 2026 -0300
+
+    feat(client): add energy analysis user controls and data persistence
+     Implement energy analysis user control functionality on the client side. Link all comboboxes to ensure data is correctly persisted to files.
+    TODO: Organize TabIndex for accessibility and implement remaining script bindings to improve usability.
+
+[33mcommit 3b1b3f8453e33a6f7ff5d8ad9a27721ffc37909a[m
+Author: devsantiag <contatofasantiago@hotmail.com>
+Date:   Mon Jan 12 22:29:56 2026 -0300
+
+    Refactor Uc_LiberacaoDeAcesso UI wiring and structure
+    
+    Clean up code organization, wire button handlers, and enable proper UserControl close behavior.
+
+[33mcommit 9fd6a69e427a2a3ed6e9bbe465a84635babdd8a4[m
+Author: devsantiag <contatofasantiago@hotmail.com>
+Date:   Sun Jan 11 11:33:32 2026 -0300
+
+    feat: add clipboard support and extend financial block user controls
+
+[33mcommit 12714be723cead0a75ee8024f0e421781c157659[m
+Author: devsantiag <contatofasantiago@hotmail.com>
+Date:   Sat Jan 10 23:12:20 2026 -0300
+
+    feat: add bulk deletion for combobox persisted values
+    
+    Adds a delete-all action that clears all combobox entries and
+    their backing storage files to keep UI and persistence in sync.
+
+[33mcommit ad261ee3ce6999170a76a8a4bba9c23eebf6cf31[m
+Author: devsantiag <contatofasantiago@hotmail.com>
+Date:   Sat Jan 10 09:35:29 2026 -0300
+
+    feat(ui/noc): persist combobox data, enable message preview and actions
+    
+    - Persist combobox values to txt files and reload saved entries on startup
+    - Allow users to remove selected combobox values with file sync
+    - Wire up generate, copy/save, and clear actions to respective buttons
+    - Enable richTextBox message preview generated from user selections
+    - Improve end-to-end flow for NOC message creation and management
+
+[33mcommit c7444f8de207c367577b935b14b18ff01b23c0a4[m
+Author: devsantiag <contatofasantiago@hotmail.com>
+Date:   Tue Jan 6 17:22:07 2026 -0300
+
+    feat: add file peristence to infra analysis UserControl
+    
+    Load and save Operadora, Unidade and Tipo de Analise values using local files, ensuring deduplication and validation on save
+
+[33mcommit b93495017575bda803f463742fc378bd33fa93d7[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Mon Dec 15 22:09:21 2025 -0300
+
+    feat(infra-analysis): add persistence class to decentralize data handling
+    
+    - Added Class_Arquivos_Uc_AnaliseDeInfra to encapsulate and decentralize
+      user-applied data persistence for Uc_AnaliseDeInfra, improving
+      maintainability and separation of concerns.
+    
+    - The class is responsible for storing user-provided information locally,
+      enabling faster interactions within the tool and reducing repetitive input,
+      improving overall workflow efficiency.
+    
+    - The persistence layer is designed to be flexible: the existence of a single
+      class is predominant but may be modified, extended, or replaced as new
+      features are introduced, including the currently in-development
+      'Avisos / Solicitações' module.
+
+[33mcommit 9cd9851d61d0d3b7b438b4a5e55e84ba9b986e40[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Dec 12 22:03:36 2025 -0300
+
+    refactor(ui): adjust SplitContainer and enhance action buttons in AvisosSolicitacoes
+    
+    - Adjust SplitContainer layout in AvisosSolicitacoes for improved usability
+    - Style, reposition, and add visual elements to the following action buttons
+      (functional behavior not implemented yet):
+      - Análise de Infraestrutura
+      - Liberação de Acesso
+      - Possível Queda de Energia
+      - Bloqueio Financeiro
+    - Add gear emoji to represent configuration settings
+    - Implement 'Voltar ao Início' navigation via userName label in
+      AvisosSolicitacoesAoCliente.cs, preparing future machine-based user
+      identification for logging and audit purposes
+
+[33mcommit cb0138fdf70836180f9856f91d28dbb36dd93692[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Dec 12 10:31:22 2025 -0300
+
+    Integrates the default system login method with the machine’s actual Windows
+    credentials. This update ensures that users who do not know their local Windows
+    username/password can still authenticate using the predefined default system
+    credentials, improving accessibility without altering existing workflows.
+    
+    No behavioral regressions expected.
+
+[33mcommit c434ef4dd130130c28938001b70d88f8129f8a8b[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Mon Dec 8 16:52:26 2025 -0300
+
+    Login: Activate LoginUsuario class to retrieve Windows user credentials
+    
+    The LoginUsuario class has been enabled to automatically capture the current
+    Windows username. The functionality is integrated into the initial application
+    flow through loginuser.cs, configured as the main startup screen in Program.cs.
+    
+    Pending work: enable the notification handling in AvisosSolicitacoesAoCliente.cs.
+
+[33mcommit ab4142b37ef0374c4018472f86bbc9f1948f259f[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Mon Dec 8 12:03:07 2025 -0300
+
+    feat(ui): prepare infrastructure analysis UI and adjust panel styling
+    
+    - Added placeholder UI elements (TextBoxes and Buttons) for future functionality in Uc_AnaliseDeInfra
+      (all components currently disabled; implementation pending)
+    - Updated Panel2 background color to ControlLight in AvisosSolicitacoesAoCliente.cs for visual consistency
+    
+    Note: No new functional behavior added; feature still under active development.
+
+[33mcommit 9246508d6ff0b6fd0170b4032d1586af64c305a1[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Dec 6 14:04:41 2025 -0300
+
+    ui(avisos-solicitacoes): adjust UserControl layouts and wire buttons to corresponding views
+    
+    Refine the size and docking behavior of all UserControls within
+    AvisosSolicitacoesAoCliente.cs to ensure consistent UI layout.
+    Updated the button handlers to correctly load and switch each
+    UserControl as intended.
+    
+    Next steps:
+    - Finalize layout adjustments for production readiness.
+    - Validate behavior across all workflow scenarios.
+
+[33mcommit a504e9d049131138747823f1e51e5def22cfefce[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Dec 6 13:42:21 2025 -0300
+
+    chore(structure): add Uc_AvisosSolicitacoesAoCliente directory and register related UserControls
+    
+    - Created new directory Uc_AvisosSolicitacoesAoCliente to organize components
+      for the AvisosSolicitacoesAoCliente workflow.
+    - Added and registered all UserControls associated with the
+      AvisosSolicitacoesAoCliente.cs tab to improve project structure and maintainability.
+
+[33mcommit c85ec4bf065ba3b5e2c53ee871cbb5d9491a2ec8[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Dec 6 13:28:59 2025 -0300
+
+    feat(ui): add client notification screen and new action buttons to improve workflow
+    
+    - Introduced a dedicated notification screen for client-related requests.
+    - Added new operation buttons, including infrastructure analysis, access release,
+      potential power outage report, and other support actions.
+    - Enhances overall communication flow and supports a more proactive interaction
+      between Tel&Com collaborators and clients, reducing delays and stress during
+      access release procedures.
+
+[33mcommit 766175492477ff5780763afe96a954f06878bba2[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Dec 5 11:27:30 2025 -0300
+
+    feat(reincidence-record): add window-close logic and improve deletion system
+    
+    - Added full window-closing support on the Reincidence Record module.
+    - Renamed action buttons to improve clarity and UI consistency.
+    - Implemented deletion system for selected contract entries in the Reincidence ListBox.
+    - Added full-list deletion mechanism to remove all stored records at once.
+
+[33mcommit ff77e4b6fe21293b5ecb9727c99166dd08ece960[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Thu Dec 4 15:06:49 2025 -0300
+
+    feat(RegistroDeOcorrencias): add load mechanism to populate ListBox
+    
+    Implemented a load routine in UcRegistroDeOcorrencias.cs to initialize
+    and populate the ListBox with previously stored occurrence data.
+    Improves UX by ensuring state persistence across sessions.
+
+[33mcommit 2ba6c32631e3375cd68c5ceb65ed74b387f25c73[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Thu Dec 4 14:48:16 2025 -0300
+
+    feat(storage): consolidate contract records with internal occurrences into a single file
+    
+    All data from the Internal Occurrence module is now persisted in one unified
+    storage file, improving maintainability, lookup efficiency, and overall data
+    organization.
+    
+    fix(ui): correct ListBox double-click behavior to display the selected item instead of the control object
+    
+    Updated the MouseDoubleClick handler to use SelectedItem.ToString(), ensuring
+    the correct entry is shown when the user interacts with the ListBox.
+
+[33mcommit b1ff9b0380cdc5b030d877f596c985f84861ddb3[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Thu Dec 4 13:06:19 2025 -0300
+
+    remove content: registroDeAtt.txt
+
+[33mcommit 44b4f0ca898cdad4ea5f5b9a33f31893e4e27ff1[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Thu Dec 4 13:05:50 2025 -0300
+
+    feat: enhance UI interactions and cleanup unused imports
+    
+    - Added automatic field clearing after save action in UcDetalharFaturaDoCliente.cs
+    - Implemented observation TextBox support in UcRegistroDeOcorrenciaInterna.cs
+    - Removed unnecessary using directives for cleaner codebase
+
+[33mcommit 8b6484c33e5c6c2926455cca602e0fa5038d42f4[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Mon Dec 1 15:38:15 2025 -0300
+
+    feat(UcDetalharFaturaDoCliente): clear input fields after save action
+    
+    Implemented automatic clearing of all relevant input fields when the 'Gravar' action is triggered.
+    This improves workflow, prevents duplicate submissions, and enhances overall UX within the UcDetalharFaturaDoCliente.cs component.
+
+[33mcommit 5d3b89c18a97ff43fbdd36051dd23fff7f1f7cc7[m
+Merge: 264e7dd 8963611
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Wed Nov 19 11:47:02 2025 -0300
+
+    refactor(ui): improve autocomplete behavior, layout adjustments and new internal incident flow
+    
+    - Switch selected UserControls to use Suggest AutoCompleteMode for better UX
+    - Reposition invoice-details warning label for improved visual alignment
+    - Add preview button to inspect generated message before ticket creation
+    - Apply         oUpper() to ticket protocol for normalization
+    - Declare and integrate 'No-Ticket' button for non-registrational flows
+    - Create UcRegistroDeOcorrenciaInterna for internal incident logging without repair-ticket requirement
+    - Update design of UcLiberacaoAcessoComPrevisao.cs for visual consistency
+    - Temporarily rename several parameters for code clarity during refactor
+    - Add pre-wired parameter to load UcRegistroDeOcorrenciaInterna automatically
+    - Implement support class for internal-incident contract handling (UcRegistroDeOcorrenciaInterna.cs)
+    - Create InformacoesContrato_ReincidenciaDeFalha.cs UserControl to record contract-specific failure-recurrence details
+
+[33mcommit 264e7dd99a142ac1a45aef3a2c3c21534602ae8f[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Wed Nov 19 11:44:17 2025 -0300
+
+    refactor(ui): improve autocomplete behavior, layout adjustments and new internal incident flow
+    
+    - Switch selected UserControls to use Suggest AutoCompleteMode for better UX
+    - Reposition invoice-details warning label for improved visual alignment
+    - Add preview button to inspect generated message before ticket creation
+    - Apply         oUpper() to ticket protocol for normalization
+    - Declare and integrate 'No-Ticket' button for non-registrational flows
+    - Create UcRegistroDeOcorrenciaInterna for internal incident logging without repair-ticket requirement
+    - Update design of UcLiberacaoAcessoComPrevisao.cs for visual consistency
+    - Temporarily rename several parameters for code clarity during refactor
+    - Add pre-wired parameter to load UcRegistroDeOcorrenciaInterna automatically
+    - Implement support class for internal-incident contract handling (UcRegistroDeOcorrenciaInterna.cs)
+    - Create InformacoesContrato_ReincidenciaDeFalha.cs UserControl to record contract-specific failure-recurrence details
+
+[33mcommit 89636110820916da611ea4f07a75bce9db7f0411[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Mon Nov 17 12:19:26 2025 -0300
+
+    Update InterfaceClienteInformes.cs
+    
+    comment edited
+    
+    
+    Signed-off-by: santiago <98044979+devsantiag@users.noreply.github.com>
+
+[33mcommit 3e1a041a14ba0f9acd1d851a21a3944d28b7c921[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Mon Nov 17 12:10:25 2025 -0300
+
+    Fix formatting and remove trailing whitespace
+    
+    remove space
+    
+    Signed-off-by: santiago <98044979+devsantiag@users.noreply.github.com>
+
+[33mcommit ccd74e1dd69145aab2de4a6c3fb2f9f643367ab4[m[33m ([m[1;33mtag: [m[1;33mc#[m[33m)[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Nov 16 15:59:21 2025 -0300
+
+    Enhance README with comprehensive project details
+    
+    Expanded README with detailed project overview, file structure, functionalities, usage instructions, and update history.
+    
+    Signed-off-by: santiago <98044979+devsantiag@users.noreply.github.com>
+
+[33mcommit 4fe7f2c9eabc001426d66f1fdc9ca7638be66e21[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Nov 16 12:56:37 2025 -0300
+
+    feat(uc-alarme-link-indisponivel): add provider storage, autocomplete support, director mode and deletion tools
+    
+    - Implement text-file storage for carrier list
+    - Enable autocomplete behavior for comboBoxCarrierName
+    - Add Director Mode to allow editing of stored carrier entries
+    - Implement deletion of single carrier item and full carrier list
+    - Improve persistence flow with unified write/update logic
+
+[33mcommit cbffae6f44465f668fba8a173c54d0ab40476e7d[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Nov 16 11:59:58 2025 -0300
+
+    refactor(DetalharFatura): merge config logic into UserControl and add Director Mode
+    
+    - Removed Config_UcDetalharFaturaDoCliente.cs to simplify UX flow
+    - Integrated file persistence directly into UcDetalharFaturaDoCliente for faster I/O handling
+    - Added Director Mode with isolated edit state to prevent conflicting interactions
+    - Implemented safety lock to restrict all other UI actions while edit mode is active
+    - Added mutual exclusivity between checkboxes to avoid inconsistent states
+    - Improved TXT persistence logic with direct save operations from the UserControl
+    
+    This refactor reduces complexity, removes an unnecessary layer, and provides a more predictable and safe editing experience.
+
+[33mcommit a5a445f8b5d7d866241b2c0526b8a3666cf63b4d[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Nov 15 23:27:44 2025 -0300
+
+    InvoiceDetails: Add support for 'religue por confiança' notices
+    
+    Updated button styling to improve UI consistency.
+    Introduced Uc_BancoDeArmazenamentoDeDados.cs to centralize and display all user-saved records.
+
+[33mcommit 558ec13ffdaeef8802ba7701e7a14583f5540d7a[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Nov 15 20:19:03 2025 -0300
+
+    feat: implement full list/item deletion, persistent storage, and autocomplete
+    
+    - Added functionality to delete a single selected item or the entire list in UcPendenciaFinanceiraInformes.cs
+    - Implemented saving of ComboBox items to a txt file for persistent storage
+    - Added loading of saved items into the ComboBox on initialization
+    - Enabled autocomplete for some ComboBoxes to improve user experience
+
+[33mcommit 9deec223444cbe5f521c4dd40e8e5f0aa0ae23e5[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Nov 15 19:39:58 2025 -0300
+
+    refactor: improve UI, add greeting system, and enhance autocomplete functionality
+    
+    - Removed unused using directives.
+    - Replaced textBox with comboBox in UcAlarmeDeLinkIndisponivel.cs.
+    - Added automatic greeting system based on time of day.
+    - Updated button styles and fixed button design issues.
+    - Adjusted sample output text for formal Portuguese language compliance.
+    - Corrected Portuguese text throughout the application.
+    - Added file-based system for some UserControls to enable autocomplete and speed up client notifications.
+    - Applied ToUpper() to certain fields for consistency.
+    - Added warning label in UcAlarmeDeLinkIndisponivel.cs about careful handling when detailing invoices.
+    - Added 'Delete Selected' and 'Delete All' buttons in UcPossivelQuedaDeEnergia.cs to allow users to remove individual items or the entire list.
+    - Added a checkbox in UcPossivelQuedaDeEnergia.cs to allow editing of ComboBox information, including deleting selected items or the entire list.
+    - Set cursor to Hand mode in UcPendenciaFinanceiraInformes.cs for better UX.
+    - Added instructional labels in UcPossivelQuedaDeEnergia.cs for using delete buttons.
+    - Added check system for invoice detailing in both UcPossivelQuedaDeEnergia.cs and UcPendenciaFinanceiraInformes.cs with user guidance via labels.
+
+[33mcommit de2882671cdbf21099649c332400a2ddac94b722[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Nov 15 15:48:54 2025 -0300
+
+    feat(config): enable Unidade field saving, add autocomplete, and introduce records viewer button
+    
+    - Activated the Unidade field, allowing clients to save unit-specific data.
+    - Enabled autocomplete across all fields to improve usability and workflow efficiency.
+    - Added the 'Mostrar Registros' button to support future access to historical saved entries.
+    - Refined the display logic for first-level financial pendencies to improve clarity for users.
+
+[33mcommit 42f13606d899612d00bbc5b12e04c3d63ebce6c6[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Nov 14 22:52:44 2025 -0300
+
+    feat(config-fatura): update Unidade to ComboBox with autocomplete and add Unidade option
+    
+    - Replaced Unidade textBox with ComboBox and added autocomplete support.
+    - Added Unidade option to Config_UcDetalharFaturaDoCliente.
+    - Renamed ComboBox and related UserControl elements for consistency.
+
+[33mcommit 1d782e40ca45a5aad6862ce137358ac6260b3128[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Nov 14 22:52:32 2025 -0300
+
+    feat(config-fatura): update Unidade to ComboBox with autocomplete and add Unidade option
+    
+    - Replaced Unidade textBox with ComboBox and added autocomplete support.
+    - Added Unidade option to Config_UcDetalharFaturaDoCliente.
+    - Renamed ComboBox and related UserControl elements for consistency.
+
+[33mcommit 03d2488d8cb7da568cfc73dc6895d263cddbc698[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Nov 14 22:28:21 2025 -0300
+
+    feat(config-fatura): add contract status saving, autocomplete and UserControl navigation
+    
+    - Added contract status saving.
+    - Implemented autocomplete for saved searches.
+    - Enabled BtnVoltarClick to return to UcDetalharFaturaDoCliente.
+    - Added MostrarUserControl for switching UserControls.
+
+[33mcommit 423889af52cfdc18921e160f0552f6ff404e6bbf[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Nov 14 21:36:50 2025 -0300
+
+    feat(config): add operator persistence support in Config_UcDetalharFaturaDoCliente
+    
+    - declare BtnRegistroDeFalhaInternaClienteClick() (not yet in use)
+    - add System.IO and System.Linq imports for Path handling
+    - implement SalvarItensNoArquivo_Operadora, RegistrarNoArquivo, and CarregarOperadoraSalva
+      to enable saving and loading operator values in the ComboBox within
+      Config_UcDetalharFaturaDoCliente
+
+[33mcommit e14876650ecea858cbe94f597d29f9b7fe3dd4bd[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Thu Nov 13 14:58:35 2025 -0300
+
+    dell txt
+
+[33mcommit 2a1a558ea8a6c092ed936433b79b668613bf2911[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Thu Nov 13 14:56:00 2025 -0300
+
+    feat(UcDetalharFaturaDoCliente): add configuration UI and improve field semantics
+    
+    - Added configuration gear icon (BtnConfigFormClick) to open Config_UcDetalharFaturaDoCliente
+      - Enables internal editing of fields and related information
+    - Added TextBox for Operadora
+    - Corrected semantic naming of detalheFatura variable
+    - Removed redundant auto-generated comments from Config_UcDetalhar
+    - Enabled BtnConfigFormClick to open configuration UserControl
+    - Added 'Mensagem Eletrônica' button (BtnMensagemEletrônicaClick) — project pending definition
+    
+    Notes:
+    This commit introduces an internal configuration layer for UcDetalharFaturaDoCliente,
+    improving maintainability and extending UI flexibility.
+
+[33mcommit 6faf87138751864c8e2ef85ead6ba2d8d6187a3a[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Tue Nov 11 15:52:30 2025 -0300
+
+    feat(ui): enhance invoice detail workflow, login UX, and field validation logic
+    
+    This commit introduces multiple improvements across the invoice detail flow,
+    login screen design, and validation mechanisms to increase usability,
+    maintainability, and consistency across the UI components.
+    
+    Key changes:
+    - Renamed and standardized field names in UcDetalharFaturaDoCliente.cs
+      to improve readability and long-term maintainability.
+    - Added tnAnexar to UcDetalharFaturaDoCliente.cs to support attaching
+      related documents during invoice review.
+    - Refined the visual design of the login screen (LoginUser.cs) for a
+      cleaner and more consistent user experience.
+    - Added BtnDuvidaClick event handler in UcPendenciaFinanceiraInformes.cs
+      to allow users to return to the previous user control more intuitively.
+    - Implemented private string DetalhamentoDeFatura() in
+      UcDetalharFaturaDoCliente.cs to analyze field inputs and generate the
+      appropriate invoice detail message automatically.
+    - Added private bool AnaliseDeCamposVazios() to validate required fields
+      and apply visual cues for missing or incorrect entries.
+    - Added tnDuvida to guide users on how to use the tool effectively.
+    - Corrected Portuguese phrasing and spacing issues in
+      UcDetalharFaturaDoCliente.cs to ensure proper semantics and clarity.
+    - Added         his.checkBoxDetalharFatura.CheckedChanged += new System.EventHandler(this.checkBoxDetalharFatura_CheckedChanged);
+      in UcPendenciaFinanceiraInformes.Design.cs, enabling or disabling the
+      invoice detail button dynamically based on user selection.
+    
+    Overall, these updates improve UX consistency, strengthen form validation,
+    and streamline the invoice detail navigation workflow.
+
+[33mcommit 780d5d633bd85dfe3d56e9f0007d0eb49c697015[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Mon Nov 10 16:38:39 2025 -0300
+
+    feat(ui): refactor UI workflows, clean up unused code, and introduce internal failure registry
+    
+    Summary:
+    Improves UI consistency, removes unused parameters, fixes form navigation issues, standardizes fonts, and adds new components to support internal failure tracking.
+    
+    Changes:
+    - Removed obsolete parameter in MainForm.cs inside BtnAcessosEUtilitariosClick, eliminating unnecessary logic that hid InterfaceClienteInformes.
+    - Standardized title fonts in UcAlarmeDeLinkIndisponivel.cs and UcAberturaReparo.cs to Segoe UI 9.75pt.
+    - Adjusted layout: set the 'orário da queda' label to AutoSize and repositioned the 'Operadora' label.
+    - Fixed form-opening workflow in MMainForm: BtnAberturaDeMassivaClick now uses open_window_massiva.Show(), resolving the error and correctly opening MassivaForm.cs.
+    - Normalized the const string msnValidacao naming to maintain consistency.
+    - Removed deprecated block referencing Uc_PendenciaFinanceira_UcDetalhamentoDeFatura in BtnViewInvoiceDetailsClick, since the UserControl was deleted due to lack of use.
+    - Kept btnViewInvoiceDetails as Enabled = true and recreated its event handler BtnViewInvoiceDetailsClick.
+    - Added a new button 'Registrar Falha Interna' (name: btnRegistroDeFalhaInternaCliente) intended to register clients with internal failures without triggering ticket creation.
+    - Added the UserControl UcDetalharFaturaDoCliente.cs for client invoice detailing.
+    
+    Impact:
+    Improves maintainability, removes dead code, standardizes UI, and adds a new workflow for internal failure registration.
+
+[33mcommit 038e81c642312326fe0f93443e140160bf753c44[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Nov 7 08:42:14 2025 -0300
+
+    refactor(ui): unify font styles and reposition utility buttons
+    
+    - Repositioned buttons in Utilitarios.cs for forward alignment.
+    - Updated font to 'Segoe UI', 9.75pt in:
+      - UcPossivelQuedaDeEnergia
+      - UcPendenciaFinanceiraInformes
+      - UcLiberacaoDeAcessoSemPrevisao
+    - Standardized titles and informational text for UI consistency.
+    - Added CloseWindow() method in Utilitarios.cs to handle window closure.
+    - Removed buttonUtilitarios and Utilitarios.cs from MainForm due to deprecated usage.
+
+[33mcommit 0f1b845ac432b52c5d1d545ec3cf3ca3ea55ad5c[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Mon Nov 3 10:34:33 2025 -0300
+
+    feat(auth): implement login screen and refactor utilities for field clearing
+    
+    - Added ClearField() method in Utilities.cs to handle field reset logic
+    - Created LoginUser.cs form with user login and password fields
+    - Implemented temporary authentication system (admin/admin) in BtnLoginClick
+    - Adjusted form layout: labels, textboxes, and buttons (Login, Exit)
+    - Added header section and set color to ControlDarkDark
+    - Configured StartPosition as CenterScreen for LoginUser form
+    - Set FormBorderStyle to None for cleaner design
+    - Removed unused buttons, keeping only Apagar, Salvar, and Sair
+    - Reorganized TabIndex across all controls for better UX
+    - Removed redundant comments in uc_pendenciafinanceira_ucdetalhamentodefatura.cs
+    - Adjusted button sizes and header title in LoginUser.cs
+
+[33mcommit 9e07a9826e882be7e8e892a49d20bcfc3c3d4dca[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Oct 31 17:23:22 2025 -0300
+
+    feat: improve form organization, window handling, and UI consistency across modules
+    
+    - Created egistroDeAtt.txt to track updates and avoid losing commit history.
+    - Added TabIndex configuration for better user navigation in MassivaForm.cs.
+    - Updated all form fonts to Segoe UI, 9.75pt for UI consistency.
+    - Removed obsolete method OrdenarTabIndex() from production.
+    - Cleaned up legacy commit comments from MassivaForm.cs.
+    - Implemented clearField() method to reset input fields after operations.
+    - Reorganized UserControls (fields and buttons) using TabIndex.
+    - Removed TabIndex parameter setup from MainForm.
+    - Added CloseWindow() method in UcPossívelQuedaDeEnergia.cs for proper form closing.
+    - Implemented CloseWindow() and ClearField() methods in:
+      - UcPendenciaFinanceiraFormes.cs
+      - UcLiberacaoDeAcessoSemPrevisao.cs
+      - UcAlarmedELinkIndisponivel.cs
+      - UcAberturaReparo.cs
+      - UcLiberacaoDeAcessoComPrevisao.cs
+    - Removed unused file Informes.cs from the project.
+    - Enhanced MainForm.cs:
+      - Added logic in BtnInformesClientesClick to prevent multiple instances of InterfaceClienteInformes.
+      - Implemented button text toggle between **'Informes'** and **'Fechar'** based on window state.
+    - Adjusted element positions and alignment across forms to match updated UI layout.
+
+[33mcommit ef02cc9b194de8c596514fb8ea65110d11f3115a[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Oct 31 14:16:51 2025 -0300
+
+    feat(UI): refine user controls, typography, and user info display
+    
+    - Organized all UserControls with proper TabIndex sequencing for improved navigation and accessibility
+    - Updated all UI text and field fonts to 'Segoe UI', 9.75pt for design consistency
+    - Removed obsolete method oid TabIndex from InterfaceClienteInformes.cs
+    - Added labelUserInformation to display currently logged-in user (implemented in utilitarios.cs)
+    - Implemented real-time character counter in utilitarios.cs for text field inputs
+    - Added new utility buttons (Novo, Apagar, Salvar, Excluir, Sair) to enhance user workflow
+    
+    These changes improve user experience, maintainability, and visual consistency across the application.
+
+[33mcommit 4e81e368eb1b3689acf4a616c9a2c522cd60e0fe[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Oct 24 12:28:55 2025 -0300
+
+    feat(ui): add new buttons (desabled for future activation)
+
+[33mcommit 5ebc8facc41eb8605bd52cdf1a370fc5daf24f35[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Mon Oct 6 12:46:55 2025 -0300
+
+    ui(MainForm): organize button TabIndex order for better keborard navigation
+
+[33mcommit e6d7b4dc026b29f18ad3cf66e9c2071e1f8c2e55[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Oct 5 09:23:46 2025 -0300
+
+    refactor: Translate variable 'getValueTextBox_NomeOperadora' to 'getValueCarrierName'
+
+[33mcommit fceb12e19f4ae9c911d88bd49be96b663cb336d9[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Oct 5 09:12:18 2025 -0300
+
+    refactor: Translate button event handlers to English
+
+[33mcommit b0be5b7a76c9f0f2447d1a77d0f68524b0e51a9b[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Oct 5 08:45:15 2025 -0300
+
+    refactor: rename MensagemDeNotificacaoAoCliente to GetCustomerNotificationMessage
+    
+    Replaced the Portuguese method name with an English, action-oriented
+    identifier to improve code readability and maintain consistency across
+    the codebase.
+    
+    Changes:
+    
+    -  Renamed 'MensagemDeNotificacaoAoCliente' -> 'GetCustomerNotificationMessage'
+    -  Updated all references accordingly.
+    
+    No functional logic was changed — this is a naming-only refactor.
+
+[33mcommit 7dd0866580692375512393f26a2ba0961cb59de6[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Oct 5 08:27:15 2025 -0300
+
+    refactor: standardize button naming to English for clarity and consistency
+    
+    This change renames several UI button identifiers to follow a consistent
+    English-based naming convention (verb + object), improving readability
+    and maintainability across the codebase.
+    
+    Renamed:
+    - btnFecharJanela      → btnCloseWindow
+    - btnApagarCampos     → btnClearFields
+    - btnGravarECopiar    → btnSaveAndCopy
+    - btnDetalharFatura   → btnViewInvoiceDetails
+    - btnPreviaDaMensagem → btnPreviewMessage
+    
+    No functional changes were introduced. This is a non-breaking refactor.
+
+[33mcommit c3717646940789ee1e550189229daf5149f99ec5[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Oct 3 14:37:40 2025 -0300
+
+    feat(UCs): add MensagemDeNotificacaoAoCliente() helper to all UserControls
+    
+    Centralizes notification message creation across all UCs for consistency and reuse.
+    This reduces duplicated code and simplifies future maintenance.
+
+[33mcommit 5958eea8fb0e544301b44b0d641062ead6ba3f89[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Wed Oct 1 15:43:09 2025 -0300
+
+    refactor(liberação-de-acesso): centralize main messages into private string and improve text semantics
+    
+    - Fixed typos and improved wording in both 'Liberação de Acesso' forms (with and without ETA)
+    - Introduced private string fields to store main message templates in each UserControl
+    - Cleaned up message building logic for better readability and maintainability
+    - Ensured more consistent and semantic text output across both flows
+    
+    Overall: streamlined the code to be more organized, maintainable, and semantically clear
+
+[33mcommit 514f72b43659d946187c9ad19d7bae72d978cfa3[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Wed Oct 1 14:53:16 2025 -0300
+
+    feat(informes): add 'Prévia' button to preview customer message before copying
+    
+    Added a new 'Prévia' button to the 'Liberação de Acesso (com previsão)' section
+    that allows users to preview the generated message for the customer before it
+    is copied to the clipboard. This improves usability by letting the user verify
+    the content prior to sending or saving it.
+
+[33mcommit 2fd9bff20f025938aca9291f9d30e2ff299453d1[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Wed Oct 1 12:18:29 2025 -0300
+
+    Rename button names
+
+[33mcommit 385da99169018b65860338ceb28da7ebb1a8007a[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Tue Sep 30 14:22:46 2025 -0300
+
+    feat(ui): add Utilities button and improve window drag behavior
+    
+    - Added **'Utilities'** button to MainForm providing quick access to a mini notebook for frequently used information.
+    - Updated Utilities screen title text by removing the trailing period for cleaner presentation.
+    - Enabled header area to support **mouse drag (MouseDown)**, allowing the window to be moved more intuitively.
+    - Added a **blue draggable section** in MainForm using the same MouseDown event, letting users drag the entire form from that region.
+    
+    Enhances accessibility and improves overall user experience for window interaction.
+
+[33mcommit fc1db618bd1c76db82ea1d648b83dc1df7da9422[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Sep 28 15:07:16 2025 -0300
+
+    feat(financial-ui): integrate and redirect UserControl on 'Detalhar' button
+    
+    - Added and wired up UserControl for the 'Detalhar' button in UcPendenciaFinanceira.
+    - Disabled the original 'Detalhar' button to prevent duplicate actions.
+    - Updated instructional text fonts to use Sugoi UI for better readability and consistency.
+
+[33mcommit 5f096b119957bae3f5a9e7c90b017ed8300a9362[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Sep 28 14:16:43 2025 -0300
+
+    feat(ui): add close buttons to all user controls and align them
+    
+    - Added close buttons to all UserControls for improved UX.
+    - Aligned buttons consistently across the UI.
+    - Integrated user configuration into MassivaForm.cs.
+
+[33mcommit a9c67613a6ecd3bfd4ca7d721db74d297e314152[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Sep 28 12:18:22 2025 -0300
+
+    Restore MainForm.cs after accidental deletion
+    
+    MainForm.cs was accidentally deleted.
+    The file has been restored using the source code from a fresh clone of the same repository.
+    This ensures the project compiles and retains the previous functionality.
+
+[33mcommit 06ecc126a52f5185933142cac0ab628c2cad0075[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Jul 18 14:38:07 2025 -0300
+
+    feat: add ClientInformes form with standardized messaging button
+    
+    - Created new form InterfaceClienteInformes to streamline client communication
+    - Added 'Informes' button to main interface to launch the new form
+    - Introduced support for standardized predefined messages to improve response efficiency
+
+[33mcommit b2bd668b04c299016d7f77a1946df9cf8988ccc4[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Jun 8 12:43:05 2025 -0300
+
+    icon
+
+[33mcommit f777c48fe8714aea073e4b6c0213f0dfc762e6d4[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Jun 1 11:27:42 2025 -0300
+
+    NOC_Email: fix Manual de Uso for 'Empty All' command
+    
+    Updated NOC_Email.exe to correct and align the application with the latest Manual de Uso instructions for the 'Empty All' command
+
+[33mcommit 96f83c66ba644c1bbf49b78bcdc26b1e634b8bea[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Mon May 19 14:44:51 2025 -0300
+
+    this.hide()
+
+[33mcommit 6f05ba163ab9a53f010940084b0824ba3249b104[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Mon May 19 08:27:20 2025 -0300
+
+    icon
+
+[33mcommit 7edd8afea8922f846e08591a547ac60caae5211c[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun May 18 13:50:31 2025 -0300
+
+    feat: launch external NOC_Email tool from UI with robust error handling
+    
+    Implemented button functionality to launch the external NOC_Email executable via Process.Start. Added file existence check to prevent runtime errors and integrated user feedback through MessageBox alerts in case the executable is missing.
+
+[33mcommit 2105468119f4dea179fd0b1e60e149d577f3f286[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat May 3 12:23:32 2025 -0300
+
+    ignore: in process of correction
+
+[33mcommit 2a9d9dfffd55e122f4dce6507f1bb8ffeec41a87[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat May 3 11:39:03 2025 -0300
+
+    feat: added client deletion via ListBox and data reset in %appdata%; created and renamed 'dados_clientes' to 'dados', later removed due to redundancy
+
+[33mcommit f3378af8f98609b062cced83ef6bbf9c0c15129f[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat May 3 10:43:39 2025 -0300
+
+    chore: remove excessive and unnecessary comments from CONFIG_ComunicacaoComCliente
+
+[33mcommit 5f3b6843641f87d94be8bd2c92e3bd94174780c2[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat May 3 10:40:47 2025 -0300
+
+    feat: save and remove client data in the configuration form
+
+[33mcommit 339c4b6525e685090582f3aaf5337d79d37b6604[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Wed Apr 30 10:53:57 2025 -0300
+
+    refactor(UI): improved MenuDeAcesso layout with custom header and modern style
+    
+    - Added black top panel with title and close button
+    - Applied flat style and light color scheme to buttons
+    - Switched font to 'Segoe UI' for a more modern look
+    - Removed default form border for cleaner interface
+
+[33mcommit 57a33cb23758825606193c6610c0cf0c4b50618d[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Mon Apr 28 12:51:23 2025 -0300
+
+    Add Lock Controls to CONFIG_ComunicacaoComCliente and ACAO_ComunicacaoComCliente forms to prevent movement with the mouse
+
+[33mcommit 012a175a492f90481b223ef37f8331f6b4d754f0[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Mon Apr 28 12:50:26 2025 -0300
+
+    Organize TabIndex in CONFIG_ComunicacaoComCliente and ACAO_ComunicacaoComCliente forms, add Lock Controls to prevent movement with the mouse (files for now)
+
+[33mcommit 56e5e17894ee5f6bd43e13220a0e864db25d13f6[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 26 13:37:13 2025 -0300
+
+    Modified buttons in CONFIG_ComunicacaoComCliente: reduced size and renamed for better clarity.
+
+[33mcommit 50ed3a3a39a65822511d61a50bfbb9d0ae2fb90e[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 26 13:32:07 2025 -0300
+
+    Added semantic comments to the CONFIG_ComunicacaoComCliente class for improved readability and maintainability.
+
+[33mcommit 557f1ede6328286f7b05c2e80e121a88bc77d1db[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 26 13:29:24 2025 -0300
+
+    Add functionality to load and display saved clients on app startup
+
+[33mcommit 1b71083941d9ad6da819746a28c5af22eca5394a[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 26 12:55:05 2025 -0300
+
+    Add new functionality to save client contract information
+
+[33mcommit d473838dcd44317d1daa5972cab2a007ba1abe87[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 26 12:30:55 2025 -0300
+
+    feat: implement saving and loading functionality for corporate Cc emails in the configuration form
+
+[33mcommit 70fbe0f7f58ebed8d1b919381653dd73b73c3111[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 26 12:15:27 2025 -0300
+
+    Save and load sender emails automatically
+
+[33mcommit 3481d9adecc9d50c908b168022350af4758ab4e1[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 26 11:44:50 2025 -0300
+
+    fix: corrected loading and adding emails to the ComboBox without overwriting existing ones
+    
+    - Emails are now loaded correctly into the ComboBox without clearing the existing ones.
+    - Adds new saved emails to the ComboBox without duplicates.
+    - Improves the email loading flow in the configuration form.
+
+[33mcommit ac7e7e99acff8d1203c31232b97d3a0617531eaf[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Apr 20 11:52:45 2025 -0300
+
+    🚀 Complete project restructuring - Starting from scratch
+    
+    After a thorough analysis, the project has been completely reorganized and restarted from scratch.
+    This commit reflects the decision to remove all previous structure in order to enhance organization, efficiency, and scalability of the application.
+    From this point, the new structure will be built with a solid foundation, more aligned with development best practices and goals.
+    
+    Changes:
+    - Removed all old files and code.
+    - Initial reorganization of the repository to ensure clearer and more modular structure.
+    - Preparing to restart development with new approaches and technologies as necessary.
+    
+    This action aims to optimize code maintenance, increase project quality, and ensure that it evolves more efficiently and adapted to future needs.
+    
+    Stay tuned for upcoming updates where new features and improvements will be introduced based on this revamped foundation.
+
+[33mcommit 8c272416afab55672d63e5c0170219c8fb6188dc[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Thu Apr 17 09:30:34 2025 -0300
+
+    revert
+
+[33mcommit f55f5b3c2c8401f5d27aa7d60bf72a9e6ba1f2ba[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Thu Apr 17 09:26:01 2025 -0300
+
+    adicionado: novos Circuitos de Dados exemplificativos
+
+[33mcommit 2114ce50933efacf30bb8ce30ecb59416c79846a[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Wed Apr 16 12:00:26 2025 -0300
+
+    Create dotnet.yml
+    
+    Signed-off-by: santiago <98044979+devsantiag@users.noreply.github.com>
+
+[33mcommit 98a2f4d3f2101bdda2713d69f27cf81f3e4e9b3d[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Tue Apr 15 12:28:25 2025 -0300
+
+    Fix event handlers for ListBox and BtnExcluir in CONFIG_ComunicacaoComCliente
+    
+    - Added missing event handler methods for ListBox mouse move and selected index change events.
+    - Implemented BtnExcluirClick method to handle client removal from the ListBox.
+    - Ensured proper local file saving after client removal from the ListBox.
+
+[33mcommit 40ac03cda401d6512def9a151d8395a87aabe5f1[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Tue Apr 15 12:25:00 2025 -0300
+
+    Fix event handlers for ListBox and BtnExcluir in CONFIG_ComunicacaoComCliente
+    
+    - Added missing event handler methods for ListBox mouse move and selected index change events.
+    - Implemented BtnExcluirClick method to handle client removal from the ListBox.
+    - Ensured proper local file saving after client removal from the ListBox.
+
+[33mcommit 8a8198484391a00eb49b8a01651b1edb6e646bf8[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 12 14:59:46 2025 -0300
+
+    `
+    feat: Populate 'To' with specific emails of the new client
+    
+    When creating a new communication with a client from the settings screen, the 'To' field is now populated exclusively with the emails provided for that client.
+    
+    Previously, the list of emails from the registry was loaded into this field, mixing the specific emails of the new client with the general list.
+    
+    This change ensures that the 'To' field focuses on the relevant recipients for the new communication, improving clarity and preventing sending errors.
+    
+    **Changes:**
+    
+    - Removed the call to CarregarEmailsParaComboBoxPara() in the constructors of the ACAO_ComunicacaoComCliente class.
+    - Added the PreencherComboBoxPara() method to populate comboBox2Para with the emails passed by the overloaded constructor.
+    - Call to the PreencherComboBoxPara() method in the overloaded constructor.
+    - Commented out the call to CarregarEmailsParaComboBoxPara() in the AtualizarListaClientes() method.
+    `"
+
+[33mcommit d1514ed0a150f89bbffcfcf607448f71aab3b8bd[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 12 14:41:29 2025 -0300
+
+    `
+    feat: Add fields for multiple customer contact emails
+    
+    Implemented the functionality for users to input up to three contact emails for each customer. The new fields (comboEmailContratoCliente_02 and comboEmailContratoCliente_03) have been integrated into the required fields validation logic and the display of customer information in the ListBox.
+    
+    This enhancement allows for more comprehensive communication with customers by facilitating contact through different email addresses.
+    `
+    
+    Commit done! This message clearly describes the new feature and the reason for the change in English. 👍
+
+[33mcommit e331b969c97ea384b4736c2288ab20057b277d3a[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 12 14:13:22 2025 -0300
+
+    feat: implement complete deletion of selected contract
+    
+    - Selecting a client in the ListBox now auto-fills the related data in the ComboBoxes.
+    - 'Delete' button now removes the selected client from the ListBox and deletes all related data (name, address, unit, company name, and email) from the Windows Registry.
+    - Local client list file is updated after deletion.
+    - Form fields are cleared after the contract is deleted.
+
+[33mcommit e4b2c22d5007f9d16420c0e105ece4dfeabfc7b6[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 12 12:10:20 2025 -0300
+
+    Add configuration form for client communication with registry and local file storage
+    
+    - Implemented saving and loading of client data (name, address, social reason, email) using Windows registry.
+    - Added logic to store client data in a local file (lista_de_clientes_salvos.txt).
+    - Included input validation to ensure required fields are filled before saving.
+    - Created a unique ID generator using Guid.NewGuid() to generate IDs for new records.
+    - Enhanced ListBox with tooltips for better user experience.
+    - Configured TabIndex for better form navigation.
+    - Implemented the use of a timer to generate unique client IDs.
+    - Error handling added for file I/O and registry operations.
+
+[33mcommit cc108415115ca25febae675b74cd969454d23c9f[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 12 11:28:35 2025 -0300
+
+    Fix: Added validation to check if all fields are filled before adding a client to the list. Custom error message displayed if fields are missing.
+
+[33mcommit fb06a02f494f546c2e8217dfffe7e9c949209b56[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 12 11:01:30 2025 -0300
+
+    Prototype: saving to Registry and tooltip on ListBox
+    
+    This is a test prototype:
+    - Saving and loading client data using Windows Registry.
+    - Automatically adding formatted text (UPPERCASE) to ListBox.
+    - Tooltip shows full item content on mouse hover.
+    - Auto-generated unique ID using Timer with T&C prefix.
+    
+    This code is experimental and subject to changes.
+
+[33mcommit 484d71707cae0b111dc908f2158e01a95f16730b[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sat Apr 12 09:19:13 2025 -0300
+
+    fix: fixed conversion error in SaveDataToList method
+    
+    1 - Corrected use of string.Join by changig the separator from char to string
+    2 - Converted List <string> to string[] using .ToArry()
+    3 - Combobox data is now correctly saved to Windows Regisrty
+
+[33mcommit 339bae63c89346cb545ae8c5553604512a77de97[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Thu Apr 10 14:25:20 2025 -0300
+
+    del nocaction.exe
+
+[33mcommit 23e5104d6df0f84ded708a2247c3fc6fed39d5d1[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Thu Apr 10 14:22:03 2025 -0300
+
+    added icon
+
+[33mcommit e8e106e0adabbeb5bb861783794141d1662fbd9f[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Apr 4 08:27:57 2025 -0300
+
+    Removed unnecessary comments
+
+[33mcommit ee29bb4002ed56434544b3dfd941d54978e5a87c[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Thu Apr 3 15:29:38 2025 -0300
+
+    feat: update to DataGridView and adjust client loading
+    
+    Description:
+    
+    Removed listView1ListaDeClientesJaAdicionados and replaced it with ListaDeClientesSalvosCellContentClick (DataGridView).
+    
+    Adjusted the AtualizarListaClientes() function to properly populate the DataGridView with registry data.
+    
+    Modified the saving logic to reflect changes in storage and display.
+
+[33mcommit f8f9c39472db9bddac8bd437a2999af4c06cacd5[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Thu Apr 3 14:31:05 2025 -0300
+
+    feat: separation of data in the registry and dynamic update of ComboBoxes
+    
+    Implemented the separation of data in the Windows registry, storing NomeClientes, Enderecos, Unidades, RazoesSociais, and Emails in distinct keys.
+    
+    Created the CarregarDadosParaComboBox() function to avoid code duplication and improve data organization in the ComboBoxes.
+    
+    Updated the CarregarDadosCliente() function to correctly load data from the new keys.
+    
+    Adjusted the SalvarDadoNoRegistro() method to prevent duplicates and ensure automatic sorting.
+    
+    Implemented automatic updating of the client list when opening the settings screen.
+
+[33mcommit 6f447495dcf2646311bd3bc6af476be9d6da5ced[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Tue Mar 25 10:21:56 2025 -0300
+
+    Added reference to Microsoft.Win32 library for access to Windows Registry functionality
+
+[33mcommit 535899b26e835175ecc260ca9c80f07b7d6ff60c[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Wed Feb 26 15:03:10 2025 -0300
+
+    Add local storage feature to tool settings tab
+
+[33mcommit d673b5c845a401092788c5e448991a8e736c3de0[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Wed Feb 5 12:15:15 2025 -0300
+
+    Applied Comment
+
+[33mcommit bb75cdc7349440893263eaf48724c8289ccd45c0[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Wed Feb 5 12:11:57 2025 -0300
+
+    Update README.md
+    
+    correção
+    
+    Signed-off-by: santiago <98044979+devsantiag@users.noreply.github.com>
+
+[33mcommit ec625e4a093aa4e98d4ae17e5fe27c93654473f7[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Sun Feb 2 11:56:44 2025 -0300
+
+    Performed some design readjustments and applied new features of manual saving of operator names
+
+[33mcommit 4354026b6bc6498a32b9d5f4bd316ea3d2df6056[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Jan 31 13:59:30 2025 -0300
+
+    Update README.md
+
+[33mcommit 05e614d3afa58fe9b8b5377a0fc02f6411283a9a[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Fri Jan 31 13:58:24 2025 -0300
+
+    First Version
+
+[33mcommit b18e75d089070bda3a9e57857faadcc19ba959c4[m
+Author: Fabiano <contatofasantiago@hotmail.com>
+Date:   Thu Sep 26 13:10:36 2024 -0300
+
+    retirado comentários instantâneos
+
+[33mcommit bac7a94c77eb2f39c5781ef8b1ec72fd7bc0dbe4[m
+Author: Fabiano <contatofasantiago@hotmail.com>
+Date:   Thu Sep 26 13:09:34 2024 -0300
+
+    retirado comentários instantâneos
+
+[33mcommit 0e08660cf4828b31a10e9635ea008f6248a01f33[m
+Author: Fabiano <contatofasantiago@hotmail.com>
+Date:   Thu Sep 26 11:57:29 2024 -0300
+
+    start
+
+[33mcommit d4a359056893a6e019a6b5e71b5ff5807535fde4[m
+Author: santiago <98044979+devsantiag@users.noreply.github.com>
+Date:   Thu Sep 26 11:57:05 2024 -0300
+
+    Initial commit

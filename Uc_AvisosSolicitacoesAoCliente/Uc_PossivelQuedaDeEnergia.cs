@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace NOC_Actions
@@ -42,22 +42,7 @@ namespace NOC_Actions
 
         #endregion
 
-        #region Persistência (Salvar / Carregar)
-
-        private void SalvarOperadora()
-        {
-            SalvarItem(comboBox_operadoraUnidade, arquivoOperadora);
-        }
-
-        private void SalvarUnidade()
-        {
-            SalvarItem(comboBox_unidadeParaAnaliseEnergia, arquivoUnidade);
-        }
-
-        private void SalvarEndereco()
-        {
-            SalvarItem(comboBox_enderecoUnidade, arquivoEndereco);
-        }
+        #region Persistência
 
         private void SalvarItem(ComboBox comboBox, string caminhoArquivo)
         {
@@ -88,7 +73,7 @@ namespace NOC_Actions
 
         #endregion
 
-        #region Exclusão de Itens
+        #region Exclusão
 
         private bool ExcluirSelecionado(ComboBox comboBox, string caminhoArquivo)
         {
@@ -110,63 +95,86 @@ namespace NOC_Actions
 
         #endregion
 
-        #region Eventos de Botões
+        #region Eventos
 
         private void btnSalvarECopiar_Click(object sender, EventArgs e)
         {
-            richTextBox_MensagemASerEncaminhadaAoCliente.Clear();
-
             string operadora = comboBox_operadoraUnidade.Text;
             string unidade = comboBox_unidadeParaAnaliseEnergia.Text;
             string endereco = comboBox_enderecoUnidade.Text;
             string horario = maskedTextBox_horarioQuedaCircuito.Text;
             string dataRef = maskedTextBox_dataReferencia.Text;
 
-            // Salva os novos itens nos arquivos
-            SalvarOperadora();
-            SalvarUnidade();
-            SalvarEndereco();
-
-            LimparCampos();
+            SalvarItem(comboBox_operadoraUnidade, arquivoOperadora);
+            SalvarItem(comboBox_unidadeParaAnaliseEnergia, arquivoUnidade);
+            SalvarItem(comboBox_enderecoUnidade, arquivoEndereco);
 
             string mensagem = GerarMensagem(operadora, unidade, endereco, horario, dataRef);
-
-            // Copia para a área de transferência
             Clipboard.SetText(mensagem);
+
+            //LimparCampos();
+        }
+
+
+        private void btnGerarAlerta_Click(object sender, EventArgs e)
+        {
+            string mensagem = GerarMensagem(
+                comboBox_operadoraUnidade.Text,
+                comboBox_unidadeParaAnaliseEnergia.Text,
+                comboBox_enderecoUnidade.Text,
+                maskedTextBox_horarioQuedaCircuito.Text,
+                maskedTextBox_dataReferencia.Text
+            );
+
+            richTextBox_MensagemASerEncaminhadaAoCliente.Text = mensagem;
         }
 
 
         private void btnEditarInformacoes_Click(object sender, EventArgs e)
         {
-            bool excluiuAlgo = false;
-            excluiuAlgo |= ExcluirSelecionado(comboBox_operadoraUnidade, arquivoOperadora);
-            excluiuAlgo |= ExcluirSelecionado(comboBox_unidadeParaAnaliseEnergia, arquivoUnidade);
-            excluiuAlgo |= ExcluirSelecionado(comboBox_enderecoUnidade, arquivoEndereco);
+            bool excluiu =
+                ExcluirSelecionado(comboBox_operadoraUnidade, arquivoOperadora) |
+                ExcluirSelecionado(comboBox_unidadeParaAnaliseEnergia, arquivoUnidade) |
+                ExcluirSelecionado(comboBox_enderecoUnidade, arquivoEndereco);
 
             MessageBox.Show(
-                excluiuAlgo ? "Item(ns) excluído(s) com sucesso!" : "Selecione ao menos um item para excluir."
+                excluiu ? "Item(ns) excluído(s) com sucesso!" : "Selecione ao menos um item para excluir."
             );
         }
 
 
-        private void btnApagarCampos_Click(object sender, EventArgs e)
+        private void btnCloseWindow_Click(object sender, EventArgs e)
         {
-            richTextBox_MensagemASerEncaminhadaAoCliente.Clear();
-            LimparCampos();
+            this.FindForm()?.Close();
         }
+
 
         #endregion
 
+
         #region Utilitários
+        private void btnApagarCampos_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
+
 
         private void LimparCampos()
         {
+            comboBox_operadoraUnidade.SelectedIndex = -1;
+            comboBox_unidadeParaAnaliseEnergia.SelectedIndex = -1;
+            comboBox_enderecoUnidade.SelectedIndex = -1;
+
             comboBox_operadoraUnidade.Text = string.Empty;
             comboBox_unidadeParaAnaliseEnergia.Text = string.Empty;
             comboBox_enderecoUnidade.Text = string.Empty;
-            maskedTextBox_horarioQuedaCircuito.Text = string.Empty;
-            maskedTextBox_dataReferencia.Text = string.Empty;
+
+            maskedTextBox_horarioQuedaCircuito.Clear();
+            maskedTextBox_dataReferencia.Clear();
+
+            richTextBox_MensagemASerEncaminhadaAoCliente.Clear();
         }
+
 
         private string GerarMensagem(string operadora, string unidade, string endereco, string horario, string dataRef)
         {
@@ -181,65 +189,21 @@ namespace NOC_Actions
                 $"Horário estimado da ocorrência: {horario} horas\n" +
                 $"Operadora responsável: {operadora}\n" +
                 $"---------------------------------\n\n" +
-                $"Solicitamos, gentilmente, que verifiquem a situação junto à unidade e nos mantenham informados sobre quaisquer atualizações.\n\n" +
-                $"Atenciosamente,\n" +
-                $"Equipe NOC";
+                $"Solicitamos, gentilmente, que verifiquem a situação junto à unidade e nos mantenham informados.\n\n" +
+                $"Atenciosamente,\nEquipe NOC";
         }
+
 
         private string ObterSaudacao()
         {
             int hora = DateTime.Now.Hour;
 
-            if (hora >= 5 && hora < 12) return "bom dia";
-            if (hora >= 12 && hora < 18) return "boa tarde";
-            return "boa noite";
+            if (hora >= 5 && hora < 12) return "Bom dia";
+            if (hora >= 12 && hora < 18) return "Boa tarde";
+            return "Boa noite";
         }
 
         #endregion
 
-        private void btnGerarAlerta_Click(object sender, EventArgs e)
-        {
-            // Limpa a mensagem antes de gerar
-            richTextBox_MensagemASerEncaminhadaAoCliente.Clear();
-
-            // Captura os valores atuais dos controles
-            string operadora = comboBox_operadoraUnidade.Text;
-            string unidade = comboBox_unidadeParaAnaliseEnergia.Text;
-            string endereco = comboBox_enderecoUnidade.Text;
-            string horario = maskedTextBox_horarioQuedaCircuito.Text;
-            string dataRef = maskedTextBox_dataReferencia.Text;
-
-            // Gera a mensagem e exibe no richTextBox
-            string mensagem = GerarMensagem(operadora, unidade, endereco, horario, dataRef);
-            richTextBox_MensagemASerEncaminhadaAoCliente.Text = mensagem;
-        }
-
-        private void btnApagarCampos_Click_1(object sender, EventArgs e)
-        {
-            ClearField();
-        }
-
-        void ClearField()
-        {
-            // Limpa todos os ComboBoxes
-            comboBox_operadoraUnidade.Text = string.Empty;
-            comboBox_unidadeParaAnaliseEnergia.Text = string.Empty;
-            comboBox_enderecoUnidade.Text = string.Empty;
-
-            // Limpa os MaskedTextBox
-            maskedTextBox_horarioQuedaCircuito.Text = string.Empty;
-            maskedTextBox_dataReferencia.Text = string.Empty;
-
-            // Limpa o RichTextBox
-            richTextBox_MensagemASerEncaminhadaAoCliente.Clear();
-        }
-
-        void CloseJanelinha()
-        {
-            this.FindForm().Close();
-        }
-
-
-        private void btnCloseWindow_Click_1(object sender, EventArgs e) => CloseJanelinha();
     }
 }

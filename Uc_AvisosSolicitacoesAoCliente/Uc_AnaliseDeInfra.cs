@@ -141,6 +141,7 @@ namespace NOC_Actions
             );
         }
 
+
         private void btnEditarInformacoes_Click(object sender, EventArgs e)
         {
             bool excluiuAlgo = false;
@@ -171,10 +172,12 @@ namespace NOC_Actions
 
         private void LimparCampos()
         {
+
+            MessageBox.Show("Mensagem apagada!");
             comboBox_OperadoraDaUnidade.Text = string.Empty;
             comboBox_unidade.Text = string.Empty;
             comboBox_statusObtidoPelaOperadora.Text = string.Empty;
-        }
+         }
 
         private void GerarMensagemDeUso(string operadora, string unidade, string tipoDeAnalise)
         {

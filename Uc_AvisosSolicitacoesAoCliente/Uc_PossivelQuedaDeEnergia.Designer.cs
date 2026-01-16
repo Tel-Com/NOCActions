@@ -113,7 +113,6 @@ namespace NOC_Actions
             this.btnCloseWindow.TabIndex = 7;
             this.btnCloseWindow.Text = "Fechar";
             this.btnCloseWindow.UseVisualStyleBackColor = false;
-            this.btnCloseWindow.Click += new System.EventHandler(this.btnCloseWindow_Click_1);
             // 
             // btnSalvarECopiar
             // 
@@ -143,6 +142,7 @@ namespace NOC_Actions
             this.btnApagarCampos.TabIndex = 8;
             this.btnApagarCampos.Text = "Apagar campos";
             this.btnApagarCampos.UseVisualStyleBackColor = false;
+            this.btnApagarCampos.Click += new System.EventHandler(this.btnApagarCampos_Click);
             // 
             // labelUnidade
             // 
