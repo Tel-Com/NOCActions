@@ -59,6 +59,7 @@
             this.bntExcluirSelecionado = new System.Windows.Forms.Button();
             this.btnGerarAlerta = new System.Windows.Forms.Button();
             this.btnExcluirTodosOsCampos = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCloseWindow
@@ -78,6 +79,7 @@
             // 
             // btnSalvarECopiar
             // 
+            // btnSalvarECopiar
             this.btnSalvarECopiar.BackColor = System.Drawing.Color.Transparent;
             this.btnSalvarECopiar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalvarECopiar.Font = new System.Drawing.Font("Segoe UI", 9.75F);
@@ -89,7 +91,10 @@
             this.btnSalvarECopiar.TabIndex = 4;
             this.btnSalvarECopiar.Text = "Gravar e Copiar";
             this.btnSalvarECopiar.UseVisualStyleBackColor = false;
-            this.btnSalvarECopiar.Click += new System.EventHandler(this.btnSalvarECopiar_Click_1);
+
+            // ✅ EVENTO CORRETO
+            this.btnSalvarECopiar.Click += new System.EventHandler(this.btnSalvarECopiar_Click);
+
             // 
             // btnApagarCampos
             // 
@@ -263,11 +268,27 @@
             this.btnExcluirTodosOsCampos.UseVisualStyleBackColor = false;
             this.btnExcluirTodosOsCampos.Click += new System.EventHandler(this.btnExcluirTodosOsCampos_Click);
             // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 8.75F);
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(528, 118);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 30);
+            this.button1.TabIndex = 106;
+            this.button1.Text = "🔎";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // Uc_AnaliseDeInfra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnExcluirTodosOsCampos);
             this.Controls.Add(this.btnGerarAlerta);
             this.Controls.Add(this.bntExcluirSelecionado);
@@ -287,12 +308,12 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Uc_AnaliseDeInfra";
             this.Size = new System.Drawing.Size(627, 468);
-            this.Load += new System.EventHandler(this.Uc_AnaliseDeInfra_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
 		}
 
         private System.Windows.Forms.Button btnExcluirTodosOsCampos;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -21,13 +21,6 @@ namespace NOC_Actions
             Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "operadoraComBloqueioFinanceiro.txt");
 
 
-
-
-
-
-
-
-
         public Uc_BloqueioFinanceiro()
         {
             InitializeComponent();

@@ -1,23 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace NOC_Actions
 {
     public partial class Uc_AnaliseDeInfra : UserControl
     {
-        #region Constantes / Caminhos de Arquivo
+        #region Arquivos (persistência)
 
-        private readonly string arquivoOperadora =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "arquivoOperadora.txt");
+        private static readonly string AppData =
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-        private readonly string arquivoUnidade =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "arquivoUnidade.txt");
-
-        private readonly string arquivoTipoDeAnalise =
-            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "arquivoTipoDeAnalise.txt");
+        private readonly string _arquivoOperadora = Path.Combine(AppData, "arquivoOperadora.txt");
+        private readonly string _arquivoUnidade = Path.Combine(AppData, "arquivoUnidade.txt");
+        private readonly string _arquivoTipoAnalise = Path.Combine(AppData, "arquivoTipoAnalise.txt");
 
         #endregion
 
@@ -35,52 +33,38 @@ namespace NOC_Actions
 
         private void CarregarDadosIniciais()
         {
-            CarregarItens(arquivoOperadora, comboBox_OperadoraDaUnidade);
-            CarregarItens(arquivoUnidade, comboBox_unidade);
-            CarregarItens(arquivoTipoDeAnalise, comboBox_statusObtidoPelaOperadora);
+            CarregarItens(_arquivoOperadora, comboBox_OperadoraDaUnidade);
+            CarregarItens(_arquivoUnidade, comboBox_unidade);
+            CarregarItens(_arquivoTipoAnalise, comboBox_statusObtidoPelaOperadora);
         }
 
         #endregion
 
-        #region Persistência (Salvar / Carregar)
-
-        private void SalvarOperadora()
-        {
-            SalvarItem(comboBox_OperadoraDaUnidade, arquivoOperadora);
-        }
-
-        private void SalvarUnidade()
-        {
-            SalvarItem(comboBox_unidade, arquivoUnidade);
-        }
-
-        private void SalvarTipoDeAnalise()
-        {
-            SalvarItem(comboBox_statusObtidoPelaOperadora, arquivoTipoDeAnalise);
-        }
+        #region Persistência
 
         private void SalvarItem(ComboBox comboBox, string caminhoArquivo)
         {
-            string valor = comboBox.Text.Trim();
+            var valor = comboBox.Text?.Trim();
 
             if (string.IsNullOrWhiteSpace(valor))
                 return;
 
-            if (!comboBox.Items.Contains(valor))
-            {
-                comboBox.Items.Add(valor);
-                File.WriteAllLines(caminhoArquivo, comboBox.Items.Cast<string>());
-            }
+            if (comboBox.Items.Contains(valor))
+                return;
+
+            comboBox.Items.Add(valor);
+            File.WriteAllLines(caminhoArquivo, comboBox.Items.Cast<string>());
         }
 
-        private void CarregarItens(string arquivo, ComboBox comboBox)
+        private void CarregarItens(string caminhoArquivo, ComboBox comboBox)
         {
-            if (!File.Exists(arquivo))
+            if (!File.Exists(caminhoArquivo))
                 return;
 
             comboBox.Items.Clear();
             comboBox.Items.AddRange(
-                File.ReadAllLines(arquivo)
+                File.ReadAllLines(caminhoArquivo)
+                    .Where(l => !string.IsNullOrWhiteSpace(l))
                     .Distinct()
                     .ToArray()
             );
@@ -88,15 +72,15 @@ namespace NOC_Actions
 
         #endregion
 
-        #region Exclusão de Itens
+        #region Exclusão
 
         private bool ExcluirSelecionado(ComboBox comboBox, string caminhoArquivo)
         {
-            if (comboBox.SelectedItem == null || !File.Exists(caminhoArquivo))
+            var valor = comboBox.SelectedItem as string;
+            if (valor == null || !File.Exists(caminhoArquivo))
                 return false;
 
-            string valor = comboBox.SelectedItem.ToString();
-            List<string> linhas = File.ReadAllLines(caminhoArquivo).ToList();
+            var linhas = File.ReadAllLines(caminhoArquivo).ToList();
 
             if (!linhas.Remove(valor))
                 return false;
@@ -108,50 +92,104 @@ namespace NOC_Actions
             return true;
         }
 
+        private bool ExcluirTodos(ComboBox comboBox, string caminhoArquivo)
+        {
+            if (!File.Exists(caminhoArquivo))
+                return false;
+
+            File.WriteAllText(caminhoArquivo, string.Empty);
+            comboBox.Items.Clear();
+            comboBox.SelectedIndex = -1;
+            comboBox.Text = string.Empty;
+
+            return true;
+        }
+
         #endregion
 
-        #region Eventos de Botões
+        #region Eventos
 
-        private void btnSalvarECopiar_Click_1(object sender, EventArgs e)
+        private void btnSalvarECopiar_Click(object sender, EventArgs e)
         {
-            richTextBox_MensagemASerEncaminhadaAoCliente.Clear();
+            var operadora = comboBox_OperadoraDaUnidade.Text;
+            var unidade = comboBox_unidade.Text;
+            var status = comboBox_statusObtidoPelaOperadora.Text;
 
-            string operadora = comboBox_OperadoraDaUnidade.Text;
-            string unidade = comboBox_unidade.Text;
-            string status = comboBox_statusObtidoPelaOperadora.Text;
+            if (string.IsNullOrWhiteSpace(operadora) ||
+                string.IsNullOrWhiteSpace(unidade) ||
+                string.IsNullOrWhiteSpace(status))
+            {
+                MessageBox.Show(
+                    "Preencha todos os campos antes de salvar.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
 
+            // Salvar
+            SalvarItem(comboBox_OperadoraDaUnidade, _arquivoOperadora);
+            SalvarItem(comboBox_unidade, _arquivoUnidade);
+            SalvarItem(comboBox_statusObtidoPelaOperadora, _arquivoTipoAnalise);
 
-            SalvarOperadora();
-            SalvarUnidade();
-            SalvarTipoDeAnalise();
-            LimparCampos();
+            // Copiar
+            Clipboard.SetText(GerarMensagem(operadora, unidade, status));
 
-            string mensagem = GerarMensagem(operadora, unidade, status);
-            Clipboard.SetText(mensagem);
+            // Feedback correto
+            MessageBox.Show(
+                "Itens salvos e mensagem copiada para a área de transferência.",
+                "Sucesso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
         }
 
         private void btnGerarAlerta_Click(object sender, EventArgs e)
         {
-            richTextBox_MensagemASerEncaminhadaAoCliente.Clear();
-
-            GerarMensagemDeUso(
-                comboBox_OperadoraDaUnidade.Text,
-                comboBox_unidade.Text,
-                comboBox_statusObtidoPelaOperadora.Text
-            );
+            richTextBox_MensagemASerEncaminhadaAoCliente.Text =
+                GerarMensagem(
+                    comboBox_OperadoraDaUnidade.Text,
+                    comboBox_unidade.Text,
+                    comboBox_statusObtidoPelaOperadora.Text
+                );
         }
-
 
         private void bntExcluirSelecionado_Click(object sender, EventArgs e)
         {
-            bool excluiuAlgo = false;
+            var excluiu = false;
 
-            excluiuAlgo |= ExcluirSelecionado(comboBox_OperadoraDaUnidade, arquivoOperadora);
-            excluiuAlgo |= ExcluirSelecionado(comboBox_unidade, arquivoUnidade);
-            excluiuAlgo |= ExcluirSelecionado(comboBox_statusObtidoPelaOperadora, arquivoTipoDeAnalise);
+            excluiu |= ExcluirSelecionado(comboBox_OperadoraDaUnidade, _arquivoOperadora);
+            excluiu |= ExcluirSelecionado(comboBox_unidade, _arquivoUnidade);
+            excluiu |= ExcluirSelecionado(comboBox_statusObtidoPelaOperadora, _arquivoTipoAnalise);
 
             MessageBox.Show(
-                excluiuAlgo ? "Item(ns) excluído(s) com sucesso!" : "Selecione ao menos um item para excluir."
+                excluiu
+                    ? "Item(ns) excluído(s) com sucesso!"
+                    : "Selecione ao menos um item para excluir.",
+                "Resultado",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+        }
+
+        private void btnExcluirTodosOsCampos_Click(object sender, EventArgs e)
+        {
+            var excluiu = false;
+
+            excluiu |= ExcluirTodos(comboBox_OperadoraDaUnidade, _arquivoOperadora);
+            excluiu |= ExcluirTodos(comboBox_unidade, _arquivoUnidade);
+            excluiu |= ExcluirTodos(comboBox_statusObtidoPelaOperadora, _arquivoTipoAnalise);
+
+            richTextBox_MensagemASerEncaminhadaAoCliente.Clear();
+
+            MessageBox.Show(
+                excluiu
+                    ? "Todos os itens foram excluídos com sucesso!"
+                    : "Não havia itens para excluir.",
+                "Resultado",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
             );
         }
 
@@ -163,7 +201,7 @@ namespace NOC_Actions
 
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
-            CloseWindow();
+            FindForm()?.Close();
         }
 
         #endregion
@@ -172,92 +210,31 @@ namespace NOC_Actions
 
         private void LimparCampos()
         {
-
-            MessageBox.Show("Mensagem apagada!");
             comboBox_OperadoraDaUnidade.Text = string.Empty;
             comboBox_unidade.Text = string.Empty;
             comboBox_statusObtidoPelaOperadora.Text = string.Empty;
-         }
-
-        private void GerarMensagemDeUso(string operadora, string unidade, string tipoDeAnalise)
-        {
-            richTextBox_MensagemASerEncaminhadaAoCliente.Text =
-                $"Prezados, {ObterSaudacao()}.\n\n" +
-                $"Faço parte do NOC da Tel&Com e estou realizando uma análise interna na {unidade}.\n\n" +
-                $"Poderiam, por gentileza, verificar o serviço da {operadora}? " +
-                $"Conforme identificado pela fornecedora, o serviço encontra-se com o seguinte status: {tipoDeAnalise}.\n\n" +
-                $"Fico no aguardo.\n" +
-                $"Obrigado.";
         }
 
-        private string GerarMensagem(string operadora, string unidade, string tipoDeAnalise)
+        private static string GerarMensagem(string operadora, string unidade, string tipoAnalise)
         {
             return
                 $"Prezados, {ObterSaudacao()}.\n\n" +
                 $"Faço parte do NOC da Tel&Com e estou realizando uma análise interna na {unidade}.\n\n" +
                 $"Poderiam, por gentileza, verificar o serviço da {operadora}? " +
-                $"Conforme identificado pela fornecedora, o serviço encontra-se com o seguinte status: {tipoDeAnalise}.\n\n" +
-                $"Fico no aguardo.\n" +
-                $"Obrigado.";
+                $"Conforme identificado pela fornecedora, o serviço encontra-se com o seguinte status: {tipoAnalise}.\n\n" +
+                "Fico no aguardo.\n" +
+                "Obrigado.";
         }
 
-
-        private string ObterSaudacao()
+        private static string ObterSaudacao()
         {
-            int hora = DateTime.Now.Hour;
+            var hora = DateTime.Now.Hour;
 
-            if (hora >= 5 && hora < 12) return "bom dia";
-            if (hora >= 12 && hora < 18) return "boa tarde";
+            if (hora < 12) return "bom dia";
+            if (hora < 18) return "boa tarde";
             return "boa noite";
         }
 
-        private void btnExcluirTodosOsCampos_Click(object sender, EventArgs e)
-        {
-            bool excluiuAlgo = false;
-
-            excluiuAlgo |= ExcluirTodos(comboBox_OperadoraDaUnidade, arquivoOperadora);
-            excluiuAlgo |= ExcluirTodos(comboBox_unidade, arquivoUnidade);
-            excluiuAlgo |= ExcluirTodos(comboBox_statusObtidoPelaOperadora, arquivoTipoDeAnalise);
-
-            richTextBox_MensagemASerEncaminhadaAoCliente.Clear();
-
-            MessageBox.Show(
-                excluiuAlgo
-                    ? "Todos os itens foram excluídos com sucesso!"
-                    : "Não havia itens para excluir."
-            );
-        }
-
-        private bool ExcluirTodos(ComboBox comboBox, string caminhoArquivo)
-        {
-            if (!File.Exists(caminhoArquivo))
-                return false;
-
-            try
-            {
-                File.WriteAllText(caminhoArquivo, string.Empty); // limpa o arquivo
-                comboBox.Items.Clear();
-                comboBox.SelectedIndex = -1;
-                comboBox.Text = string.Empty;
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao excluir todos os itens: " + ex.Message);
-                return false;
-            }
-        }
-
-        void CloseWindow()
-        {
-            this.FindForm().Close();
-        }
-
-        private void Uc_AnaliseDeInfra_Load(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
-    #endregion
 }
