@@ -82,6 +82,25 @@ namespace NOC_Actions
 
         private void btnSalvarECopiar_Click(object sender, EventArgs e)
         {
+            var operadora = comboBox_operadoraResponsavel.Text;
+            var previsao = comboBox_previaoDeChegada.Text;
+            var unidade = comboBox_unidadeParaLiberacaoDeAcesso.Text;
+            var endereco = comboBox_enderecoDaUnidadeResponsavel.Text;
+
+            if (string.IsNullOrWhiteSpace(operadora) ||
+                string.IsNullOrWhiteSpace(previsao) ||
+                string.IsNullOrWhiteSpace(unidade) ||
+                string.IsNullOrWhiteSpace(endereco))
+            {
+                MessageBox.Show(
+                    "Preencha todos os campos antes de salvar.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
             string mensagem = GerarMensagem();
 
             SalvarItem(comboBox_operadoraResponsavel, arquivoOperadoraSolicitacaoVisita);
@@ -90,8 +109,17 @@ namespace NOC_Actions
             SalvarItem(comboBox_enderecoDaUnidadeResponsavel, arquivoEnderecoDaUnidade);
 
             Clipboard.SetText(mensagem);
-            ClearField();
+
+            MessageBox.Show(
+                "Itens salvos e mensagem copiada para a área de transferência.",
+                "Sucesso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+
+            LimparCampos();
         }
+
 
         private void btnGerarAlerta_Click(object sender, EventArgs e)
         {
@@ -170,20 +198,8 @@ namespace NOC_Actions
 
         private void btnApagarCampos_Click(object sender, EventArgs e)
         {
-            ClearField();
+            LimparCampos();
         }
-
-        void ClearField()
-        {
-            textBox_nomeEquipeTecnica.Text = "";
-            textBox_credenciaisDePessoaFisica.Text = "";
-            comboBox_operadoraResponsavel.Text = "";
-            comboBox_previaoDeChegada.Text = "";
-            comboBox_unidadeParaLiberacaoDeAcesso.Text = "";
-            comboBox_enderecoDaUnidadeResponsavel.Text = "";
-            richTextBox_mensagemASerEncaminhadaAoCliente.Text = "";
-        }
-
 
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
@@ -195,12 +211,20 @@ namespace NOC_Actions
             this.FindForm().Close();
         }
 
+        void LimparCampos()
+        {
+            textBox_nomeEquipeTecnica.Text = "";
+            comboBox_operadoraResponsavel.Text = "";
+            comboBox_previaoDeChegada.Text = "";
+            textBox_credenciaisDePessoaFisica.Text = "";
+            comboBox_unidadeParaLiberacaoDeAcesso.Text = "";
+            comboBox_enderecoDaUnidadeResponsavel.Text = "";
+            richTextBox_mensagemASerEncaminhadaAoCliente.Text = "";
+        }
+
+
         #endregion
 
-        private void Uc_LiberacaoDeAcesso_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
     

@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-
 namespace NOC_Actions
 {
     public partial class Uc_BloqueioFinanceiro : UserControl
@@ -27,12 +26,6 @@ namespace NOC_Actions
             CarregarInformacoes();
         }
 
-        private string ValorOuNull(string valor)
-        {
-            return string.IsNullOrWhiteSpace(valor) ? "NULL" : valor;
-        }
-
-
         private string ObterSaudacao()
         {
             int hora = DateTime.Now.Hour;
@@ -44,12 +37,38 @@ namespace NOC_Actions
 
         private void btnSalvarECopiar_Click(object sender, EventArgs e)
         {
+            var unidade = comboBox_unidadeComBloqueioFinanceiro.Text;
+            var endereco = comboBox_enderecoRespectivoDoBloqueioFinanceiro.Text;
+            var operadora = comboBox_operadoraComBloqueioFinanceiro.Text;
+            //var valorFatura = maskedTextBox_valorAPagar.Text;
+            var horaIndisponibilidade = maskedTextBox_horarioQueda.Text;
+            var dataReferenciaDaFatura = maskedTextBox_dataDaReferencia.Text;
+            string faturaValorConvertToParse = maskedTextBox_valorAPagar.Text
+                           .Replace("R$", "")
+                           .Trim();
+
+            if (string.IsNullOrWhiteSpace(unidade) ||
+                string.IsNullOrWhiteSpace(endereco) ||
+                string.IsNullOrWhiteSpace(operadora) ||
+                string.IsNullOrWhiteSpace(horaIndisponibilidade) ||
+                string.IsNullOrWhiteSpace(dataReferenciaDaFatura) ||
+                string.IsNullOrWhiteSpace(faturaValorConvertToParse))
+            {
+                MessageBox.Show(
+                    "Preencha todos os campos antes de salvar.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
             SalvarItem(comboBox_unidadeComBloqueioFinanceiro, arquivo_bloqueioFinanceiro_unidade);
             SalvarItem(comboBox_enderecoRespectivoDoBloqueioFinanceiro, arquivo_bloqueioFinanceiro_enderecoUnidade);
             SalvarItem(comboBox_operadoraComBloqueioFinanceiro, arquivo_operadoraComBloqueioFinanceiro);
 
             if (!decimal.TryParse(
-                maskedTextBox_valorAPagar.Text.Replace("R$", "").Trim(),
+                faturaValorConvertToParse.Replace("R$", "").Trim(),
                 NumberStyles.Number,
                 new CultureInfo("pt-BR"),
                 out decimal valorFatura))
@@ -58,8 +77,17 @@ namespace NOC_Actions
                 return;
             }
 
-            DateTime.TryParse(maskedTextBox_dataDaReferencia.Text, out DateTime dataVencimento);
-            DateTime.TryParse(maskedTextBox_horarioQueda.Text, out DateTime horarioQueda);
+            if (!DateTime.TryParse(maskedTextBox_dataDaReferencia.Text, out DateTime dataVencimento))
+            {
+                MessageBox.Show("Data de vencimento inválida.");
+                return;
+            }
+
+            if (!DateTime.TryParse(maskedTextBox_horarioQueda.Text, out DateTime horarioQueda))
+            {
+                MessageBox.Show("Horário da queda inválido.");
+                return;
+            }
 
             string mensagem = GerarMensagem(
                 comboBox_unidadeComBloqueioFinanceiro.Text,
@@ -69,9 +97,16 @@ namespace NOC_Actions
                 horarioQueda
             );
 
+            MessageBox.Show(
+                "Itens salvos e mensagem copiada para a área de transferência.",
+                "Sucesso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
+
             ClearField();
             Clipboard.SetText(mensagem);
-            MessageBox.Show("Mensagem copiada para a área de transferência.");
+        
         }
 
         private void btnVisualizar_Click(object sender, EventArgs e)
@@ -124,8 +159,6 @@ namespace NOC_Actions
 
         private void btnExcluirTudoDasListas_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ijdsodjasid");
-
             bool excluiuAlgo = false;
 
             excluiuAlgo |= ExcluirTodos(comboBox_unidadeComBloqueioFinanceiro, arquivo_bloqueioFinanceiro_unidade);
@@ -235,9 +268,9 @@ namespace NOC_Actions
             DateTime horarioQueda)
         {
             MessageBox.Show(
-              $"Prezados, {ObterSaudacao()}! Informamos que a unidade {ValorOuNull(unidadeComBloqueio)} " +
+              $"Prezados, {ObterSaudacao()}! Informamos que a unidade {(unidadeComBloqueio)} " +
               $"encontra-se inoperante em decorrência de um bloqueio administrativo de natureza financeira junto à operadora " +
-              $"{ValorOuNull(operadoraComBloqueio)}. O valor total pendente é de R$ {valorFatura:N2}, " +
+              $"{(operadoraComBloqueio)}. O valor total pendente é de R$ {valorFatura:N2}, " +
               $"com vencimento em {dataVencimento:dd/MM/yyyy}. A indisponibilidade teve início às {horarioQueda:HH:mm} horas. " 
             );
         }
@@ -250,9 +283,9 @@ namespace NOC_Actions
         DateTime horarioQueda)
         {
             return
-                $"Prezados, {ObterSaudacao()}! Informamos que a unidade {ValorOuNull(unidadeComBloqueio)} " +
+                $"Prezados, {ObterSaudacao()}! Informamos que a unidade {(unidadeComBloqueio)} " +
                 $"encontra-se inoperante em decorrência de um bloqueio administrativo de natureza financeira junto à operadora " +
-                $"{ValorOuNull(operadoraComBloqueio)}. O valor total pendente é de R$ {valorFatura:N2}, " +
+                $"{(operadoraComBloqueio)}. O valor total pendente é de R$ {valorFatura:N2}, " +
                 $"com vencimento em {dataVencimento:dd/MM/yyyy}. A indisponibilidade teve início às {horarioQueda:HH:mm} horas." +
                 $"\n\nFicamos à disposição, atenciosamente,\nEquipe NOC";
         }
@@ -272,7 +305,5 @@ namespace NOC_Actions
         {
             this.FindForm().Close();
         }
-
-
     }
 }

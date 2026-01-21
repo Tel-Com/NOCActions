@@ -143,6 +143,7 @@ namespace NOC_Actions
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information
             );
+            LimparCampos();
         }
 
         private void btnGerarAlerta_Click(object sender, EventArgs e)
@@ -210,9 +211,10 @@ namespace NOC_Actions
 
         private void LimparCampos()
         {
-            comboBox_OperadoraDaUnidade.Text = string.Empty;
-            comboBox_unidade.Text = string.Empty;
-            comboBox_statusObtidoPelaOperadora.Text = string.Empty;
+            comboBox_OperadoraDaUnidade.Text = "";
+            comboBox_unidade.Text = "";
+            comboBox_statusObtidoPelaOperadora.Text = "";
+            richTextBox_MensagemASerEncaminhadaAoCliente.Text = "";
         }
 
         private static string GerarMensagem(string operadora, string unidade, string tipoAnalise)

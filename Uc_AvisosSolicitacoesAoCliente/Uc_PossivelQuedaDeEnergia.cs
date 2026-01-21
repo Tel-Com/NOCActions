@@ -102,16 +102,41 @@ namespace NOC_Actions
             string operadora = comboBox_operadoraUnidade.Text;
             string unidade = comboBox_unidadeParaAnaliseEnergia.Text;
             string endereco = comboBox_enderecoUnidade.Text;
+
+            if (string.IsNullOrWhiteSpace(operadora) ||
+                string.IsNullOrWhiteSpace(unidade) ||
+                string.IsNullOrWhiteSpace(endereco) ||
+                !maskedTextBox_horarioQuedaCircuito.MaskCompleted ||
+                !maskedTextBox_dataReferencia.MaskCompleted)
+            {
+                MessageBox.Show(
+                    "Preencha todos os campos antes de salvar.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
             string horario = maskedTextBox_horarioQuedaCircuito.Text;
             string dataRef = maskedTextBox_dataReferencia.Text;
 
+            // Salvar dados
             SalvarItem(comboBox_operadoraUnidade, arquivoOperadora);
             SalvarItem(comboBox_unidadeParaAnaliseEnergia, arquivoUnidade);
             SalvarItem(comboBox_enderecoUnidade, arquivoEndereco);
 
+            // Gerar e copiar mensagem
             string mensagem = GerarMensagem(operadora, unidade, endereco, horario, dataRef);
             Clipboard.SetText(mensagem);
 
+            // Feedback correto
+            MessageBox.Show(
+                "Itens salvos e mensagem copiada para a área de transferência.",
+                "Sucesso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information
+            );
             LimparCampos();
         }
 
@@ -125,7 +150,6 @@ namespace NOC_Actions
                 maskedTextBox_horarioQuedaCircuito.Text,
                 maskedTextBox_dataReferencia.Text
             );
-
             richTextBox_MensagemASerEncaminhadaAoCliente.Text = mensagem;
         }
 
@@ -142,16 +166,15 @@ namespace NOC_Actions
             );
         }
 
-
         #endregion
 
         #region Utilitários
-        
+
         private void btnApagarCampos_Click(object sender, EventArgs e)
         {
             LimparCampos();
         }
-        
+
         // Fechar userControl
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
@@ -196,7 +219,6 @@ namespace NOC_Actions
                 $"Solicitamos, gentilmente, que verifiquem a situação junto à unidade e nos mantenham informados.\n\n" +
                 $"Atenciosamente,\nEquipe NOC";
         }
-
 
         private string ObterSaudacao()
         {
