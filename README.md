@@ -68,7 +68,7 @@ Cada funcionalidade conta com seus próprios formulários e módulos, facilitand
 
 1. **Clone o repositório:**  
    ```shell
-   git clone https://github.com/devsantiag/NOC_Actions.git
+   git clone https://github.com/Tel-Com/NOCActions.git
    ```
 
 2. **Abra a solução (.sln) no Visual Studio** (ou IDE de preferência que suporte WinForms/.NET).
