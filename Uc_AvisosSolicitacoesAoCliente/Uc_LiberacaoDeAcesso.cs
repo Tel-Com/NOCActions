@@ -1,5 +1,6 @@
 ﻿using NOC_Actions.Uc_AvisosSolicitacoesAoCliente;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -38,6 +39,8 @@ namespace NOC_Actions
         public Uc_LiberacaoDeAcesso()
         {
             InitializeComponent();
+
+            _persistencias = new Dictionary<ComboBox, string>();
             InicializarPersistencias();
             CarregarDadosIniciais();
 
@@ -54,14 +57,27 @@ namespace NOC_Actions
         /// </summary>
         private void InicializarPersistencias()
         {
-            _persistencias = new Dictionary<ComboBox, string>
-            {
-                { comboBox_operadoraResponsavel, CriarCaminho("operadoraSolicitacaoVisita.txt") },
-                { comboBox_previaoDeChegada, CriarCaminho("previsaoDeChegadaTecnica.txt") },
-                { comboBox_unidadeParaLiberacaoDeAcesso, CriarCaminho("unidadeRespectivaParaVisita.txt") },
-                { comboBox_enderecoDaUnidadeResponsavel, CriarCaminho("unidadeEnderecoParaVisitaTecnica.txt") }
-            };
+            _persistencias.Add(
+                comboBox_operadoraResponsavel,
+                CriarCaminho("operadoraSolicitacaoVisita.txt")
+            );
+
+            _persistencias.Add(
+                comboBox_previaoDeChegada,
+                CriarCaminho("previsaoDeChegadaTecnica.txt")
+            );
+
+            _persistencias.Add(
+                comboBox_unidadeParaLiberacaoDeAcesso,
+                CriarCaminho("unidadeRespectivaParaVisita.txt")
+            );
+
+            _persistencias.Add(
+                comboBox_enderecoDaUnidadeResponsavel,
+                CriarCaminho("unidadeEnderecoParaVisitaTecnica.txt")
+            );
         }
+
 
         /// <summary>
         /// Cria o caminho completo do arquivo dentro do AppData.
