@@ -5,21 +5,39 @@ using System.Windows.Forms;
 
 namespace NOC_Actions
 {
+    /// <summary>
+    /// UserControl responsável pela análise de infraestrutura,
+    /// permitindo persistência de dados, geração de mensagens
+    /// e exclusão controlada das informações.
+    /// </summary>
     public partial class Uc_AnaliseDeInfra : UserControl
     {
-        #region Arquivos (persistência)
+        #region Arquivos (Persistência)
 
+        // Caminho base do AppData do usuário logado
         private static readonly string AppData =
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-        private readonly string _arquivoOperadora = Path.Combine(AppData, "arquivoOperadora.txt");
-        private readonly string _arquivoUnidade = Path.Combine(AppData, "arquivoUnidade.txt");
-        private readonly string _arquivoTipoAnalise = Path.Combine(AppData, "arquivoTipoAnalise.txt");
+        // Arquivo responsável por armazenar as operadoras cadastradas
+        private readonly string _arquivoOperadora =
+            Path.Combine(AppData, "arquivoOperadora.txt");
+
+        // Arquivo responsável por armazenar as unidades cadastradas
+        private readonly string _arquivoUnidade =
+            Path.Combine(AppData, "arquivoUnidade.txt");
+
+        // Arquivo responsável por armazenar os tipos/status de análise
+        private readonly string _arquivoTipoAnalise =
+            Path.Combine(AppData, "arquivoTipoAnalise.txt");
 
         #endregion
 
         #region Construtor
 
+        /// <summary>
+        /// Construtor do UserControl.
+        /// Inicializa os componentes visuais e carrega os dados persistidos.
+        /// </summary>
         public Uc_AnaliseDeInfra()
         {
             InitializeComponent();
@@ -30,6 +48,10 @@ namespace NOC_Actions
 
         #region Inicialização
 
+        /// <summary>
+        /// Carrega os dados persistidos anteriormente para os ComboBoxes,
+        /// garantindo reutilização das informações salvas.
+        /// </summary>
         private void CarregarDadosIniciais()
         {
             CarregarItens(_arquivoOperadora, comboBox_OperadoraDaUnidade);
@@ -41,20 +63,31 @@ namespace NOC_Actions
 
         #region Persistência
 
+        /// <summary>
+        /// Salva um novo item digitado no ComboBox em arquivo,
+        /// evitando salvar valores vazios ou duplicados.
+        /// </summary>
         private void SalvarItem(ComboBox comboBox, string caminhoArquivo)
         {
             var valor = comboBox.Text?.Trim();
 
+            // Ignora valores inválidos
             if (string.IsNullOrWhiteSpace(valor))
                 return;
 
+            // Evita duplicidade
             if (comboBox.Items.Contains(valor))
                 return;
 
+            // Adiciona ao ComboBox e persiste em arquivo
             comboBox.Items.Add(valor);
             File.WriteAllLines(caminhoArquivo, comboBox.Items.Cast<string>());
         }
 
+        /// <summary>
+        /// Carrega os itens de um arquivo para um ComboBox,
+        /// removendo linhas vazias e duplicadas.
+        /// </summary>
         private void CarregarItens(string caminhoArquivo, ComboBox comboBox)
         {
             if (!File.Exists(caminhoArquivo))
@@ -73,30 +106,43 @@ namespace NOC_Actions
 
         #region Exclusão
 
+        /// <summary>
+        /// Exclui apenas o item selecionado do ComboBox e do arquivo correspondente.
+        /// </summary>
         private bool ExcluirSelecionado(ComboBox comboBox, string caminhoArquivo)
         {
             var valor = comboBox.SelectedItem as string;
+
             if (valor == null || !File.Exists(caminhoArquivo))
                 return false;
 
             var linhas = File.ReadAllLines(caminhoArquivo).ToList();
 
+            // Remove o valor do arquivo
             if (!linhas.Remove(valor))
                 return false;
 
             File.WriteAllLines(caminhoArquivo, linhas);
+
+            // Remove o valor do ComboBox
             comboBox.Items.Remove(valor);
             comboBox.SelectedIndex = -1;
 
             return true;
         }
 
+        /// <summary>
+        /// Exclui todos os itens do ComboBox e limpa o arquivo físico.
+        /// </summary>
         private bool ExcluirTodos(ComboBox comboBox, string caminhoArquivo)
         {
             if (!File.Exists(caminhoArquivo))
                 return false;
 
+            // Limpa o conteúdo do arquivo
             File.WriteAllText(caminhoArquivo, string.Empty);
+
+            // Limpa o ComboBox
             comboBox.Items.Clear();
             comboBox.SelectedIndex = -1;
             comboBox.Text = string.Empty;
@@ -108,12 +154,17 @@ namespace NOC_Actions
 
         #region Eventos
 
+        /// <summary>
+        /// Salva os dados preenchidos, gera a mensagem
+        /// e copia automaticamente para a área de transferência.
+        /// </summary>
         private void btnSalvarECopiar_Click(object sender, EventArgs e)
         {
             var operadora = comboBox_OperadoraDaUnidade.Text;
             var unidade = comboBox_unidade.Text;
             var status = comboBox_statusObtidoPelaOperadora.Text;
 
+            // Validação básica de campos obrigatórios
             if (string.IsNullOrWhiteSpace(operadora) ||
                 string.IsNullOrWhiteSpace(unidade) ||
                 string.IsNullOrWhiteSpace(status))
@@ -127,10 +178,12 @@ namespace NOC_Actions
                 return;
             }
 
+            // Persistência dos dados
             SalvarItem(comboBox_OperadoraDaUnidade, _arquivoOperadora);
             SalvarItem(comboBox_unidade, _arquivoUnidade);
             SalvarItem(comboBox_statusObtidoPelaOperadora, _arquivoTipoAnalise);
 
+            // Copia a mensagem gerada para o clipboard
             Clipboard.SetText(GerarMensagem(operadora, unidade, status));
 
             MessageBox.Show(
@@ -143,6 +196,10 @@ namespace NOC_Actions
             LimparCampos();
         }
 
+        /// <summary>
+        /// Gera a mensagem e exibe no RichTextBox,
+        /// sem salvar ou persistir dados.
+        /// </summary>
         private void btnGerarAlerta_Click(object sender, EventArgs e)
         {
             richTextBox_MensagemASerEncaminhadaAoCliente.Text =
@@ -153,6 +210,9 @@ namespace NOC_Actions
                 );
         }
 
+        /// <summary>
+        /// Exclui apenas os itens selecionados após confirmação do usuário.
+        /// </summary>
         private void bntExcluirSelecionado_Click(object sender, EventArgs e)
         {
             var confirmacao = MessageBox.Show(
@@ -181,6 +241,9 @@ namespace NOC_Actions
             );
         }
 
+        /// <summary>
+        /// Exclui todos os dados persistidos após confirmação explícita do usuário.
+        /// </summary>
         private void btnExcluirTodosOsCampos_Click(object sender, EventArgs e)
         {
             var confirmacao = MessageBox.Show(
@@ -212,12 +275,18 @@ namespace NOC_Actions
             );
         }
 
+        /// <summary>
+        /// Limpa os campos da tela sem afetar os dados persistidos.
+        /// </summary>
         private void btnApagarCampos_Click(object sender, EventArgs e)
         {
             richTextBox_MensagemASerEncaminhadaAoCliente.Clear();
             LimparCampos();
         }
 
+        /// <summary>
+        /// Fecha o formulário que contém este UserControl.
+        /// </summary>
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
             CloseWindow();
@@ -227,6 +296,9 @@ namespace NOC_Actions
 
         #region Utilitários
 
+        /// <summary>
+        /// Limpa todos os campos visuais da tela.
+        /// </summary>
         private void LimparCampos()
         {
             comboBox_OperadoraDaUnidade.Text = "";
@@ -235,6 +307,10 @@ namespace NOC_Actions
             richTextBox_MensagemASerEncaminhadaAoCliente.Text = "";
         }
 
+        /// <summary>
+        /// Gera a mensagem padrão de análise de infraestrutura
+        /// a ser encaminhada ao cliente.
+        /// </summary>
         private static string GerarMensagem(string operadora, string unidade, string tipoAnalise)
         {
             return
@@ -246,6 +322,9 @@ namespace NOC_Actions
                 "Obrigado.";
         }
 
+        /// <summary>
+        /// Retorna a saudação adequada conforme o horário atual.
+        /// </summary>
         private static string ObterSaudacao()
         {
             var hora = DateTime.Now.Hour;
@@ -259,11 +338,13 @@ namespace NOC_Actions
 
         #region Close Form
 
+        /// <summary>
+        /// Fecha o formulário pai do UserControl.
+        /// </summary>
         private void CloseWindow()
         {
             FindForm()?.Close();
         }
-
 
         #endregion
     }

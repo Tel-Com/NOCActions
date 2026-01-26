@@ -6,19 +6,28 @@ using System.Windows.Forms;
 
 namespace NOC_Actions
 {
+    /// <summary>
+    /// UserControl responsável por registrar e comunicar bloqueios financeiros,
+    /// permitindo persistência de dados, geração de mensagens formais
+    /// e gerenciamento completo dos itens cadastrados.
+    /// </summary>
     public partial class Uc_BloqueioFinanceiro : UserControl
     {
         #region Arquivos (Persistência)
 
+        // Caminho base do AppData do usuário logado
         private static readonly string AppData =
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
+        // Arquivo responsável por armazenar as unidades com bloqueio financeiro
         private readonly string arquivo_unidade =
             Path.Combine(AppData, "unidadeBloqueioFinanceiro.txt");
 
+        // Arquivo responsável por armazenar os endereços das unidades
         private readonly string arquivo_endereco =
             Path.Combine(AppData, "enderecoUnidadeBloqueioFinanceiro.txt");
 
+        // Arquivo responsável por armazenar as operadoras com bloqueio financeiro
         private readonly string arquivo_operadora =
             Path.Combine(AppData, "operadoraComBloqueioFinanceiro.txt");
 
@@ -26,6 +35,10 @@ namespace NOC_Actions
 
         #region Construtor
 
+        /// <summary>
+        /// Construtor do UserControl.
+        /// Inicializa os componentes visuais e carrega as informações persistidas.
+        /// </summary>
         public Uc_BloqueioFinanceiro()
         {
             InitializeComponent();
@@ -36,15 +49,21 @@ namespace NOC_Actions
 
         #region Eventos
 
+        /// <summary>
+        /// Salva os dados informados, gera a mensagem de bloqueio financeiro
+        /// e copia automaticamente para a área de transferência.
+        /// </summary>
         private void btnSalvarECopiar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos())
                 return;
 
+            // Persiste os dados digitados nos respectivos arquivos
             SalvarItem(comboBox_unidadeComBloqueioFinanceiro, arquivo_unidade);
             SalvarItem(comboBox_enderecoRespectivoDoBloqueioFinanceiro, arquivo_endereco);
             SalvarItem(comboBox_operadoraComBloqueioFinanceiro, arquivo_operadora);
 
+            // Copia a mensagem gerada para o clipboard
             Clipboard.SetText(GerarMensagem());
 
             MessageBox.Show(
@@ -57,6 +76,9 @@ namespace NOC_Actions
             LimparCampos();
         }
 
+        /// <summary>
+        /// Exibe a mensagem gerada em tela, sem salvar dados ou copiar para o clipboard.
+        /// </summary>
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos())
@@ -70,16 +92,25 @@ namespace NOC_Actions
             );
         }
 
+        /// <summary>
+        /// Limpa apenas os campos visuais do formulário.
+        /// </summary>
         private void btnApagarCampos_Click(object sender, EventArgs e)
         {
             LimparCampos();
         }
 
+        /// <summary>
+        /// Fecha o formulário que contém este UserControl.
+        /// </summary>
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
             CloseWindow();
         }
 
+        /// <summary>
+        /// Exclui apenas os itens selecionados das listas e arquivos persistidos.
+        /// </summary>
         private void bntExcluirSelecionado_Click(object sender, EventArgs e)
         {
             bool excluiu = false;
@@ -88,26 +119,20 @@ namespace NOC_Actions
             excluiu |= ExcluirSelecionado(comboBox_enderecoRespectivoDoBloqueioFinanceiro, arquivo_endereco);
             excluiu |= ExcluirSelecionado(comboBox_operadoraComBloqueioFinanceiro, arquivo_operadora);
 
-            if (excluiu)
-            {
-                MessageBox.Show(
-                    "Item(ns) selecionado(s) excluído(s) com sucesso.",
-                    "Sucesso",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
-            }
-            else
-            {
-                MessageBox.Show(
-                    "Selecione ao menos um item válido para exclusão.",
-                    "Atenção",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-            }
+            MessageBox.Show(
+                excluiu
+                    ? "Item(ns) selecionado(s) excluído(s) com sucesso."
+                    : "Selecione ao menos um item válido para exclusão.",
+                excluiu ? "Sucesso" : "Atenção",
+                MessageBoxButtons.OK,
+                excluiu ? MessageBoxIcon.Information : MessageBoxIcon.Warning
+            );
         }
 
+        /// <summary>
+        /// Exclui todos os itens cadastrados e limpa completamente os arquivos,
+        /// mediante confirmação explícita do usuário.
+        /// </summary>
         private void btnExcluirTudoDasListas_Click(object sender, EventArgs e)
         {
             var confirmacao = MessageBox.Show(
@@ -126,30 +151,23 @@ namespace NOC_Actions
             excluiu |= ExcluirTodos(comboBox_enderecoRespectivoDoBloqueioFinanceiro, arquivo_endereco);
             excluiu |= ExcluirTodos(comboBox_operadoraComBloqueioFinanceiro, arquivo_operadora);
 
-            if (excluiu)
-            {
-                MessageBox.Show(
-                    "Todos os itens foram excluídos com sucesso.",
-                    "Sucesso",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
-                );
-            }
-            else
-            {
-                MessageBox.Show(
-                    "Não havia itens cadastrados para exclusão.",
-                    "Atenção",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-            }
+            MessageBox.Show(
+                excluiu
+                    ? "Todos os itens foram excluídos com sucesso."
+                    : "Não havia itens cadastrados para exclusão.",
+                excluiu ? "Sucesso" : "Atenção",
+                MessageBoxButtons.OK,
+                excluiu ? MessageBoxIcon.Information : MessageBoxIcon.Warning
+            );
         }
 
         #endregion
 
         #region Validações
 
+        /// <summary>
+        /// Valida se todos os campos obrigatórios foram corretamente preenchidos.
+        /// </summary>
         private bool ValidarCampos()
         {
             if (string.IsNullOrWhiteSpace(comboBox_unidadeComBloqueioFinanceiro.Text) ||
@@ -174,8 +192,13 @@ namespace NOC_Actions
 
         #region Mensagem
 
+        /// <summary>
+        /// Gera a mensagem formal de bloqueio financeiro,
+        /// formatando valores monetários, data e horário.
+        /// </summary>
         private string GerarMensagem()
         {
+            // Converte o valor informado respeitando a cultura atual
             decimal valor = decimal.Parse(
                 maskedTextBox_valorAPagar.Text,
                 CultureInfo.CurrentCulture
@@ -194,6 +217,9 @@ namespace NOC_Actions
                 $"Atenciosamente,\nEquipe NOC";
         }
 
+        /// <summary>
+        /// Retorna a saudação adequada de acordo com o horário atual.
+        /// </summary>
         private static string ObterSaudacao()
         {
             int hora = DateTime.Now.Hour;
@@ -207,6 +233,10 @@ namespace NOC_Actions
 
         #region Utilidades
 
+        /// <summary>
+        /// Limpa todos os campos visuais do formulário,
+        /// sem afetar os dados persistidos.
+        /// </summary>
         private void LimparCampos()
         {
             comboBox_unidadeComBloqueioFinanceiro.Text = "";
@@ -222,6 +252,10 @@ namespace NOC_Actions
 
         #region Arquivos
 
+        /// <summary>
+        /// Salva um novo item no ComboBox e persiste em arquivo,
+        /// evitando valores vazios ou duplicados.
+        /// </summary>
         private void SalvarItem(ComboBox comboBox, string arquivo)
         {
             var valor = comboBox.Text?.Trim();
@@ -236,6 +270,9 @@ namespace NOC_Actions
             File.WriteAllLines(arquivo, comboBox.Items.Cast<string>());
         }
 
+        /// <summary>
+        /// Exclui apenas o item selecionado do ComboBox e do arquivo correspondente.
+        /// </summary>
         private bool ExcluirSelecionado(ComboBox comboBox, string arquivo)
         {
             var valor = comboBox.SelectedItem as string;
@@ -255,6 +292,9 @@ namespace NOC_Actions
             return true;
         }
 
+        /// <summary>
+        /// Exclui todos os itens do ComboBox e limpa completamente o arquivo.
+        /// </summary>
         private bool ExcluirTodos(ComboBox comboBox, string arquivo)
         {
             if (!File.Exists(arquivo))
@@ -268,6 +308,9 @@ namespace NOC_Actions
             return true;
         }
 
+        /// <summary>
+        /// Carrega os dados persistidos anteriormente nos ComboBoxes.
+        /// </summary>
         private void CarregarInformacoes()
         {
             CarregarItens(arquivo_unidade, comboBox_unidadeComBloqueioFinanceiro);
@@ -275,6 +318,10 @@ namespace NOC_Actions
             CarregarItens(arquivo_operadora, comboBox_operadoraComBloqueioFinanceiro);
         }
 
+        /// <summary>
+        /// Carrega itens de um arquivo para um ComboBox,
+        /// removendo linhas vazias e duplicadas.
+        /// </summary>
         private void CarregarItens(string arquivo, ComboBox comboBox)
         {
             if (!File.Exists(arquivo))
@@ -293,12 +340,14 @@ namespace NOC_Actions
 
         #region Close Form
 
+        /// <summary>
+        /// Fecha o formulário pai que contém este UserControl.
+        /// </summary>
         private void CloseWindow()
         {
             FindForm()?.Close();
         }
 
         #endregion
-
     }
 }

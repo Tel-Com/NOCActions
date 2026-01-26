@@ -1,38 +1,46 @@
 ﻿using NOC_Actions.Uc_AvisosSolicitacoesAoCliente;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace NOC_Actions
 {
+    /// <summary>
+    /// UserControl responsável pela solicitação de liberação de acesso
+    /// para visitas técnicas, incluindo persistência de dados,
+    /// geração de mensagem e gerenciamento dos registros salvos.
+    /// </summary>
     public partial class Uc_LiberacaoDeAcesso : UserControl
     {
-        #region Arquivos (Persistência)
+        #region Constantes / Arquivos
 
-        private static readonly string AppData =
+        /// <summary>
+        /// Caminho base da pasta AppData do usuário.
+        /// </summary>
+        private static readonly string AppDataPath =
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
-        private readonly string arquivoOperadoraSolicitacaoVisita =
-            Path.Combine(AppData, "operadoraSolicitacaoVisita.txt");
-
-        private readonly string arquivoPrevisaoDeChegadaTecnica =
-            Path.Combine(AppData, "previsaoDeChegadaTecnica.txt");
-
-        private readonly string arquivoUnidadeRespectivaParaVisita =
-            Path.Combine(AppData, "unidadeRespectivaParaVisita.txt");
-
-        private readonly string arquivoEnderecoDaUnidade =
-            Path.Combine(AppData, "unidadeEnderecoParaVisitaTecnica.txt");
+        /// <summary>
+        /// Mapeamento entre ComboBox e seus respectivos arquivos de persistência.
+        /// </summary>
+        private readonly Dictionary<ComboBox, string> _persistencias;
 
         #endregion
 
         #region Construtor
 
+        /// <summary>
+        /// Inicializa o UserControl, configura persistências
+        /// e carrega os dados salvos previamente.
+        /// </summary>
         public Uc_LiberacaoDeAcesso()
         {
             InitializeComponent();
+            InicializarPersistencias();
             CarregarDadosIniciais();
+
             btnAmplicarTexto.Click += btnAmplicarTexto_Click;
         }
 
@@ -40,33 +48,63 @@ namespace NOC_Actions
 
         #region Inicialização
 
+        /// <summary>
+        /// Define os arquivos de persistência associados
+        /// a cada ComboBox do formulário.
+        /// </summary>
+        private void InicializarPersistencias()
+        {
+            _persistencias = new Dictionary<ComboBox, string>
+            {
+                { comboBox_operadoraResponsavel, CriarCaminho("operadoraSolicitacaoVisita.txt") },
+                { comboBox_previaoDeChegada, CriarCaminho("previsaoDeChegadaTecnica.txt") },
+                { comboBox_unidadeParaLiberacaoDeAcesso, CriarCaminho("unidadeRespectivaParaVisita.txt") },
+                { comboBox_enderecoDaUnidadeResponsavel, CriarCaminho("unidadeEnderecoParaVisitaTecnica.txt") }
+            };
+        }
+
+        /// <summary>
+        /// Cria o caminho completo do arquivo dentro do AppData.
+        /// </summary>
+        /// <param name="nomeArquivo">Nome do arquivo a ser criado.</param>
+        /// <returns>Caminho completo do arquivo.</returns>
+        private static string CriarCaminho(string nomeArquivo) =>
+            Path.Combine(AppDataPath, nomeArquivo);
+
+        /// <summary>
+        /// Carrega os dados persistidos em disco
+        /// para os respectivos ComboBox.
+        /// </summary>
         private void CarregarDadosIniciais()
         {
-            CarregarItens(arquivoOperadoraSolicitacaoVisita, comboBox_operadoraResponsavel);
-            CarregarItens(arquivoPrevisaoDeChegadaTecnica, comboBox_previaoDeChegada);
-            CarregarItens(arquivoUnidadeRespectivaParaVisita, comboBox_unidadeParaLiberacaoDeAcesso);
-            CarregarItens(arquivoEnderecoDaUnidade, comboBox_enderecoDaUnidadeResponsavel);
+            foreach (var item in _persistencias)
+                CarregarItens(item.Value, item.Key);
         }
 
         #endregion
 
         #region Persistência
 
-        private void SalvarItem(ComboBox comboBox, string caminhoArquivo)
+        /// <summary>
+        /// Salva um novo item digitado no ComboBox
+        /// e persiste os dados no arquivo correspondente.
+        /// </summary>
+        private static void SalvarItem(ComboBox comboBox, string caminhoArquivo)
         {
             var valor = comboBox.Text?.Trim();
 
-            if (string.IsNullOrWhiteSpace(valor))
-                return;
-
-            if (comboBox.Items.Contains(valor))
+            if (string.IsNullOrWhiteSpace(valor) || comboBox.Items.Contains(valor))
                 return;
 
             comboBox.Items.Add(valor);
             File.WriteAllLines(caminhoArquivo, comboBox.Items.Cast<string>());
         }
 
-        private void CarregarItens(string caminhoArquivo, ComboBox comboBox)
+        /// <summary>
+        /// Carrega os itens de um arquivo para um ComboBox,
+        /// removendo duplicidades e valores vazios.
+        /// </summary>
+        private static void CarregarItens(string caminhoArquivo, ComboBox comboBox)
         {
             if (!File.Exists(caminhoArquivo))
                 return;
@@ -84,28 +122,27 @@ namespace NOC_Actions
 
         #region Botões Principais
 
+        /// <summary>
+        /// Salva os dados preenchidos, gera a mensagem
+        /// e copia o conteúdo para a área de transferência.
+        /// </summary>
         private void btnSalvarECopiar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos())
                 return;
 
-            SalvarItem(comboBox_operadoraResponsavel, arquivoOperadoraSolicitacaoVisita);
-            SalvarItem(comboBox_previaoDeChegada, arquivoPrevisaoDeChegadaTecnica);
-            SalvarItem(comboBox_unidadeParaLiberacaoDeAcesso, arquivoUnidadeRespectivaParaVisita);
-            SalvarItem(comboBox_enderecoDaUnidadeResponsavel, arquivoEnderecoDaUnidade);
+            foreach (var item in _persistencias)
+                SalvarItem(item.Key, item.Value);
 
             Clipboard.SetText(GerarMensagem());
 
-            MessageBox.Show(
-                "Itens salvos e mensagem copiada para a área de transferência.",
-                "Sucesso",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
-
+            MostrarMensagem("Itens salvos e mensagem copiada para a área de transferência.");
             LimparCampos();
         }
 
+        /// <summary>
+        /// Gera a mensagem e exibe no RichTextBox.
+        /// </summary>
         private void btnGerarAlerta_Click(object sender, EventArgs e)
         {
             richTextBox_mensagemASerEncaminhadaAoCliente.Text = GerarMensagem();
@@ -115,18 +152,22 @@ namespace NOC_Actions
 
         #region Validação
 
+        /// <summary>
+        /// Valida se todos os campos obrigatórios
+        /// foram preenchidos corretamente.
+        /// </summary>
         private bool ValidarCampos()
         {
-            if (string.IsNullOrWhiteSpace(comboBox_operadoraResponsavel.Text) ||
-                string.IsNullOrWhiteSpace(comboBox_previaoDeChegada.Text) ||
-                string.IsNullOrWhiteSpace(comboBox_unidadeParaLiberacaoDeAcesso.Text) ||
-                string.IsNullOrWhiteSpace(comboBox_enderecoDaUnidadeResponsavel.Text))
+            foreach (var comboBox in _persistencias.Keys)
             {
-                MostrarMensagem(
-                    "Preencha todos os campos antes de continuar.",
-                    MessageBoxIcon.Warning
-                );
-                return false;
+                if (string.IsNullOrWhiteSpace(comboBox.Text))
+                {
+                    MostrarMensagem(
+                        "Preencha todos os campos antes de continuar.",
+                        MessageBoxIcon.Warning
+                    );
+                    return false;
+                }
             }
 
             return true;
@@ -136,13 +177,16 @@ namespace NOC_Actions
 
         #region Mensagem
 
+        /// <summary>
+        /// Gera a mensagem final a ser enviada ao cliente
+        /// com base nos dados preenchidos.
+        /// </summary>
         private string GerarMensagem()
         {
-            string equipeTecnica =
-                string.IsNullOrWhiteSpace(textBox_nomeEquipeTecnica.Text) &&
-                string.IsNullOrWhiteSpace(textBox_credenciaisDePessoaFisica.Text)
-                    ? string.Empty
-                    : $"Equipe técnica: {textBox_nomeEquipeTecnica.Text} | {textBox_credenciaisDePessoaFisica.Text}\n";
+            string equipeTecnica = string.IsNullOrWhiteSpace(textBox_nomeEquipeTecnica.Text) &&
+                                   string.IsNullOrWhiteSpace(textBox_credenciaisDePessoaFisica.Text)
+                ? string.Empty
+                : $"Equipe técnica: {textBox_nomeEquipeTecnica.Text} | {textBox_credenciaisDePessoaFisica.Text}\n";
 
             return
                 $"Prezados, {ObterSaudacao()}.\n\n" +
@@ -155,27 +199,29 @@ namespace NOC_Actions
                 $"Atenciosamente,\nNOC - Tel&Com";
         }
 
+        /// <summary>
+        /// Retorna a saudação adequada conforme o horário atual.
+        /// </summary>
         private static string ObterSaudacao()
         {
             int hora = DateTime.Now.Hour;
-
-            if (hora < 12) return "bom dia";
-            if (hora < 18) return "boa tarde";
-            return "boa noite";
+            return hora < 12 ? "bom dia" : hora < 18 ? "boa tarde" : "boa noite";
         }
 
         #endregion
 
         #region Exclusão
 
+        /// <summary>
+        /// Exclui os itens selecionados dos ComboBox
+        /// e de seus respectivos arquivos.
+        /// </summary>
         private void bntExcluirSelecionado_Click(object sender, EventArgs e)
         {
             bool excluiu = false;
 
-            excluiu |= ExcluirSelecionado(comboBox_operadoraResponsavel, arquivoOperadoraSolicitacaoVisita);
-            excluiu |= ExcluirSelecionado(comboBox_previaoDeChegada, arquivoPrevisaoDeChegadaTecnica);
-            excluiu |= ExcluirSelecionado(comboBox_unidadeParaLiberacaoDeAcesso, arquivoUnidadeRespectivaParaVisita);
-            excluiu |= ExcluirSelecionado(comboBox_enderecoDaUnidadeResponsavel, arquivoEnderecoDaUnidade);
+            foreach (var item in _persistencias)
+                excluiu |= ExcluirSelecionado(item.Key, item.Value);
 
             MostrarMensagem(
                 excluiu
@@ -185,6 +231,10 @@ namespace NOC_Actions
             );
         }
 
+        /// <summary>
+        /// Remove todos os itens persistidos
+        /// após confirmação do usuário.
+        /// </summary>
         private void btnExcluirTodosOsCampos_Click(object sender, EventArgs e)
         {
             if (!ConfirmarAcao(
@@ -193,10 +243,8 @@ namespace NOC_Actions
 
             bool excluiu = false;
 
-            excluiu |= LimparComboBoxEArquivo(comboBox_operadoraResponsavel, arquivoOperadoraSolicitacaoVisita);
-            excluiu |= LimparComboBoxEArquivo(comboBox_previaoDeChegada, arquivoPrevisaoDeChegadaTecnica);
-            excluiu |= LimparComboBoxEArquivo(comboBox_unidadeParaLiberacaoDeAcesso, arquivoUnidadeRespectivaParaVisita);
-            excluiu |= LimparComboBoxEArquivo(comboBox_enderecoDaUnidadeResponsavel, arquivoEnderecoDaUnidade);
+            foreach (var item in _persistencias)
+                excluiu |= LimparComboBoxEArquivo(item.Key, item.Value);
 
             MostrarMensagem(
                 excluiu
@@ -206,12 +254,11 @@ namespace NOC_Actions
             );
         }
 
-        private void btnCloseWindow_Click(object sender, EventArgs e)
-        {
-            CloseWindow();
-        }
-
-        private bool ExcluirSelecionado(ComboBox comboBox, string caminhoArquivo)
+        /// <summary>
+        /// Exclui o item selecionado de um ComboBox
+        /// e do arquivo associado.
+        /// </summary>
+        private static bool ExcluirSelecionado(ComboBox comboBox, string caminhoArquivo)
         {
             var valor = comboBox.SelectedItem as string;
 
@@ -219,19 +266,21 @@ namespace NOC_Actions
                 return false;
 
             var linhas = File.ReadAllLines(caminhoArquivo).ToList();
-
             if (!linhas.Remove(valor))
                 return false;
 
             File.WriteAllLines(caminhoArquivo, linhas);
             comboBox.Items.Remove(valor);
-            comboBox.SelectedIndex = -1;
             comboBox.Text = "";
 
             return true;
         }
 
-        private bool LimparComboBoxEArquivo(ComboBox comboBox, string caminhoArquivo)
+        /// <summary>
+        /// Remove todos os itens do ComboBox
+        /// e exclui o arquivo correspondente.
+        /// </summary>
+        private static bool LimparComboBoxEArquivo(ComboBox comboBox, string caminhoArquivo)
         {
             if (comboBox.Items.Count == 0 && !File.Exists(caminhoArquivo))
                 return false;
@@ -249,17 +298,22 @@ namespace NOC_Actions
 
         #region Utilidades
 
+        /// <summary>
+        /// Limpa todos os campos do formulário.
+        /// </summary>
         private void LimparCampos()
         {
             textBox_nomeEquipeTecnica.Clear();
             textBox_credenciaisDePessoaFisica.Clear();
-            comboBox_operadoraResponsavel.Text = "";
-            comboBox_previaoDeChegada.Text = "";
-            comboBox_unidadeParaLiberacaoDeAcesso.Text = "";
-            comboBox_enderecoDaUnidadeResponsavel.Text = "";
             richTextBox_mensagemASerEncaminhadaAoCliente.Clear();
+
+            foreach (var comboBox in _persistencias.Keys)
+                comboBox.Text = "";
         }
 
+        /// <summary>
+        /// Abre a janela de ampliação da mensagem gerada.
+        /// </summary>
         private void btnAmplicarTexto_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(richTextBox_mensagemASerEncaminhadaAoCliente.Text))
@@ -270,17 +324,18 @@ namespace NOC_Actions
             ).ShowDialog();
         }
 
-        private void MostrarMensagem(string texto, MessageBoxIcon icon = MessageBoxIcon.Information)
+        /// <summary>
+        /// Exibe uma mensagem padrão para o usuário.
+        /// </summary>
+        private static void MostrarMensagem(string texto, MessageBoxIcon icon = MessageBoxIcon.Information)
         {
-            MessageBox.Show(
-                texto,
-                "NOC - Tel&Com",
-                MessageBoxButtons.OK,
-                icon
-            );
+            MessageBox.Show(texto, "NOC - Tel&Com", MessageBoxButtons.OK, icon);
         }
 
-        private bool ConfirmarAcao(string texto)
+        /// <summary>
+        /// Solicita confirmação do usuário antes de executar ações críticas.
+        /// </summary>
+        private static bool ConfirmarAcao(string texto)
         {
             return MessageBox.Show(
                 texto,
@@ -292,15 +347,16 @@ namespace NOC_Actions
 
         #endregion
 
+        #region Close
 
-        #region Close Form
-
-        private void CloseWindow()
+        /// <summary>
+        /// Fecha o formulário pai do UserControl.
+        /// </summary>
+        private void btnCloseWindow_Click(object sender, EventArgs e)
         {
             FindForm()?.Close();
         }
 
         #endregion
-
     }
 }
