@@ -220,7 +220,7 @@ namespace NOC_Actions
 
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
-            FindForm()?.Close();
+            CloseWindow();
         }
 
         #endregion
@@ -254,6 +254,16 @@ namespace NOC_Actions
             if (hora < 18) return "boa tarde";
             return "boa noite";
         }
+
+        #endregion
+
+        #region Close Form
+
+        private void CloseWindow()
+        {
+            FindForm()?.Close();
+        }
+
 
         #endregion
     }

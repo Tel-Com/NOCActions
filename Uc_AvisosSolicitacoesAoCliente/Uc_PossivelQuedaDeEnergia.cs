@@ -216,7 +216,7 @@ namespace NOC_Actions
 
         private void btnCloseWindow_Click(object sender, EventArgs e)
         {
-            FindForm()?.Close();
+            CloseWindow();
         }
 
         #endregion
@@ -287,6 +287,16 @@ namespace NOC_Actions
         }
 
         #endregion
-        
+
+        #region Close Form
+
+        private void CloseWindow()
+        {
+            FindForm()?.Close();
+        }
+
+
+        #endregion
+
     }
 }
