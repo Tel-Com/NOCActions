@@ -1,15 +1,16 @@
-﻿//class destinada a pegar informações do login do usuário
-
+﻿// Classe responsável por fornecer informações de autenticação do usuário
 using System;
 
 namespace NOC_Actions
 {
     public class Class_Login
     {
-//    	login padrão de usuário na máquina
+        // Login baseado no usuário da máquina
         public string UserLogin_Windows { get; set; }
-        public string UserLoginPadrao {get; set; }
-        
+
+        // Login padrão para acesso administrativo
+        public string UserLoginPadrao { get; set; }
+
         public Class_Login()
         {
             UserLogin_Windows = Environment.UserName;
@@ -17,4 +18,3 @@ namespace NOC_Actions
         }
     }
 }
-

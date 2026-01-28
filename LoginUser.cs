@@ -3,8 +3,10 @@ using System.Windows.Forms;
 
 namespace NOC_Actions
 {
+    // Tela responsável pela autenticação e acesso ao sistema
     public partial class LoginUser : Form
     {
+        // Dependências de login e exibição de alertas
         private readonly Class_Login loginInfo = new Class_Login();
         private readonly Class_PopUp popupAlert = new Class_PopUp();
 
@@ -13,18 +15,19 @@ namespace NOC_Actions
             InitializeComponent();
         }
 
+        // Realiza a validação das credenciais e controla o fluxo de acesso
         private void BtnLoginClick(object sender, EventArgs e)
         {
             string usuarioDigitado = textBox1_userLogin.Text;
-            string senhaDigitada   = textBox2_userPassword.Text;
+            string senhaDigitada = textBox2_userPassword.Text;
 
             bool loginWindowsValido =
                 usuarioDigitado == loginInfo.UserLogin_Windows &&
-                senhaDigitada   == loginInfo.UserLogin_Windows;
+                senhaDigitada == loginInfo.UserLogin_Windows;
 
             bool loginPadraoValido =
                 usuarioDigitado == loginInfo.UserLoginPadrao &&
-                senhaDigitada   == loginInfo.UserLoginPadrao;
+                senhaDigitada == loginInfo.UserLoginPadrao;
 
             if (loginWindowsValido || loginPadraoValido)
             {
@@ -36,14 +39,15 @@ namespace NOC_Actions
             {
                 MessageBox.Show("Usuário ou senha incorretos!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-        
+
+        // Encerra a aplicação
         private void BtnSairClick(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        // Exibe orientações de acesso ao sistema
         private void btnAjuda_Click(object sender, EventArgs e)
         {
             popupAlert.Mostrar(
@@ -59,6 +63,5 @@ namespace NOC_Actions
                 "Ajuda — Acesso ao NOCActions"
             );
         }
-
     }
 }

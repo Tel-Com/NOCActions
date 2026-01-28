@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 namespace NOC_Actions
 {
+    // Ponto de entrada da aplicação
     internal sealed class Program
     {
         [STAThread]
@@ -11,6 +12,8 @@ namespace NOC_Actions
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // Inicializa a aplicação exibindo a tela de login
             Application.Run(new LoginUser());
         }
     }
